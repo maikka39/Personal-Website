@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<div class="content">
+	<div id="content" class="content">
 		<div id="top"></div>
 		<nav>
 			<div id="mobile_menu" class="mobile_menu dropdown-content dropbtn hidden">
@@ -146,6 +146,7 @@
 			document.getElementById("mobile_menu").classList.toggle("hidden");
 			document.getElementById("open_mobile_nav").classList.toggle("hidden");
 			document.getElementById("close_mobile_nav").classList.toggle("hidden");
+			document.getElementById("content").classList.toggle("nocroll");
 		};
 
 		function close_menus() {
@@ -156,7 +157,14 @@
 				if (!openDropdown.classList.contains('hidden')) {
 					openDropdown.classList.add('hidden');
 				}
-			}
+			};
+			if (document.getElementById("content").classList.contains('nocroll')) {
+				document.getElementById("content").classList.remove('nocroll');
+			};
+			if (document.getElementById("open_mobile_nav").classList.contains('hidden')) {
+				document.getElementById("open_mobile_nav").classList.remove('hidden');
+				document.getElementById("close_mobile_nav").classList.add('hidden');
+			};
 		};
 
 		window.onclick = function(event) {

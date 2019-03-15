@@ -98,6 +98,10 @@ body {
 	display: none !important;
 }
 
+.nocroll {
+	overflow: hidden !important;
+}
+
 .content {
 	display: grid;
 	grid-template-rows: auto;
