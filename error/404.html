@@ -226,7 +226,7 @@
 				</div>
 			</div>
 			<div class="explanation">
-				<p>The requested URL <code>/sdfghbndfgh</code> was not found on this server. <span>That’s all we know.</span></p>
+				<p>The requested URL <code id="request_url"></code> was not found on this server. <span>That’s all we know.</span></p>
 			</div>
 		</div>
 		<div class="robot">
@@ -246,6 +246,13 @@
 			</svg>
 		</div>
 	</div>
+	<script>
+		window.onload = function() {
+			let wl = window.location.pathname;
+			let out = wl.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			document.getElementById("request_url").innerHTML = out;
+		}
+	</script>
 </body>
 
 </html>
