@@ -18,10 +18,7 @@
 			font-family: 'Roboto', sans-serif;
 			background: #060612;
 			overflow-x: hidden;
-			height: 100vh;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
+/*			min-height: 80vh;*/
 		}
 
 		@media screen and (max-width: 480px) {
@@ -95,16 +92,15 @@
 
 		.content {
 			margin: 4em auto;
-			margin-bottom: 18em;
 			width: 45%;
 			color: #ffffff;
-
-			display: flex;
 		}
 
 		.content>.info {
 			font-size: 1.25em;
 			line-height: 1.75em;
+			display: inline-block;
+			width: 60%;
 		}
 
 		.content>.info>.logo {
@@ -143,13 +139,11 @@
 		.content>.info>.explanation>p>span {}
 
 		.content>.robot {
-			height: 100%;
-			display: flex;
+			display: inline-block;
+			width: 38%;
 		}
 
 		.content>.robot>svg {
-			display: inline-block;
-			align-self: flex-end;
 			fill: #ffffff;
 			width: 15em;
 			height: 15em;
@@ -169,7 +163,8 @@
 
 			.content>.info {
 				margin: auto;
-				width: 65%;
+				display: block;
+				width: 60%;
 			}
 
 			.content>.info>.logo {
