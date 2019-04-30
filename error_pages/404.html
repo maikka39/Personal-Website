@@ -18,7 +18,7 @@
 			font-family: 'Roboto', sans-serif;
 			background: #060612;
 			overflow-x: hidden;
-/*			min-height: 80vh;*/
+			/*			min-height: 80vh;*/
 		}
 
 		@media screen and (max-width: 480px) {
@@ -220,7 +220,7 @@
 	<div id="content" class="content">
 		<div class="info">
 			<div class="logo">
-				<a href="/"><img src="/assets/logo.svg" alt=""></a>
+				<a href="/"><img src="/assets/images/logo.svg" alt=""></a>
 			</div>
 			<div class="short">
 				<div class="container">
@@ -252,10 +252,8 @@
 		"use strict";
 		window.onload = function() {
 			let wl = window.location.pathname;
-			let out = wl.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			let out = wl.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 			document.getElementById("request_url").innerHTML = out;
 		}
 	</script>
-</body>
-
-</html>
+</body></html>

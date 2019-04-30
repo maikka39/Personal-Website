@@ -318,7 +318,7 @@ body {
 
 .content > header::after {
 	background-size: cover;
-	background-image: url("assets/banner.jpg");
+	background-image: url("../images/banner.webp");
 	z-index: -1;
 }
 
