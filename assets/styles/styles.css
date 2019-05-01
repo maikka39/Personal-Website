@@ -330,8 +330,13 @@ body {
 	z-index: -1;
 }
 
+.content > header > .container {
+	user-select: none;
+}
+
 .content > header > .container > .text {
 	display: inline-block;
+	user-select: text;
 }
 
 .content > header > .container > .text > .container {
