@@ -1,0 +1,14 @@
+name = "maik-blog"
+description = "A simple theme for my blog."
+tags = ["blog", "clean", "dark", "light", "monochromatic", "personal", "responsive"]
+features = ["blog", "shortcode", "syntax highlighting"]
+min_version = 0.30
+
+[author]
+  name = "Maik de Kruif"
+  homepage = "https://maik.dev/"
+
+[original]
+  name = "hello-friend"
+  homepage = "https://github.com/panr/hugo-theme-hello-friend"
+  repo = "https://github.com/panr/hugo-theme-hello-friend"
