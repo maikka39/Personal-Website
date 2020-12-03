@@ -7,10 +7,12 @@ tags = [
     "AdventOfCTF",
     "challenge",
     "ctf",
-    "hacking"
+    "hacking",
+    "writeup",
 ]
 categories = [
     "ctf",
+    "writeups",
     "hacking",
 ]
 +++
