@@ -34,9 +34,11 @@
     <hr />
     {{- end }}
 
-    {{ with .Params.Cover }}
-    <img src="/{{ . }}" class="post-cover" />
-    {{ end }}
+    {{- if .Params.Cover }}
+    {{ $img := imageConfig (printf "static/%s" .Params.Cover) }}
+    <img src="/{{ .Params.Cover }}" class="post-cover" alt="{{ .Title | plainify | default " " }}"
+      width="{{ $img.Width }}" height="{{ $img.Height }}" />
+    {{- end }}
 
     <div class="post-content">
       {{ .Content }}

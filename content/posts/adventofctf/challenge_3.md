@@ -33,24 +33,25 @@ When opening the website we're provided with a login form. If we fill in the for
 Let's open the source and take a look at the form. Here we can see that when the form is submitted, a javascript function called `checkPass()` is called.
 
 ```html
-<form action="/index.php" onsubmit='checkPass(); return false'>
+<form action="/index.php" onsubmit="checkPass(); return false"></form>
 ```
 
 To find this funtion, enter `checkPass` in the devtools console and click on the three dots at the bottom of the output.
 
 ```js
-function checkPass()
-{
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+function checkPass() {
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
 
-    var novi = '-NOVI';
+  var novi = "-NOVI";
 
-    if (password == btoa(username + novi)) {
-        window.setTimeout(function() {
-            window.location.assign('inde' + 'x.php?username='+ username +'&password=' + password);
-        }, 500);
-    }
+  if (password == btoa(username + novi)) {
+    window.setTimeout(function () {
+      window.location.assign(
+        "inde" + "x.php?username=" + username + "&password=" + password
+      );
+    }, 500);
+  }
 }
 ```
 

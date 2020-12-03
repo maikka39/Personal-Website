@@ -37,11 +37,14 @@
 
             {{ if .Params.Cover }}
             <figure class="post-cover">
+                {{ $img := imageConfig (printf "static/%s" .Params.Cover) }}
+
                 {{ if .Params.UseRelativeCover }}
-                <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}"
-                    alt="{{ .Title | plainify | default " " }}" />
+                <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" alt="{{ .Title | plainify | default " " }}"
+                    width="{{ $img.Width }}" height="{{ $img.Height }}" />
                 {{ else }}
-                <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title | plainify | default " " }}" />
+                <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title | plainify | default " " }}"
+                    width="{{ $img.Width }}" height="{{ $img.Height }}" />
                 {{ end }}
 
                 {{ if .Params.CoverCaption }}
