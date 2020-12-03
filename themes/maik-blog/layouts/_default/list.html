@@ -1,35 +1,72 @@
 {{ define "main" }}
-    {{ $paginator := .Paginate .Data.Pages }}
-    
-    <main class="posts">
-        <h1>{{ .Title }}</h1>
+{{ $paginator := .Paginate .Data.Pages }}
 
-        {{ if .Content }}
-            <div class="content">{{ .Content }}</div>
-        {{ end }}
+<main class="posts">
+    <h1>{{ .Title }}</h1>
 
-        {{ range $paginator.Pages.GroupByDate "2006" }}
-            <div class="posts-group">
-                <div class="post-year">{{ .Key }}</div>
+    {{ if .Content }}
+    <div class="content">{{ .Content }}</div>
+    {{ end }}
 
-                <ul class="posts-list">
-                    {{ range .Pages }}
-                        <li class="post-item">
-                            <a href="{{.Permalink}}">
-                                <span class="post-title">{{.Title}}</span>
-                                <span class="post-day">
-                                    {{ if .Site.Params.dateformShort }}
-                                        {{ .Date.Format .Site.Params.dateformShort }}
-                                    {{ else }}
-                                        {{ .Date.Format "Jan 2"}}
-                                    {{ end }}
-                                </span>
-                            </a>
-                        </li>
-                    {{ end }}
-                </ul>
+    <div class="posts-list">
+        {{ range .Pages }}
+        <div class="post">
+            <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+            <div class="post-meta">
+                {{ if .Date }}
+                <span class="post-date">
+                    {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                </span>
+
+                {{ end }}
+                {{ with .Params.Author }}<span class="post-author">{{ $.Site.Params.WrittenBy | default "Written by" }}
+                    {{ . }}</span>{{ end }}
+                {{ if $.Site.Params.ShowReadingTimeInList }}
+                <span class="post-read-time">— {{ .ReadingTime }}
+                    {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
+                {{ end }}
             </div>
+
+            {{ if .Params.tags }}
+            <span class="post-tags">
+                {{ range .Params.tags }}
+                #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+                {{ end }}
+            </span>
+            {{ end }}
+
+            {{ if .Params.Cover }}
+            <figure class="post-cover">
+                {{ if .Params.UseRelativeCover }}
+                <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}"
+                    alt="{{ .Title | plainify | default " " }}" />
+                {{ else }}
+                <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title | plainify | default " " }}" />
+                {{ end }}
+
+                {{ if .Params.CoverCaption }}
+                <figcaption class="center">{{ .Params.CoverCaption | markdownify }}</figcaption>
+                {{ end }}
+            </figure>
+            {{ end }}
+
+            <div class="post-content">
+                {{ with .Description }}
+                {{ . | markdownify }}
+                {{ else }}
+                {{ if .Truncated }}
+                {{ .Summary | markdownify }}
+                {{ end }}
+                {{ end }}
+            </div>
+            {{ if not .Params.hideReadMore }}
+            <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }}
+                    →</a></div>
+            {{ end }}
+        </div>
         {{ end }}
+    </div>
+
     {{ partial "pagination.html" . }}
-    </main>
+</main>
 {{ end }}
