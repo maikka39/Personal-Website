@@ -1,10 +1,13 @@
----
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
-draft: true
-toc: false
-images:
-tags:
-  - untagged
----
-
++++
+author = "Maik de Kruif"
+title = "{{ replace .Name "-" " " | title }}"
+date = {{ .Date }}
+description = ""
+images = []
+tags = [
+    "untagged",
+]
+categories = [
+    "uncategorized",
+]
++++
