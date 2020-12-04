@@ -10,7 +10,7 @@
     <span class="collapsable-code__toggle" data-label-expand="{{ .Get "expand" | default "△" }}"
       data-label-collapse="{{ .Get "collapse" | default "▽" }}"></span>
   </label>
-  <pre {{ if .Get "language" }}class="language-{{ .Get "language" }}" {{ end }}><code>{{ .Inner | string }}</code></pre>
+  {{ .Inner | markdownify }}
 </div>
 {{ else }}
 {{ errorf "If you want to use the \"collapsable code\" shortcode, you need to pass a mandatory \"language\" param. The issue occured in %q (%q)" .Page.File .Page.Permalink }}
