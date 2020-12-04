@@ -10,6 +10,7 @@ tags = [
     "ctf",
     "hacking",
     "writeup",
+    "web",
 ]
 categories = [
     "ctf",
