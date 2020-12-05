@@ -11,6 +11,7 @@ tags = [
     "hacking",
     "writeup",
     "web",
+    "cookies",
 ]
 categories = [
     "ctf",
