@@ -31,7 +31,7 @@ Visit <https://02.adventofctf.com> to start the challenge.
 
 When opening the website we're provided with a login form. If we fill in the form with random data, we're greeted with some text that says a guest cannot access the flag.
 
-After trying serveral things, I opened the devtools to have a look at the cookies. Here we find a cookie with the name `authenticated`:
+After trying several things, I opened the devtools to have a look at the cookies. Here we find a cookie with the name `authenticated`:
 
 ```cookie
 authenticated=eyJndWVzdCI6InRydWUiLCJhZG1pbiI6ImZhbHNlIn0%3D
