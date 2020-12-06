@@ -368,3 +368,31 @@ svg {
     font-size: 1.5rem;
   }
 }
+
+table {
+  width: 100%;
+  padding: 10px 10px 10px 20px;
+  border-radius: 8px;
+  font-size: .95rem;
+  overflow: auto;
+  background: $light-background-secondary;
+
+  th {
+    padding: 8px 0px;
+  }
+
+  td {
+    padding: 6px 0px;
+
+    border-top: 1px solid $light-color-secondary;
+  }
+
+  .dark-theme & {
+    background: $dark-background-secondary;
+
+    td {
+      border-top-color: $dark-color-secondary;
+    }
+
+  }
+}
