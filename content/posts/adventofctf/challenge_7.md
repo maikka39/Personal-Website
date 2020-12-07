@@ -126,7 +126,7 @@ This flag can then be submitted [here](<https://ctfd.adventofctf.com/challenges#
 
 ## The actual intended solution
 
-The intended way to solve this challenge was to use blind SQL injection. Which means you do not get a visual response. You might think "How is that possible without a result?". It's actually pretty easy but it takes some time. A way to do it is to use `SLEEP()` statements.
+The intended way to solve this challenge was to use blind SQL injection. Which means you do not get a visual response. You might think "How is that possible without a result?". It's actually pretty easy but it takes some time. A way to do it is to make queries take a long time if the query returns a row, but not wait if the result has zero rows.
 
 ### Database name
 
