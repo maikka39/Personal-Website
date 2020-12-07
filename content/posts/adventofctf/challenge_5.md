@@ -52,7 +52,7 @@ Here's an example of a query to check login credentials:
 FROM `users` SELECT * WHERE `username`='' AND `password`=''
 ```
 
-_Note: the backticks (`\``) mean the content of it is a column in the database._
+_Note: the backticks (\`) mean the content of it is a column in the database._
 
 The username and password values are inserted in this query and if there is a result, the database will return it.
 
