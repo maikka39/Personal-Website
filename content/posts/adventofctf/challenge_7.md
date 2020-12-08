@@ -40,7 +40,7 @@ This time, no error message is shown. But the output is! (I'll get back to that 
 SELECT why FROM naughty WHERE why LIKE '%search text%';
 ```
 
-If this were the query, we can easily try to just get all records. To do this, we need to modify the `WHERE` statement to always be try. A way to do this is to add a `OR 1=1 -- ` to the query as `1` is always equal to `1`. But how do we do that? Well, is the backend doesn't properly create a query, we can escape the string inside the `WHERE` query and add our own code. An example input would be `' OR 1=1 -- `. If this would be inserted inside the query we would get this:
+If this were the query, we can easily try to just get all records. To do this, we need to modify the `WHERE` statement to always be true. A way to do this is to add a `OR 1=1 -- ` to the query as `1` is always equal to `1`. But how do we do that? Well, is the backend doesn't properly create a query, we can escape the string inside the `WHERE` query and add our own code. An example input would be `' OR 1=1 -- `. If this would be inserted inside the query we would get this:
 
 ```sql
 SELECT why FROM naughty WHERE why LIKE '%' OR 1=1 -- %';
