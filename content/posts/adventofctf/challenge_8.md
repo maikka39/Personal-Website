@@ -37,7 +37,7 @@ This is talking about robots, which my be a hint to look at the [`robots.txt`](h
 
 ### What is a robots.txt file?
 
-A robots.txt file lives at the root of a website. So, for the site <www.example.com>, a robots.txt file would live at <www.example.com/robots.txt>. robots.txt is a plain text file that follows the [Robots Exclusion Standard](http://en.wikipedia.org/wiki/Robots_exclusion_standard#About_the_standard). A robots.txt file consists of one or more rules. Each rule blocks (or allows) access for a given crawler to a specified file path in that website.
+A `robots.txt` file lives at the root of a website. So, for the site www.example.com, a robots.txt file would live at www.example.com/robots.txt. robots.txt is a plain text file that follows the [Robots Exclusion Standard](http://en.wikipedia.org/wiki/Robots_exclusion_standard#About_the_standard). A robots.txt file consists of one or more rules. Each rule blocks (or allows) access for a given crawler to a specified file path in that website.
 
 ### Opening the file
 
