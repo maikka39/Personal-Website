@@ -87,4 +87,4 @@ _Note: `rot13` is not a program on linux, I just programmed it as an alias for `
 
 We got new url (I hope 😀). Let's try to [access it](https://08.adventofctf.com/santa/has/many/places/to/go/). We got the flag! It is `NOVI{you_have_br@1ns_in_your_head}`.
 
-This flag can then be submitted for the [challenge](https://ctfd.adventofctf.com/challenges#7-8).
+This flag can then be submitted for the [challenge](https://ctfd.adventofctf.com/challenges#8-9).
