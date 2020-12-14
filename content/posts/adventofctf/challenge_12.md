@@ -20,7 +20,7 @@ categories = [
 ]
 +++
 
-- Points: 1100
+- Points: 1200
 
 ## Description
 
