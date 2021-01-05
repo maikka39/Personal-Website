@@ -247,7 +247,7 @@ config.__class__.__init__.__globals__["os"]
 If we enter this as the input but within brackets, we get the following output:
 
 ```text
-<function Config.__init__ at 0x7f5b62d5b710>
+<module 'os' from '/usr/local/lib/python3.7/os.py'>
 ```
 
 _Note: if the `os` module wouldn't have been there, you could look for another module in `{{config.__class__.__init__.__globals__}}`_
