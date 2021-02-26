@@ -11,8 +11,7 @@ tags = [
     "hacking",
     "writeup",
     "web",
-    "python",
-    "serialization",
+    "php",
 ]
 categories = [
     "ctf",
