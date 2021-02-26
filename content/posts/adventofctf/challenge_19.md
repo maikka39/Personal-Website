@@ -1,7 +1,7 @@
 +++
 author = "Maik de Kruif"
 title = "Challenge 19 - AdventOfCTF"
-date = 2021-02-25T23:18:28+23:00
+date = 2021-02-25T23:18:28+01:00
 description = "A writeup for challenge 19 of AdventOfCTF."
 cover = "img/adventofctf/d80f13d1ab714f7864c2a9ef56c5f767.png"
 tags = [
