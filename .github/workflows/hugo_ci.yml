@@ -1,0 +1,27 @@
+name: Hugo CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [master]
+
+defaults:
+  run:
+    working-directory: ./
+
+jobs:
+  compile:
+    timeout-minutes: 10
+    name: Compile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+          extended: true
+      - name: Build
+        run: hugo -D -F
