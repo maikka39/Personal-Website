@@ -8,6 +8,10 @@
     <div class="content">{{ .Content }}</div>
     {{ end }}
 
+    {{ if .Paginator.HasPrev }}
+    {{ partial "pagination.html" . }}
+    {{ end }}
+
     <div class="posts-list">
         {{ range $paginator.Pages }}
         <div class="post">
