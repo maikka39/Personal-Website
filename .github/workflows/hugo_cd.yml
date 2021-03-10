@@ -1,13 +1,7 @@
-name: Hugo CI
+name: Hugo CD
 
 on:
   push:
-    branches:
-      - "*"
-      - "*/*"
-      - "**"
-      - "!master"
-  pull_request:
     branches:
       - "master"
 
@@ -16,9 +10,9 @@ defaults:
     working-directory: ./
 
 jobs:
-  ci:
-    timeout-minutes: 5
-    name: CI
+  cd:
+    timeout-minutes: 6
+    name: CD
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -30,3 +24,11 @@ jobs:
           extended: true
       - name: Build
         run: hugo -D -F
+      - name: Create GitHub deployment
+        uses: chrnorm/deployment-action@releases/v1
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: https://maik.dev/
+          environment: production
+          initial_status: "success"
