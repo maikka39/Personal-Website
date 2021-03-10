@@ -30,4 +30,6 @@ jobs:
         id: deployment
         with:
           token: "${{ github.token }}"
+          target_url: https://maik.dev/
           environment: production
+          state: "success"
