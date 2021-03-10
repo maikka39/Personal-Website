@@ -15,4 +15,4 @@ categories = [
 
 ## Coming soon
 
-Please come back later.x
+Please come back later.
