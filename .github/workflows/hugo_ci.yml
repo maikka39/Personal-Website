@@ -4,7 +4,7 @@ on:
   push:
     branches: ["**"]
   pull_request:
-    branches: [master]
+    branches: [master, feature/ci]
 
 defaults:
   run:
@@ -25,3 +25,9 @@ jobs:
           extended: true
       - name: Build
         run: hugo -D -F
+      - name: Deploy
+        uses: avakar/create-deployment@v1
+        with:
+          auto_merge: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
