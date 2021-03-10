@@ -32,4 +32,4 @@ jobs:
           token: "${{ github.token }}"
           target_url: https://maik.dev/
           environment: production
-          state: "success"
+          initial_status: "success"
