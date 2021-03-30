@@ -62,14 +62,14 @@ From the JavaScript code we can see that the chat uses WebSockets. To take a dee
 
 If we click on it, a tab with the messages sent on the websocket will open. We can see some numbers here, these are just heartbeat packets to keep the connection alive. Now, let's send a new message and have a look at what it actually sends/receives.
 
-After we send the message, we see the following entry being added to the websocket message list.
+After sending the message, the following entries are added to the websocket message list.
 
 ```js
 ⬆42["chat message", {message: "Hi"}]
 ⬇42["chat message", {message: "Hi"}]
 ```
 
-We can see this message contains two parts; the event name and the message itself. We also only see a message variable, while in the javascript code we also saw it looked for a `"command"`. Let's try to manually add it to the message.
+We can see the message contains two parts; the event name and the message itself. We also only see a message variable, while in the javascript code we also saw it looked for a `"command"`. Let's try to manually add it to the message.
 
 ### Manually sending a message
 
