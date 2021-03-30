@@ -56,7 +56,7 @@ SSTI occurs when an attacker is able to use native template syntax to inject a m
 
 An easy way to check for SSTI is by using the following graph from PortSwigger:
 
-{{< figure src="/img/adventofctf/ssti_graph.png" title="SSTI Graph (by PortSwigger)" >}}
+{{< figure src="/img/adventofctf/16/ssti_graph.png" title="SSTI Graph (by PortSwigger)" >}}
 
 So I followed this graph and got the following results:
 
