@@ -254,13 +254,13 @@ This query also has to be converted to an input first. This will become `' UNION
 
 After submitting this input, I got the flag: `NOVI{7h1s_flag_w@s_chuncky_right}`.
 
-\*Note: this only works if a table has only one column, if it has more, you have to get the columns first. See the [Getting the secrets](#optional-getting-the-secrets-) for more info about that.
+\*Note: this only works if a table has only one column, if it has more, you have to get the columns first. See the [Getting the secrets]({{< ref "#getting-the-secrets" >}}) for more info about that.
 
 This flag can then be submitted for the [challenge](https://ctfd.adventofctf.com/challenges#6-7).
 
-_For more information about how SQL injection works, please read my [previous post](/posts/2020/12/challenge-5-adventofctf/)._
+_For more information about how SQL injection works, please read my [previous post]({{< ref "challenge_5.md" >}})._
 
-## (Optional) Getting the secrets 😋
+## (Optional) Getting the secrets 😋 {#getting-the-secrets}
 
 Because the `secrets` table a more than one column, we need to know the column names first. We can get them with the following query:
 

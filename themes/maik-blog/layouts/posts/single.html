@@ -11,12 +11,12 @@
       </svg>
       {{ i18n "readingTime" .Page.ReadingTime }}
 
-      {{ if .IsTranslated }} | {{ i18n "postAvailable" }}
-      {{ range .Translations }}
+      {{- if .IsTranslated }} | {{ i18n "postAvailable" }}
+      {{- range .Translations }}
       <a href="{{ .Permalink }}"><span
           class="flag flag-icon flag-icon-{{ index $.Site.Data.langFlags (.Lang) }} flag-icon-squared"></span></a>
-      {{ end}}
-      {{ end }}
+      {{- end}}
+      {{- end }}
     </p>
   </div>
 
@@ -85,7 +85,11 @@
         <line x1="8" y1="2" x2="8" y2="6"></line>
         <line x1="3" y1="10" x2="21" y2="10"></line>
       </svg>
-      {{ if .Site.Params.dateformNumTime }}{{ dateFormat .Site.Params.dateformNumTime .Date.Local }}{{ else }}{{ dateFormat "2006-01-02 15:04 -0700" .Date.Local }}{{ end }}
+      {{- if .Site.Params.dateformNumTime }}
+      {{ dateFormat .Site.Params.dateformNumTime .Date.Local }}
+      {{- else }}
+      {{ dateFormat "2006-01-02 15:04 -0700" .Date.Local }}
+      {{- end }}
     </p>
 
     {{- if .GitInfo }}
@@ -100,8 +104,12 @@
 
       <a href="{{ .Site.Params.gitUrl -}}{{ .GitInfo.Hash }}" target="_blank"
         rel="noopener">{{ .GitInfo.AbbreviatedHash }}</a>
-      @
-      {{ if .Site.Params.dateformNum }}{{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}{{ else }}{{ dateFormat "2006-01-02" .GitInfo.AuthorDate.Local }}{{ end }}
+      {{- " @ " -}}
+      {{- if .Site.Params.dateformNum -}}
+      {{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}
+      {{- else -}}
+      {{ dateFormat "2006-01-02" .GitInfo.AuthorDate.Local }}
+      {{- end }}
     </p>
     {{- end }}
   </div>
@@ -113,7 +121,7 @@
   </div>
   {{- end }}
 
-  {{ if and (not $.Site.Params.DisableReadOtherPosts) (or .NextInSection .PrevInSection) }}
+  {{- if and (not $.Site.Params.DisableReadOtherPosts) (or .NextInSection .PrevInSection) }}
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h">{{ .Site.Params.ReadOtherPosts }}</span>
@@ -121,35 +129,35 @@
     </div>
 
     <div class="pagination__buttons">
-      {{ if .NextInSection }}
+      {{- if .NextInSection }}
       <span class="button previous">
         <a href="{{ .NextInSection.Permalink }}">
           <span class="button__icon">←</span>
           <span class="button__text">{{ .NextInSection.Title }}</span>
         </a>
       </span>
-      {{ end }}
+      {{- end }}
 
-      {{ if .PrevInSection }}
+      {{- if .PrevInSection }}
       <span class="button next">
         <a href="{{ .PrevInSection.Permalink }}">
           <span class="button__text">{{ .PrevInSection.Title }}</span>
           <span class="button__icon">→</span>
         </a>
       </span>
-      {{ end }}
+      {{- end }}
     </div>
   </div>
-  {{ end }}
+  {{- end }}
 
 
-  {{ if .Site.DisqusShortname }}
-  {{ if not (eq .Params.Comments "false") }}
+  {{- if .Site.DisqusShortname }}
+  {{- if not (eq .Params.Comments "false") }}
   <div id="comments">
     {{ template "_internal/disqus.html" . }}
   </div>
-  {{ end }}
-  {{ end }}
+  {{- end }}
+  {{- end }}
 
 </main>
 {{ end }}

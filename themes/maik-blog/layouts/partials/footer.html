@@ -2,17 +2,19 @@
     <div class="footer__inner">
         <div class="footer__content">
             <span>&copy; {{ now.Format "2006" }}</span>
-            {{ if .Site.Author.name }}
+            {{- if .Site.Author.name }}
             <span><a href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a></span>
-            {{ end }}
-            {{ if .Site.Copyright }}
-            <span>{{ .Site.Copyright| safeHTML }}</span>
-            {{ end }}
+            {{- end }}
+            {{- if .Site.Copyright }}
+            <span>All rights reserved.</span>
+            {{- end }}
             <span><a href="/privacy/">Privacy</a></span>
-            <span>{{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}
-                <a href="{{ "posts/index.xml" | absLangURL }}" target="_blank"
-                    title="rss">{{ partial "svg.html" (dict "name" "rss") }}</a>
-                {{ end }}
+            <span>
+                {{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}
+                <a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss">
+                    {{ partial "svg.html" (dict "name" "rss") }}
+                </a>
+                {{- end }}
             </span>
         </div>
     </div>

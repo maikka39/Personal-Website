@@ -1,15 +1,26 @@
-{{ $main := resources.Get "js/main.js" }}
-{{ $menu := resources.Get "js/menu.js" }}
-{{ $theme := resources.Get "js/theme.js" }}
-{{ $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{- $main := resources.Get "js/main.js" }}
+{{- $menu := resources.Get "js/menu.js" }}
+{{- $theme := resources.Get "js/theme.js" }}
+{{- $secureJS := slice $main $menu $theme | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
 
 {{- if .Site.GoogleAnalytics }}
-{{ template "_internal/google_analytics.html" . }}
-{{- end}}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-{{ range $val := $.Site.Params.customJS }}
-{{ if gt (len $val) 0 }}
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', '{{ .Site.GoogleAnalytics }}');
+</script>
+{{- end }}
+
+{{- range $val := $.Site.Params.customJS }}
+{{- if gt (len $val) 0 }}
 <script src="{{ $val }}"></script>
-{{ end }}
-{{ end }}
+{{- end }}
+{{- end }}

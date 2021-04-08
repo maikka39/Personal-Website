@@ -2,7 +2,6 @@ baseURL = "https://maik.dev/"
 # baseURL = "http://localhost:1313/"
 title = "Maik de Kruif"
 languageCode = "en-us"
-# theme = "hello-friend-ng"
 theme = "maik-blog"
 
 paginate  = 6
@@ -25,7 +24,7 @@ buildExpired = false
 canonifyURLs = true
 
 enableRobotsTXT = true
-enableGitInfo   = false
+enableGitInfo   = true
 enableEmoji     = true
 enableMissingTranslationPlaceholders = false
 disableRSS     = false
@@ -40,6 +39,14 @@ googleAnalytics = "UA-136337666-1"
 
 [author]
   name = "Maik de Kruif"
+  twitter = "@maik_dev"
+
+[social]
+  twitter = "@maik_dev"
+
+[outputs]
+  home = ["HTML", "AMP", "RSS"]
+  page = ["HTML", "AMP", "RSS"]
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -57,7 +64,7 @@ googleAnalytics = "UA-136337666-1"
   homeSubtitle = "Maik de Kruif (maik_dev)"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
-  # gitUrl = ""
+  gitUrl = "https://github.com/maikka39/Personal-Website/commit/"
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
@@ -66,7 +73,9 @@ googleAnalytics = "UA-136337666-1"
   # There are a lot of buttons preconfigured. If you want to change them,
   # generate the buttons here: https://sharingbuttons.io
   # and add them into your own `layouts/partials/sharing-buttons.html`
+  # Preconfigured: facebook, twitter, tumblr, email, pinterest, linkedin, reddit, xing, whatsapp, hackernews, telegram
   enableSharingButtons = true
+  sharingButtons = ["twitter", "email", "linkedin", "reddit", "whatsapp", "telegram"]
 
   # Integrate Javascript files or stylesheets by adding the url to the external assets or by
   # linking local files with their path relative to the static folder, e.g. "css/styles.css"
@@ -97,10 +106,10 @@ googleAnalytics = "UA-136337666-1"
     # logoCursorAnimate  = "2s"
 
   # Uncomment this if you want a portrait on your start page
-  # [params.portrait]
-  #   path     = "/img/image.jpg"
-  #   alt      = "Portrait"
-  #   maxWidth = "50px"
+  [params.portrait]
+    path     = "/img/home/portrait.png"
+    alt      = "Portrait"
+    size = "175px"
 
   # Social icons
   [[params.social]]
@@ -163,7 +172,7 @@ googleAnalytics = "UA-136337666-1"
   [languages.en]
     subtitle  = "maik.dev"
     weight    = 1
-    copyright = 'All rights reserved.'
+    copyright = "© Maik de Kruif (maik_dev). All rights reserved."
 
 [menu]
   [[menu.main]]

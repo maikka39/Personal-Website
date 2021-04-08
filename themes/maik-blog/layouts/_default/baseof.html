@@ -10,12 +10,12 @@
         {{ partial "header.html" . }}
 
         <div class="content">
-            {{ block "main" . }}{{ end }}
+            {{- block "main" . }}{{ end -}}
         </div>
 
-        {{ block "footer" . }}
+        {{- block "footer" . }}
         {{ partial "footer.html" . }}
-        {{ end }}
+        {{- end }}
     </div>
 
     {{ partial "javascript.html" . }}

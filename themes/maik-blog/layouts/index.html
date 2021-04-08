@@ -1,10 +1,10 @@
 {{ define "main" }}
-<main role="main">
+<main role="main" style="">
     <div>
-        {{ if .Site.Params.Portrait.Path }}
+        {{- if .Site.Params.Portrait.Path }}
         <img src="{{ .Site.Params.Portrait.Path }}" class="circle" alt="{{ .Site.Params.Portrait.Alt }}"
-            style="max-width:{{ .Site.Params.Portrait.MaxWidth }}" />
-        {{ end }}
+            style="max-width:{{ .Site.Params.Portrait.Size }}" />
+        {{- end }}
 
         <h1>{{ .Site.Title }}</h1>
         {{- with .Site.Params.homeSubtitle }}
@@ -16,6 +16,7 @@
             {{ partial "social-icons.html" . }}
         </div>
         {{- end }}
+        <div class="spacer" style="max-height: 5vh; height: calc({{ .Site.Params.Portrait.Size }} / 2)"></div>
     </div>
 </main>
 {{ end }}

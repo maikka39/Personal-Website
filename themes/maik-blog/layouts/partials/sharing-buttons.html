@@ -1,5 +1,6 @@
-<!-- Sharingbutton Facebook -->
-<!-- <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u={{ .Permalink }}" target="_blank"
+{{- with .Site.Params.sharingButtons }}
+{{- if in . "facebook" }}
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u={{ $.Permalink }}" target="_blank"
   rel="noopener" aria-label="" title="Share on facebook">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -9,10 +10,11 @@
       </svg>
     </div>
   </div>
-</a> -->
+</a>
+{{- end }}
 
-<!-- Sharingbutton Twitter -->
-<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url={{ .Permalink }}" target="_blank"
+{{- if in . "twitter" }}
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url={{ $.Permalink }}" target="_blank"
   rel="noopener" aria-label="" title="Share on twitter">
   <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -25,10 +27,11 @@
     </div>
   </div>
 </a>
+{{- end }}
 
-<!-- Sharingbutton Tumblr -->
-<!-- <a class="resp-sharing-button__link"
-  href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title={{ .Title }}&amp;caption={{ .Title }}&amp;canonicalUrl={{ .Permalink }}"
+{{- if in . "tumblr" }}
+<a class="resp-sharing-button__link"
+  href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title={{ $.Title }}&amp;caption={{ $.Title }}&amp;canonicalUrl={{ $.Permalink }}"
   target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
   <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -39,10 +42,12 @@
       </svg>
     </div>
   </div>
-</a> -->
+</a>
+{{- end }}
 
-<!-- Sharingbutton E-Mail -->
-<a class="resp-sharing-button__link" href="mailto:?subject={{ .Title }}&amp;body={{ .Permalink }}" target="_self"
+
+{{- if in . "email" }}
+<a class="resp-sharing-button__link" href="mailto:?subject={{ $.Title }}&amp;body={{ $.Permalink }}" target="_self"
   rel="noopener" aria-label="" title="Share via email">
   <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -54,10 +59,12 @@
     </div>
   </div>
 </a>
+{{- end }}
 
-<!-- Sharingbutton Pinterest -->
-<!-- <a class="resp-sharing-button__link"
-  href="https://pinterest.com/pin/create/button/?url={{ .Permalink }}&amp;media={{ .Permalink }};description={{ .Title }}"
+
+{{- if in . "pinterest" }}
+<a class="resp-sharing-button__link"
+  href="https://pinterest.com/pin/create/button/?url={{ $.Permalink }}&amp;media={{ $.Permalink }};description={{ $.Title }}"
   target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
   <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -68,11 +75,13 @@
       </svg>
     </div>
   </div>
-</a> -->
+</a>
+{{- end }}
 
-<!-- Sharingbutton LinkedIn -->
+
+{{- if in . "linkedin" }}
 <a class="resp-sharing-button__link"
-  href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ .Permalink }}&amp;title={{ .Title }}&amp;summary={{ .Title }}&amp;source={{ .Permalink }}"
+  href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ $.Permalink }}&amp;title={{ $.Title }}&amp;summary={{ $.Title }}&amp;source={{ $.Permalink }}"
   target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
   <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -85,10 +94,11 @@
     </div>
   </div>
 </a>
+{{- end }}
 
-<!-- Sharingbutton Reddit -->
+{{- if in . "reddit" }}
 <a class="resp-sharing-button__link"
-  href="https://reddit.com/submit/?url={{ .Permalink }}&amp;resubmit=true&amp;title={{ .Title }}" target="_blank"
+  href="https://reddit.com/submit/?url={{ $.Permalink }}&amp;resubmit=true&amp;title={{ $.Title }}" target="_blank"
   rel="noopener" aria-label="" title="Share on reddit">
   <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -100,10 +110,11 @@
     </div>
   </div>
 </a>
+{{- end }}
 
-<!-- Sharingbutton XING -->
-<!-- <a class="resp-sharing-button__link"
-  href="https://www.xing.com/app/user?op=share;url={{ .Permalink }};title={{ .Title }}" target="_blank" rel="noopener"
+{{- if in . "xing" }}
+<a class="resp-sharing-button__link"
+  href="https://www.xing.com/app/user?op=share;url={{ $.Permalink }};title={{ $.Title }}" target="_blank" rel="noopener"
   aria-label="" title="Share on xing">
   <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -114,10 +125,11 @@
       </svg>
     </div>
   </div>
-</a> -->
+</a>
+{{- end }}
 
-<!-- Sharingbutton WhatsApp -->
-<a class="resp-sharing-button__link" href="whatsapp://send?text={{ .Title }}%20{{ .Permalink }}" target="_blank"
+{{- if in . "whatsapp" }}
+<a class="resp-sharing-button__link" href="whatsapp://send?text={{ $.Title }}%20{{ $.Permalink }}" target="_blank"
   rel="noopener" aria-label="" title="Share on whatsapp">
   <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -129,10 +141,11 @@
     </div>
   </div>
 </a>
+{{- end }}
 
-<!-- Sharingbutton Hacker News -->
-<!-- <a class="resp-sharing-button__link"
-  href="https://news.ycombinator.com/submitlink?u={{ .Permalink }}&amp;t={{ .Title }}" target="_blank" rel="noopener"
+{{- if in . "hackernews" }}
+<a class="resp-sharing-button__link"
+  href="https://news.ycombinator.com/submitlink?u={{ $.Permalink }}&amp;t={{ $.Title }}" target="_blank" rel="noopener"
   aria-label="" title="Share on hacker news">
   <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -143,10 +156,11 @@
       </svg>
     </div>
   </div>
-</a> -->
+</a>
+{{- end }}
 
-<!-- Sharingbutton Telegram -->
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text={{ .Title }}&amp;url={{ .Permalink }}"
+{{- if in . "telegram" }}
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text={{ $.Title }}&amp;url={{ $.Permalink }}"
   target="_blank" rel="noopener" aria-label="" title="Share on telegram">
   <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -158,3 +172,5 @@
     </div>
   </div>
 </a>
+{{- end }}
+{{- end }}
