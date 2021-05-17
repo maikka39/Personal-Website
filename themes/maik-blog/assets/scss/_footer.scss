@@ -18,31 +18,59 @@
 
   &__content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     font-size: 1rem;
     color: $light-color-secondary;
 
-    @media #{$media-size-tablet} {
-      flex-direction: column;
-      margin-top: 10px;
-    }
-
-    &>*:not(:last-child)::after {
-      content: "•";
-      padding: 0 5px;
+    &__section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 5px;
 
       @media #{$media-size-tablet} {
-        content: "";
-        padding: 0;
+        margin-top: 10px;
       }
-    }
 
-    &>*:last-child {
-      padding: 0 5px;
+      &.regular {
+        @media #{$media-size-tablet} {
+          flex-direction: column;
+        }
+        &>*:not(:last-child)::after {
+          content: "•";
+          padding: 0 5px;
 
-      @media #{$media-size-tablet} {
-        padding: 0;
+          @media #{$media-size-tablet} {
+            content: "";
+            padding: 0;
+          }
+        }
+
+        &>*:last-child {
+          padding: 0 5px;
+
+          @media #{$media-size-tablet} {
+            padding: 0;
+          }
+        }
+      }
+
+      &.donations {
+        white-space: nowrap;
+        overflow-x: scroll;
+        max-width: 600px;
+        position: relative;
+
+        @media #{$media-size-tablet} {
+          max-width: 180px;
+        }
+
+        .wallet {
+          .name {
+            font-weight: 700;
+          }
+        }
       }
     }
   }

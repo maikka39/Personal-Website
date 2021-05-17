@@ -1,21 +1,26 @@
 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; {{ now.Format "2006" }}</span>
-            {{- if .Site.Author.name }}
-            <span><a href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a></span>
-            {{- end }}
-            {{- if .Site.Copyright }}
-            <span>All rights reserved.</span>
-            {{- end }}
-            <span><a href="/privacy/">Privacy</a></span>
-            <span>
-                {{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}
-                <a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss">
-                    {{ partial "svg.html" (dict "name" "rss") }}
-                </a>
+            <div class="footer__content__section regular">
+                <span>&copy; {{ now.Format "2006" }}</span>
+                {{- if .Site.Author.name }}
+                <span><a href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a></span>
                 {{- end }}
-            </span>
+                {{- if .Site.Copyright }}
+                <span>All rights reserved.</span>
+                {{- end }}
+                <span><a href="/privacy/">Privacy</a></span>
+                <span>
+                    {{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}
+                    <a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss">
+                        {{ partial "svg.html" (dict "name" "rss") }}
+                    </a>
+                    {{- end }}
+                </span>
+            </div>
+            <div class="footer__content__section donations">
+                <span class="wallet"><span class="name">XMR:</span> <span class="address">87zSbhZgZZsW8Sfo2cHDEj8PLtaCLU4sYYEDXd5Kk9hWPg2ttqyvV2N8oTJz2kfiFc5ZyCFEkMqT37RNKcrzryTGKB7RSFi</span></span>
+            </div>
         </div>
     </div>
 </footer>
