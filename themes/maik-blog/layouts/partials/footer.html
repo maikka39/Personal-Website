@@ -19,7 +19,11 @@
                 </span>
             </div>
             <div class="footer__content__section donations">
-                <span class="wallet"><span class="name">XMR:</span> <span class="address">87zSbhZgZZsW8Sfo2cHDEj8PLtaCLU4sYYEDXd5Kk9hWPg2ttqyvV2N8oTJz2kfiFc5ZyCFEkMqT37RNKcrzryTGKB7RSFi</span></span>
+                {{- with .Site.Params.wallets }}
+                {{- range . }}
+                <span class="wallet"><span class="name">{{ .name }}:</span> <span class="address">{{ .address }}</span></span>
+                {{- end }}
+                {{- end }}
             </div>
         </div>
     </div>

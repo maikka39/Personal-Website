@@ -111,6 +111,11 @@ googleAnalytics = "UA-136337666-1"
     alt      = "Portrait"
     size = "175px"
 
+  # Wallets
+  [[params.wallets]]
+    name = "XMR"
+    address = "83cfsXGHPaW81hKJtAPYZEgbfFqANMTXXRwghsBpjf5oTDRV3BnCC4jFno8tLTnF4C6gJzGjPEmpvjntXaiGBB7kVitkDKi"
+
   # Social icons
   [[params.social]]
     name = "email"
