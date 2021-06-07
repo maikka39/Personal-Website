@@ -2,8 +2,9 @@
 <main role="main" style="">
     <div>
         {{- if .Site.Params.Portrait.Path }}
+        {{- $img := imageConfig (printf "static/%s" .Site.Params.Portrait.Path) }}
         <img src="{{ .Site.Params.Portrait.Path }}" class="circle" alt="{{ .Site.Params.Portrait.Alt }}"
-            style="max-width:{{ .Site.Params.Portrait.Size }}" />
+            width="{{ $img.Width }}" height="{{ $img.Height }}" style="max-width:{{ .Site.Params.Portrait.Size }}" />
         {{- end }}
 
         <h1>{{ .Site.Title }}</h1>
