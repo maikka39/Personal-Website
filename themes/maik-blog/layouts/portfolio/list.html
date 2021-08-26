@@ -18,7 +18,7 @@
             <div class="portfolio-details">
                 <h1 class="portfolio-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
                 <span class="portfolio-company">
-                    <a href="{{ .Params.company_url }}">{{ .Params.company_name | markdownify }}</a>
+                    <a href="{{ .Params.company_url }}" target="_blank">{{ .Params.company_name | markdownify }}</a>
                 </span>
                 <div class="portfolio-meta">
                     {{- if .Params.start_date }}
