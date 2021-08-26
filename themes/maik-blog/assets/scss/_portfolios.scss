@@ -122,6 +122,7 @@
       width: calc(50% + 50px);
       height: calc(100% + 83px);
       background: rbga(0, 0, 255, 0.3);
+      pointer-events: none;
 
       border-bottom: 3px solid #222;
       border-top: 3px solid #222;
