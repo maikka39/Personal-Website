@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "{{ replace .Name "-" " " | title }}"
 date = {{ .Date }}
 description = ""
-images = []
+cover = ""
 tags = [
     "untagged",
 ]
