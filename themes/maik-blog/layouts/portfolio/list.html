@@ -1,0 +1,92 @@
+{{ define "main" }}
+{{ $paginator := .Paginate .Data.Pages }}
+
+<main class="portfolios">
+    <h1>Portfolio</h1>
+
+    {{- if .Content }}
+    <div class="content">{{ .Content }}</div>
+    {{- end }}
+
+    {{- if .Paginator.HasPrev }}
+    {{ partial "pagination.html" . }}
+    {{- end }}
+
+    <div class="portfolios-list">
+        {{ range $paginator.Pages }}
+        <div class="portfolio">
+            <div class="portfolio-details">
+                <h1 class="portfolio-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+                <span class="portfolio-company">
+                    <a href="{{ .Params.company_url }}">{{ .Params.company_name | markdownify }}</a>
+                </span>
+                <div class="portfolio-meta">
+                    {{- if .Params.start_date }}
+                    <span class="portfolio-start-date">
+                        {{- if eq (printf "%T" .Params.start_date) "time.Time"}}
+                        {{ .Params.start_date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                        {{- else }}
+                        {{ .Params.start_date }}
+                        {{- end }}
+                    </span>
+                    <span class="portfolio-end-date">
+                        {{- if eq (printf "%T" .Params.end_date) "time.Time"}}
+                        {{ .Params.end_date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                        {{- else }}
+                        {{ .Params.end_date }}
+                        {{- end }}
+                    </span>
+                    {{- end }}
+                    {{- if $.Site.Params.ShowReadingTimeInList }}
+                    <span class="portfolio-read-time">— {{ .ReadingTime }}
+                        {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
+                    {{- end }}
+                </div>
+
+                {{- if .Params.tags }}
+                <span class="portfolio-tags">
+                    {{- range .Params.tags }}
+                    #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+                    {{- end }}
+                </span>
+                {{- end }}
+
+                <div class="portfolio-content">
+                    {{- with .Description }}
+                    {{ . | markdownify }}
+                    {{- else }}
+                    {{- if .Truncated }}
+                    {{ .Summary | markdownify }}
+                    {{- end }}
+                    {{- end }}
+                </div>
+                {{- if not .Params.hideReadMore }}
+                <div><a class="read-more button"
+                        href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }}
+                        →</a></div>
+                {{- end }}
+            </div>
+            {{- if .Params.Cover }}
+            <figure class="portfolio-cover">
+                {{- $img := imageConfig (printf "static/%s" .Params.Cover) }}
+
+                {{- if .Params.UseRelativeCover }}
+                <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" alt="{{ .Title | plainify | default " " }}"
+                    width="{{ $img.Width }}" height="{{ $img.Height }}" />
+                {{- else }}
+                <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title | plainify | default " " }}"
+                    width="{{ $img.Width }}" height="{{ $img.Height }}" />
+                {{- end }}
+
+                {{- if .Params.CoverCaption }}
+                <figcaption class="center">{{ .Params.CoverCaption | markdownify }}</figcaption>
+                {{- end }}
+            </figure>
+            {{- end }}
+        </div>
+        {{- end }}
+    </div>
+
+    {{ partial "pagination.html" . }}
+</main>
+{{ end }}
