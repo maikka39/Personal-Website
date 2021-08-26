@@ -1,8 +1,8 @@
 .portfolios {
   width: 100%;
-  max-width: 800px;
+  max-width: calc(800px + 50px + 80px);
   text-align: left;
-  padding: 20px;
+  padding: 20px calc(20px + 50px + 15px);
   margin: 20px auto;
   counter-reset: portfolio;
 
@@ -44,8 +44,13 @@
     position: relative;
     counter-increment: portfolio;
 
+    @media #{$media-size-tablet} {
+      flex-direction: column-reverse;
+    }
+
     .read-more {
       white-space: nowrap;
+      max-width: max-content;
     }
 
     &-cover {
