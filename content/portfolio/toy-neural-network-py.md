@@ -10,6 +10,7 @@ skills = [
     "Machine Learning",
     "Neural Networks",
     "Matrix calculations",
+    "Overheating hardware",
 ]
 +++
 
