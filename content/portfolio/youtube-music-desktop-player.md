@@ -17,6 +17,6 @@ skills = [
 
 YouTube Music Desktop Player converts YouTube Music to a standalone desktop app. Because of this, you will never have to go through all your tabs to control your music.
 
-This software has no affiliation this Google, YouTube Music is a trademark of Google LCC.
+_This software has no affiliation this Google, YouTube Music is a trademark of Google LCC._
 
 [Github](https://github.com/maikka39/Youtube-Music-Desktop-Player)
