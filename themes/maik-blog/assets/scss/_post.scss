@@ -1,6 +1,6 @@
 .post {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   text-align: left;
   padding: 20px;
   margin: 20px auto;
@@ -8,10 +8,13 @@
   @media #{$media-size-tablet} {
     max-width: 600px;
   }
+  @media #{$media-size-medium} {
+    max-width: 800px;
+  }
 
   &-date {
     &:after {
-      content: '—';
+      content: "—";
     }
   }
 
@@ -46,8 +49,12 @@
   &-cover {
     border-radius: 8px;
     margin: 40px -50px;
-    width: 860px;
-    max-width: 860px;
+    width: 1060px;
+    max-width: 1060px;
+
+    @media #{$media-size-medium} {
+      max-width: 860px;
+    }
 
     @media #{$media-size-tablet} {
       margin: 20px 0;
@@ -84,7 +91,7 @@
 
     .feather {
       display: inline-block;
-      vertical-align: -.125em;
+      vertical-align: -0.125em;
       width: 1em;
       height: 1em;
     }
@@ -163,7 +170,7 @@
     background: $dark-background-secondary;
   }
 
-  +.button {
+  + .button {
     margin-left: 10px;
   }
 

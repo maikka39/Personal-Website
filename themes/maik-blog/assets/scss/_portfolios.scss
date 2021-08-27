@@ -1,10 +1,14 @@
 .portfolios {
   width: 100%;
-  max-width: calc(800px + 50px + 80px);
+  max-width: calc(1000px + 50px + 80px);
   text-align: left;
   padding: 20px calc(20px + 50px + 15px);
   margin: 20px auto;
   counter-reset: portfolio;
+
+  @media #{$media-size-medium} {
+    max-width: calc(800px + 50px + 80px);
+  }
 
   @media #{$media-size-tablet} {
     max-width: 660px;
@@ -40,9 +44,14 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    margin: 80px 0;
+    margin: 80px auto;
     position: relative;
     counter-increment: portfolio;
+
+    > * {
+      flex: 1;
+      padding: 5px;
+    }
 
     @media #{$media-size-tablet} {
       flex-direction: column-reverse;
@@ -94,6 +103,13 @@
       flex-shrink: 0;
       margin-left: 1em;
       @include dimmed;
+    }
+
+    &-skills {
+      &-title {
+        font-size: 0.9rem;
+        margin: 15px 0 0 0;
+      }
     }
 
     &::before {

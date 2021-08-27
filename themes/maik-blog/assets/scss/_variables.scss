@@ -16,9 +16,11 @@ $dark-border-color: #4a4b50;
 
 $media-size-phone: "(max-width: 684px)";
 $media-size-tablet: "(max-width: 900px)";
+$media-size-medium: "(max-width: 1200px)";
 
 /* variables for js, must be the same as these in @custom-media queries */
 :root {
   --phoneWidth: (max-width: 684px);
   --tabletWidth: (max-width: 900px);
+  --mediumWidth: (max-width: 1200px);
 }

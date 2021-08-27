@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{ $paginator := .Paginate .Data.Pages }}
 
 <main class="portfolios">
     <h1>Portfolio</h1>
@@ -8,15 +7,11 @@
     <div class="content">{{ .Content }}</div>
     {{- end }}
 
-    {{- if .Paginator.HasPrev }}
-    {{ partial "pagination.html" . }}
-    {{- end }}
-
     <div class="portfolios-list">
-        {{ range $paginator.Pages }}
+        {{ range sort .Data.Pages "Params.end_date" "desc" }}
         <div class="portfolio">
             <div class="portfolio-details">
-                <h1 class="portfolio-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+                <h2 class="portfolio-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
                 <span class="portfolio-company">
                     <a href="{{ .Params.company_url }}" target="_blank">{{ .Params.company_name | markdownify }}</a>
                 </span>
@@ -31,7 +26,11 @@
                     </span>
                     <span class="portfolio-end-date">
                         {{- if eq (printf "%T" .Params.end_date) "time.Time"}}
+                        {{- if lt .Params.end_date now }}
                         {{ .Params.end_date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                        {{- else }}
+                        Present
+                        {{- end }}
                         {{- else }}
                         {{ .Params.end_date }}
                         {{- end }}
@@ -60,6 +59,14 @@
                     {{- end }}
                     {{- end }}
                 </div>
+                {{- with .Params.skills }}
+                <h3 class="portfolio-skills-title">Skills used:</h3>
+                <ul class="portfolio-skills">
+                    {{- range . }}
+                    <li class="portfolio-skill">{{ . }}</li>
+                    {{- end }}
+                </ul>
+                {{- end}}
                 {{- if not .Params.hideReadMore }}
                 <div><a class="read-more button"
                         href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }}
@@ -87,6 +94,5 @@
         {{- end }}
     </div>
 
-    {{ partial "pagination.html" . }}
 </main>
 {{ end }}
