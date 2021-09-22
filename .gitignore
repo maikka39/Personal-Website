@@ -3,3 +3,6 @@ public/
 resources/_gen/
 
 .vscode/
+
+*.bak
+*.old
