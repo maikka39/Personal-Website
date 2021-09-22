@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Challenge 17 - AdventOfCTF"
 date = 2021-01-06T22:51:23+01:00
 description = "A writeup for challenge 17 of AdventOfCTF."
-cover = "img/adventofctf/8717d728f2de96beb8123c0cca28a728.png"
+cover = "img/adventofctf/2020/8717d728f2de96beb8123c0cca28a728.png"
 tags = [
     "AdventOfCTF",
     "challenge",
@@ -48,13 +48,13 @@ function send() {
 
 ## Finding the vulnerability
 
-The description makes a reference to [yesterday's challenge]({{% ref "posts/adventofctf/challenge_16.md" %}}) so we probably have to use the same concept.
+The description makes a reference to [yesterday's challenge]({{% ref "posts/adventofctf/2020/challenge_16.md" %}}) so we probably have to use the same concept.
 
 Let's verify it by trying the following input: `{{7*7}}`. It returned `49` so we can continue with the next step.
 
 ## Exploit
 
-Just like [yesterday's challenge]({{% ref "posts/adventofctf/challenge_16.md" %}}), we start by trying to get the config like so: `{{config.items()}}`. Sadly, we get an error message: "You entered an emoji that is on my deny list".
+Just like [yesterday's challenge]({{% ref "posts/adventofctf/2020/challenge_16.md" %}}), we start by trying to get the config like so: `{{config.items()}}`. Sadly, we get an error message: "You entered an emoji that is on my deny list".
 
 ### Blacklist
 
@@ -134,7 +134,7 @@ Here we find an encrypted flag again: `'flag': "C\x1eS\x1dwsef}j\x057i\x7fo{D)'d
 
 ## Decrypting the flag
 
-Just like [yesterday's challenge]({{% ref "posts/adventofctf/challenge_16.md" %}}), the flag is encrypted and we probably have to get the source again to get the key used to encrypt the flag. To get the source we first need arbitrary code execution.
+Just like [yesterday's challenge]({{% ref "posts/adventofctf/2020/challenge_16.md" %}}), the flag is encrypted and we probably have to get the source again to get the key used to encrypt the flag. To get the source we first need arbitrary code execution.
 
 ### Arbitrary Code Execution (ACE)
 
@@ -732,7 +732,7 @@ if __name__ == '__main__':
 
 ## Magic function
 
-Just like [yesterday]({{% ref "posts/adventofctf/challenge_16.md" %}}), we find a magic function. It looks like it's the same just with a different key so let's decrypt it using the new key (`46e505c983433b7c8eefb953d3ffcd196a08bbf9`):
+Just like [yesterday]({{% ref "posts/adventofctf/2020/challenge_16.md" %}}), we find a magic function. It looks like it's the same just with a different key so let's decrypt it using the new key (`46e505c983433b7c8eefb953d3ffcd196a08bbf9`):
 
 ```text
 Python 3.6.9 (default, Nov  7 2019, 10:44:02)

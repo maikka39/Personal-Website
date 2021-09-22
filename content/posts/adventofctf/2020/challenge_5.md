@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Challenge 5 - AdventOfCTF"
 date = 2020-12-05T08:57:31+01:00
 description = "A writeup for challenge 5 of AdventOfCTF."
-cover = "img/adventofctf/080b5d5fcaf13167d2e7e8871fdc8ded.png"
+cover = "img/adventofctf/2020/080b5d5fcaf13167d2e7e8871fdc8ded.png"
 tags = [
     "AdventOfCTF",
     "challenge",

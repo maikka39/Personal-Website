@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Challenge 23 - AdventOfCTF"
 date = 2021-03-16T20:52:38+01:00
 description = "A writeup for challenge 23 of AdventOfCTF."
-cover = "img/adventofctf/497784f7a3314f8aa5b8464432e30bbe.png"
+cover = "img/adventofctf/2020/497784f7a3314f8aa5b8464432e30bbe.png"
 tags = [
     "AdventOfCTF",
     "challenge",
@@ -58,7 +58,7 @@ $(function () {
 
 From the JavaScript code we can see that the chat uses WebSockets. To take a deeper look at it, let's switch over to the network tab in Chrome and click on the request with the type "websocket".
 
-{{< figure src="/img/adventofctf/23/websocket.png" title="Websocket in Chrome DevTools" >}}
+{{< figure src="/img/adventofctf/2020/23/websocket.png" title="Websocket in Chrome DevTools" >}}
 
 If we click on it, a tab with the messages sent on the websocket will open. We can see some numbers here, these are just heartbeat packets to keep the connection alive. Now, let's send a new message and have a look at what it actually sends/receives.
 
@@ -75,7 +75,7 @@ We can see the message contains two parts; the event name and the message itself
 
 In Chrome (to my knowledge) we can't easily send a message on a websocket. We could use Burp Suit to do it but for this writeup I'll stick with Chrome. To send a message on the websocket, we need the `socket` variable from the javascript code. To get it, go to the `Sources` tab and click on `(index)`. Now click on line number 28 to add a breakpoint there. We choose this place as it will trigger a breakpoint just before a message gets sent and we thus have access to the socket variable.
 
-{{< figure src="/img/adventofctf/23/breakpoint.png" title="Javascipt breakpoint in Chrome" >}}
+{{< figure src="/img/adventofctf/2020/23/breakpoint.png" title="Javascipt breakpoint in Chrome" >}}
 
 Now if we try to send a message, chrome will pause the page. The console will now also have the scope of the piece of code at the breakpoint. This means that if we enter `socket` in the console, will get the socket object back:
 

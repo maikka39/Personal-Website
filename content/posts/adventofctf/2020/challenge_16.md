@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Challenge 16 - AdventOfCTF"
 date = 2021-01-01T01:44:45+01:00
 description = "A writeup for challenge 16 of AdventOfCTF."
-cover = "img/adventofctf/246397ca184f8b03ac8fecf50ee1051e.png"
+cover = "img/adventofctf/2020/246397ca184f8b03ac8fecf50ee1051e.png"
 tags = [
     "AdventOfCTF",
     "challenge",
@@ -56,7 +56,7 @@ SSTI occurs when an attacker is able to use native template syntax to inject a m
 
 An easy way to check for SSTI is by using the following graph from PortSwigger:
 
-{{< figure src="/img/adventofctf/16/ssti_graph.png" title="SSTI Graph (by PortSwigger)" >}}
+{{< figure src="/img/adventofctf/2020/16/ssti_graph.png" title="SSTI Graph (by PortSwigger)" >}}
 
 So I followed this graph and got the following results:
 

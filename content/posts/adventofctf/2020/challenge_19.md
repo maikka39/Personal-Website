@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Challenge 19 - AdventOfCTF"
 date = 2021-02-25T23:18:28+01:00
 description = "A writeup for challenge 19 of AdventOfCTF."
-cover = "img/adventofctf/d80f13d1ab714f7864c2a9ef56c5f767.png"
+cover = "img/adventofctf/2020/d80f13d1ab714f7864c2a9ef56c5f767.png"
 tags = [
     "AdventOfCTF",
     "challenge",
@@ -58,7 +58,7 @@ function send() {
 
 As the description tells us it's a calculator, let's try entering `3+4` in the input field. It will make a `POST` request to `/calc`, which will return `7`.
 
-The description also states it was possible to enter javascript code, which we saw in the [previous challenge]({{% ref "posts/adventofctf/challenge_18.md" %}}), but that it has been fixed now.
+The description also states it was possible to enter javascript code, which we saw in the [previous challenge]({{% ref "posts/adventofctf/2020/challenge_18.md" %}}), but that it has been fixed now.
 
 ## Finding the vulnerability
 

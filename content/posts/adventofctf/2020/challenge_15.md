@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Challenge 15 - AdventOfCTF"
 date = 2020-12-31T22:34:24+01:00
 description = "A writeup for challenge 15 of AdventOfCTF."
-cover = "img/adventofctf/9c6afd807a15973b962cf3aee3dbe836.png"
+cover = "img/adventofctf/2020/9c6afd807a15973b962cf3aee3dbe836.png"
 tags = [
     "AdventOfCTF",
     "challenge",
@@ -58,7 +58,7 @@ Besides this code, we also get an input field for the contents of the `flag` par
 
 When scanning this code, we see that `$flag` is compared to our input. It firstly does a `strcmp`, and, if it is not `0`, it checks if the `sha1` hashes of both variables are equal.
 
-The thing with PHP and `strcmp` is that PHP will do some type juggling before checking the values. You can read more about PHP type juggling in the [writeup of yesterday's challenge]({{% ref "posts/adventofctf/challenge_14.md" %}}#type-juggling).
+The thing with PHP and `strcmp` is that PHP will do some type juggling before checking the values. You can read more about PHP type juggling in the [writeup of yesterday's challenge]({{% ref "posts/adventofctf/2020/challenge_14.md" %}}#type-juggling).
 
 ## Exploit
 
