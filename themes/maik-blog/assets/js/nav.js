@@ -24,7 +24,12 @@ window.addEventListener("load", () => {
       return
     }
 
-    if ((e.keyCode < 65 || e.keyCode > 90) && (e.keyCode !== 191) ) return
+    if (e.keyCode === 191) {
+      terminal.textContent += "/"
+      return
+    }
+
+    if (e.keyCode < 65 || e.keyCode > 90) return
 
     terminal.textContent += e.key.toLowerCase()
   }
