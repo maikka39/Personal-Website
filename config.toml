@@ -4,7 +4,7 @@ title = "Maik de Kruif"
 languageCode = "en-us"
 theme = "maik-blog"
 
-paginate  = 6
+paginate  = 12
 rssLimit  = 10
 
 copyright = "© Maik de Kruif (maik_dev). All rights reserved."
