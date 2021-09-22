@@ -24,6 +24,9 @@
     <h1 class="post-title">
       <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
     </h1>
+    {{- with .Params.Subtitle }}
+    <p class="post-subtitle">{{ . | markdownify }}</p>
+    {{- end }}
 
     {{- if .Params.toc }}
     <hr />
