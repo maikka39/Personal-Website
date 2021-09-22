@@ -26,7 +26,7 @@ categories = [
 
 If all you do is talk, there are bound to be secret features. The flag is stored in /flag.txt.
 
-Visit https://23.adventofctf.com to start the challenge.
+Visit <https://23.adventofctf.com> to start the challenge.
 
 ## Recon
 

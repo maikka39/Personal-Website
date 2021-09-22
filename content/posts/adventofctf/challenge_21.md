@@ -28,7 +28,7 @@ We are testing a new mechanism to filter out malicious content from URLs. This a
 
 The flag is in /flag.txt
 
-Visit https://21.adventofctf.com to start the challenge.
+Visit <https://21.adventofctf.com> to start the challenge.
 
 ## Recon
 

@@ -27,7 +27,7 @@ categories = [
 
 We found out that it was possible to insert Javascript code in the calculator. Oops! We found an awesome module to prevent against this abuse. Hopefully it is all better now. The flag is in flag.txt.
 
-Visit https://19.adventofctf.com to start the challenge.
+Visit <https://19.adventofctf.com> to start the challenge.
 
 ## Recon
 

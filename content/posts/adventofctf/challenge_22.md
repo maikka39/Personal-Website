@@ -27,7 +27,7 @@ categories = [
 
 We have a new service! You can view santa's favorite pictues. Currently there is only one, but it is a very good one! You can get the flag through flag.php.
 
-Visit https://22.adventofctf.com to start the challenge.
+Visit <https://22.adventofctf.com> to start the challenge.
 
 ## Recon
 

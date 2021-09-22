@@ -27,7 +27,7 @@ categories = [
 
 To pass the time until Christmas the elves challenge Santa to a game of tic-tac-toe. Santa plays X, can you make him win?
 
-Visit https://20.adventofctf.com to start the challenge.
+Visit <https://20.adventofctf.com> to start the challenge.
 
 ## Recon
 
