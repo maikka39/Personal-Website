@@ -135,6 +135,15 @@ figure {
   max-width: 100%;
   margin: 25px 0;
 
+  img {
+    border-radius: 8px;
+    padding: 5px;
+
+    .dark-theme & {
+      background-color: #ffffff4f;
+    }
+  }
+
   &.left {
     margin-right: auto;
   }
