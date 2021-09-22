@@ -5,7 +5,8 @@
         <img src="{{ .Site.Params.Logo.path }}" alt="{{ .Site.Params.Logo.alt }}" />
         {{- else }}
         <span class="logo__mark">></span>
-        <span class="logo__text">{{- with .Site.Params.Logo.logoText }}{{ . }}{{ else }}hello{{ end }}</span>
+        <span class="logo__text">{{- with .Site.Params.Logo.logoText }}{{ . }}{{ else }}$ cd /home/{{ end }}<span
+                id="nav-terminal"></span></span>
         <span class="logo__cursor" style="{{- with.Site.Params.Logo.logoCursorDisabled }}visibility:hidden;{{ end -}}
                    {{- with.Site.Params.Logo.logoCursorColor    }}background-color:{{ . }};{{ end -}}
                    {{- with.Site.Params.Logo.logoCursorAnimate  }}animation-duration:{{ . }};{{ end -}}">
