@@ -12,67 +12,71 @@
     {{ partial "pagination.html" . }}
     {{- end }}
 
-    <div class="posts-list posts-list-columns">
+    <div class="posts-list masonry">
         {{ range $paginator.Pages }}
-        <div class="post">
-            <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
-            {{- with .Params.Subtitle }}
-            <p class="post-subtitle">{{ . | markdownify }}</p>
-            {{- end }}
-            <div class="post-meta">
-                {{- if .Date }}
-                <span class="post-date">
-                    {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+        <div class="post masonry-item">
+            <div class="masonry-item-content">
+                <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+                {{- with .Params.Subtitle }}
+                <p class="post-subtitle">{{ . | markdownify }}</p>
+                {{- end }}
+                <div class="post-meta">
+                    {{- if .Date }}
+                    <span class="post-date">
+                        {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                    </span>
+                    {{- end }}
+                    {{- with .Params.Author }}
+                    <span class="post-author">{{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span>
+                    {{- end }}
+                    {{- if $.Site.Params.ShowReadingTimeInList }}
+                    <span class="post-read-time">— {{ .ReadingTime }}
+                        {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
+                    {{- end }}
+                </div>
+
+                {{- if .Params.tags }}
+                <span class="post-tags">
+                    {{- range .Params.tags }}
+                    #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+                    {{- end }}
                 </span>
                 {{- end }}
-                {{- with .Params.Author }}
-                <span class="post-author">{{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span>
+
+                {{- if .Params.Cover }}
+                <figure class="post-cover">
+                    {{- $img := imageConfig (printf "static/%s" .Params.Cover) }}
+
+                    {{- if .Params.UseRelativeCover }}
+                    <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}"
+                        alt="{{ .Title | plainify | default " " }}" width="{{ $img.Width }}"
+                        height="{{ $img.Height }}" />
+                    {{- else }}
+                    <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title | plainify | default " " }}"
+                        width="{{ $img.Width }}" height="{{ $img.Height }}" />
+                    {{- end }}
+
+                    {{- if .Params.CoverCaption }}
+                    <figcaption class="center">{{ .Params.CoverCaption | markdownify }}</figcaption>
+                    {{- end }}
+                </figure>
                 {{- end }}
-                {{- if $.Site.Params.ShowReadingTimeInList }}
-                <span class="post-read-time">— {{ .ReadingTime }}
-                    {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
+
+                <div class="post-content">
+                    {{- with .Description }}
+                    {{ . | markdownify }}
+                    {{- else }}
+                    {{- if .Truncated }}
+                    {{ .Summary | markdownify }}
+                    {{- end }}
+                    {{- end }}
+                </div>
+                {{- if not .Params.hideReadMore }}
+                <div><a class="read-more button"
+                        href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }}
+                        →</a></div>
                 {{- end }}
             </div>
-
-            {{- if .Params.tags }}
-            <span class="post-tags">
-                {{- range .Params.tags }}
-                #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
-                {{- end }}
-            </span>
-            {{- end }}
-
-            {{- if .Params.Cover }}
-            <figure class="post-cover">
-                {{- $img := imageConfig (printf "static/%s" .Params.Cover) }}
-
-                {{- if .Params.UseRelativeCover }}
-                <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" alt="{{ .Title | plainify | default " " }}"
-                    width="{{ $img.Width }}" height="{{ $img.Height }}" />
-                {{- else }}
-                <img src="{{ .Params.Cover | absURL }}" alt="{{ .Title | plainify | default " " }}"
-                    width="{{ $img.Width }}" height="{{ $img.Height }}" />
-                {{- end }}
-
-                {{- if .Params.CoverCaption }}
-                <figcaption class="center">{{ .Params.CoverCaption | markdownify }}</figcaption>
-                {{- end }}
-            </figure>
-            {{- end }}
-
-            <div class="post-content">
-                {{- with .Description }}
-                {{ . | markdownify }}
-                {{- else }}
-                {{- if .Truncated }}
-                {{ .Summary | markdownify }}
-                {{- end }}
-                {{- end }}
-            </div>
-            {{- if not .Params.hideReadMore }}
-            <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }}
-                    →</a></div>
-            {{- end }}
         </div>
         {{- end }}
     </div>

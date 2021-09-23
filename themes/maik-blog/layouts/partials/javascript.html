@@ -2,7 +2,8 @@
 {{- $menu := resources.Get "js/menu.js" }}
 {{- $theme := resources.Get "js/theme.js" }}
 {{- $nav := resources.Get "js/nav.js" }}
-{{- $secureJS := slice $main $menu $theme $nav | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{- $list_columns := resources.Get "js/list_columns.js" }}
+{{- $secureJS := slice $main $menu $theme $nav $list_columns | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
 
 {{- if .Site.GoogleAnalytics }}

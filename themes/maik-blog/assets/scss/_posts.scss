@@ -36,39 +36,21 @@
     margin: 0;
     padding: 0;
     list-style: none;
-
-    &-columns {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-
-      @media #{$media-size-medium} {
-        justify-content: center;
-      }
-
-      .post {
-        width: 430px;
-        min-width: 45%;
-        margin: 0px;
-
-        @media #{$media-size-medium} {
-          width: 90%;
-        }
-
-        &-cover {
-          width: 115%;
-          margin: 40px -30px;
-
-          img {
-            max-height: 20rem;
-            margin: 0 auto;
-          }
-        }
-      }
-    }
   }
 
   .post {
+    &.masonry-item {
+      .post-cover {
+        width: 115%;
+        margin: 40px -30px;
+
+        img {
+          max-height: 20rem;
+          margin: 0 auto;
+        }
+      }
+    }
+
     &-title {
       font-size: 1.9rem;
       margin: 5px 0 5px 0;
