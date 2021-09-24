@@ -7,9 +7,12 @@ function resizeItem(masonry, item){
 
 function resizeAll(){
   let masonry = document.getElementsByClassName("masonry")[0];
+
+  if (!masonry) return;
+
   masonry.style.gridAutoRows = "20px"
   masonry.style.marginBottom = "80px"
-  let allItems = document.getElementsByClassName("masonry-item");
+  let allItems = masonry.getElementsByClassName("masonry-item");
 
   for (const item of allItems) {
     resizeItem(masonry, item)
