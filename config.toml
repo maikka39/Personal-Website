@@ -61,7 +61,7 @@ googleAnalytics = "UA-136337666-1"
 
   showReadingTimeInList = false
 
-  homeSubtitle = "Maik de Kruif (maik_dev)"
+  homeSubtitle = "Software Engineering, Linux and Cyber Security"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   gitUrl = "https://github.com/maikka39/Personal-Website/commit/"
