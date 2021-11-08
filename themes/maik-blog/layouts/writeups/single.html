@@ -38,9 +38,7 @@
     {{- end }}
 
     {{- if .Params.Cover }}
-    {{ $img := imageConfig (printf "static/%s" .Params.Cover) }}
-    <img src="/{{ .Params.Cover }}" class="post-cover" alt="{{ .Title | plainify | default " " }}"
-      width="{{ $img.Width }}" height="{{ $img.Height }}" />
+    {{- partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify | default " ") "class" "post-cover") }}
     {{- end }}
 
     <div class="post-content">

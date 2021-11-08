@@ -23,9 +23,9 @@
         <hr />
         {{- end }}
 
-        {{ with .Params.Cover }}
-        <img src="/{{ . }}" class="post-cover" />
-        {{ end }}
+        {{- with .Params.Cover }}
+        {{- partial "image.html" (dict "path" . "alt" "" "class" "post-cover") }}
+        {{- end }}
 
         <div class="post-content">
             {{ .Content }}

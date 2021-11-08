@@ -1,0 +1,5 @@
+{{- $img := resources.Get .path }}
+{{- $img = $img.Resize (printf "%dx%d webp" $img.Width $img.Height) }}
+<img src="{{ $img.Permalink }}" alt="{{ .alt | default " " }}" width="{{ .width | default $img.Width }}"
+  height="{{ .height | default $img.Height }}" {{- if .class}}class="{{ .class }}" {{end}}
+  {{- if .style}}style="{{ .style | safeCSS | default " " }}" {{end}} />

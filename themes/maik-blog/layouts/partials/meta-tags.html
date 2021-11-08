@@ -16,8 +16,9 @@
     content="{{ if .IsHome }}{{ .Site.Params.homeSubtitle }}{{ else }}{{ .Params.description | plainify }}{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 {{- with .Params.cover }}
-<meta property="og:image" content="{{ . | absURL }}" />
-{{- $img := imageConfig (printf "static/%s" .) }}
+{{- $img := resources.Get . }}
+{{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
+<meta property="og:image" content="{{ $img.Permalink }}" />
 <meta property="og:image:width" content="{{ $img.Width }}" />
 <meta property="og:image:height" content="{{ $img.Height }}" />
 {{- end }}
@@ -49,7 +50,9 @@
 <!-- Twitter cards -->
 <meta name="twitter:card" content="summary_large_image" />
 {{- if .Params.cover }}
-<meta name="twitter:image" content="{{ .Params.cover | absURL }}" />
+{{- $img := resources.Get .Params.cover }}
+{{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
+<meta name="twitter:image" content="{{ $img.Permalink }}" />
 <meta name="twitter:image:alt" content="{{ .Params.title | plainify | default " " }}" />
 {{- end }}
 <meta name="twitter:title" content="{{ .Title }}" />
