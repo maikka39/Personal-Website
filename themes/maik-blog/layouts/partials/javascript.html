@@ -3,7 +3,7 @@
 {{- $theme := resources.Get "js/theme.js" }}
 {{- $nav := resources.Get "js/nav.js" }}
 {{- $secureJS := slice $main $menu $theme $nav | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
-<script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+<script type="text/javascript" src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
 
 {{- if .Site.GoogleAnalytics }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
