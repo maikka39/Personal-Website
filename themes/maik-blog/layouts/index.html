@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main role="main" style="">
+<main role="main">
     <div>
         {{- if .Site.Params.Portrait.Path }}
         {{- partial "image.html" (dict "path" .Site.Params.Portrait.Path "alt" .Site.Params.Portrait.Alt "class" "circle" "style" (printf "max-width:%s" .Site.Params.Portrait.Size ))}}
