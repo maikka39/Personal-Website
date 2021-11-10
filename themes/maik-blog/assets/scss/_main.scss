@@ -203,6 +203,10 @@ figure {
     max-width: 300px;
     width: 90%;
   }
+
+  &.inline {
+    display: inline-table;
+  }
 }
 
 code {
