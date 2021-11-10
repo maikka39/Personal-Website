@@ -1,34 +1,9 @@
 {{- $orignal := resources.Get .path }}
-{{- $png := $orignal.Resize (printf "%dx%d png q50" $orignal.Width $orignal.Height) }}
-{{- $webp := $orignal.Resize (printf "%dx%d webp q50" $orignal.Width $orignal.Height) }}
-{{- $pngFull := $orignal.Resize (printf "%dx%d webp q100" $orignal.Width $orignal.Height) }}
-{{- $webpFull := $orignal.Resize (printf "%dx%d webp q100" $orignal.Width $orignal.Height) }}
+{{- $png := $orignal.Resize (printf "%dx%d png q75" $orignal.Width $orignal.Height) }}
+{{- $webp := $orignal.Resize (printf "%dx%d webp q75" $orignal.Width $orignal.Height) }}
 <picture>
   <source type="image/webp" srcset="{{ $webp.Permalink }}">
-  <img
-    src="{{ $png.Permalink }}"
-    alt="{{ .alt | default "" }}"
-    title="{{ .alt }}"
-    width="{{ .width | default $png.Width }}"
-    height="{{ .height | default $png.Height }}"
-    {{- if .class}}class="{{ .class }}" {{end}}
-    {{- if .style}}style="{{ .style | safeCSS }}" {{end}} />
+  <img src="{{ $png.Permalink }}" alt="{{ .alt | default "" }}" title="{{ .alt }}"
+    width="{{ .width | default $png.Width }}" height="{{ .height | default $png.Height }}"
+    {{- if .class}}class="{{ .class }}" {{end}} {{- if .style}}style="{{ .style | safeCSS }}" {{end}} />
 </picture>
-
-<div class="enlarged_image">
-  <picture>
-    <source type="image/webp" srcset="{{ $webpFull.Permalink }}">
-    <img
-      src="{{ $pngFull.Permalink }}"
-      alt="{{ .alt | default "" }}"
-      loading="lazy"
-      title="{{ .alt }}"
-      width="{{ .width | default $pngFull.Width }}"
-      height="{{ .height | default $pngFull.Height }}"
-      {{- if .class}}class="{{ .class }}" {{end}}
-      {{- if .style}}style="{{ .style | safeCSS }}" {{end}} />
-  </picture>
-  {{- with .alt }}
-  <p class="caption">{{ . }}</p>
-  {{- end }}
-</div>
