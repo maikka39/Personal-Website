@@ -10,6 +10,7 @@ rssLimit  = 10
 copyright = "© Maik de Kruif (maik_dev). All rights reserved."
 
 PygmentsCodeFences = true
+pygmentsUseClasses = true
 PygmentsStyle = "monokai"
 
 archetypeDir = "archetypes"

@@ -13,6 +13,10 @@
 {{- $style := resources.Get "scss/main.scss" | resources.ToCSS $options | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 
+{{ $options := (dict "targetPath" "syntax_highlighting.css" "outputStyle" "compressed" "enableSourceMap" true) }}
+{{- $style := resources.Get "scss/syntax_highlighting.scss" | resources.ToCSS $options | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+
 {{- range $val := $.Site.Params.customCSS }}
 {{- if gt (len $val) 0 }}
 <link rel="stylesheet" type="text/css" href="{{ $val }}">
