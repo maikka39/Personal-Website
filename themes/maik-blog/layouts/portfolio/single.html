@@ -35,7 +35,7 @@
     {{- end }}
 
     {{- if .Params.Cover }}
-    {{- partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify | default " ") "class" "portfolio-cover") }}
+    {{- partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify) "class" "portfolio-cover") }}
     {{- end }}
 
     <div class="portfolio-content">

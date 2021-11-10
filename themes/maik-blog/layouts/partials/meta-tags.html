@@ -53,7 +53,7 @@
 {{- $img := resources.Get .Params.cover }}
 {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
 <meta name="twitter:image" content="{{ $img.Permalink }}" />
-<meta name="twitter:image:alt" content="{{ .Params.title | plainify | default " " }}" />
+<meta name="twitter:image:alt" content="{{ .Params.title | plainify }}" />
 {{- end }}
 <meta name="twitter:title" content="{{ .Title }}" />
 <meta name="twitter:description"

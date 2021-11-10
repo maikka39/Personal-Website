@@ -9,7 +9,7 @@
       alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}" {{- end -}}
       width="{{ .Get "width" | default $img.Width }}" height="{{ .Get "height" | default $img.Height }}" />
     {{- else }}
-    {{- partial "image.html" (dict "path" (.Get "src") "alt" (or (.Get "alt") (.Get "caption" | markdownify | plainify) | default " ") "width" (.Get "width") "height" (.Get "height")) }}
+    {{- partial "image.html" (dict "path" (.Get "src") "alt" (or (.Get "alt") (.Get "caption" | markdownify | plainify)) "width" (.Get "width") "height" (.Get "height")) }}
     {{- end }}
     {{- if .Get "link" }}</a>{{ end -}}
   {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}

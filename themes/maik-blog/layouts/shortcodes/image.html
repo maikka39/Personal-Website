@@ -1,3 +1,3 @@
 {{- if .Get "src" }}
-{{- partial "image.html" (dict "path" (.Get "src") "alt" (.Get "alt" | plainify | default " ") "style" (.Get "style" | safeCSS | default " ") )}}
+{{- partial "image.html" (dict "path" (.Get "src") "alt" (.Get "alt" | plainify) "style" (.Get "style" | safeCSS) )}}
 {{- end }}
