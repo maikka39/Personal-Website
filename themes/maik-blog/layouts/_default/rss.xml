@@ -1,6 +1,7 @@
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
     <channel>
-        <title>XXX {{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+        <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+        <icon>{{"favicon-32x32.png" | absURL}}</icon>
         <link>{{ .Permalink }}</link>
         <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
         {{- with .Site.LanguageCode }}
@@ -23,13 +24,21 @@
         {{- end }}
         {{ range .Pages }}
         <item>
-            <title>{{ .Title }}</title>
+            <title>{{ .Title }}{{ with .Params.Subtitle }} // {{ . }}{{ end }}</title>
             <link>{{ .Permalink }}</link>
             <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+            <published>{{ .Date.Format "2006-01-02T15:04:05Z0700" | safeHTML }}</published>
+            {{- if .GitInfo }}
+            <updated>{{ dateFormat "2006-01-02T15:04:05Z0700" .GitInfo.AuthorDate.Local | safeHTML }}</updated>
+            {{- end }}
             <author>{{ .Params.author }}</author>
             <guid isPermaLink="true">{{ .Permalink }}</guid>
             <description>{{ printf `<![CDATA[%s]]>` .Params.description | safeHTML }}</description>
-            <content:encoded type="html">{{ printf `<![CDATA[%s]]>` .Content | safeHTML }}</content:encoded>
+            {{ $content := .Content}}
+            {{- if .Params.Cover }}
+            {{- $content = (printf `%s%s` (partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify) "class" "post-cover")) $content) }}
+            {{- end }}
+            <content:encoded type="html">{{ printf `<![CDATA[%s]]>` $content | safeHTML }}</content:encoded>
         </item>
         {{ end }}
     </channel>
