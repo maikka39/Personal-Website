@@ -3,6 +3,7 @@ author = "Maik de Kruif"
 title = "The Advent of CTF - 2020"
 date = 2020-02-08T16:41:25+02:00
 description = "My participation in The Advent of CTF 2020."
+cover = "img/posts/adventofctf/cover.png"
 tags = [
     "AdventOfCTF",
     "ctf",
