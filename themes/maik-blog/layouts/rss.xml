@@ -19,22 +19,33 @@
         {{- if not .Date.IsZero }}
         <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
         {{- end }}
-        {{- with .OutputFormats.Get "RSS" -}}
-            {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+        {{- with .OutputFormats.Get "RSS" }}
+        {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
         {{- end }}
-        {{- range .Pages }}
+        {{- $allContent := slice }}
+        {{- range .Site.Sections }}
+        {{- $allContent = union $allContent .Pages }}
+        {{- end }}
+        <br/>
+        {{- $allContent = sort $allContent "Date" "desc" }}
+        {{- $allContent = $allContent | first 15 }}
+        {{- range $allContent }}
         <item>
-            <title>{{ .Title }}</title>
+            <title>{{ .Title }}{{ with .Params.Subtitle }} // {{ . }}{{ end }}</title>
             <link>{{ .Permalink }}</link>
             <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
             <published>{{ .Date.Format "2006-01-02T15:04:05Z0700" | safeHTML }}</published>
             {{- if .GitInfo }}
             <updated>{{ dateFormat "2006-01-02T15:04:05Z0700" .GitInfo.AuthorDate.Local | safeHTML }}</updated>
             {{- end }}
-            <author>{{ .Site.Author.name }}</author>
-            <guid>{{ .Permalink }}</guid>
-            <description>{{ printf `<![CDATA[%s]]>` .Summary | safeHTML }}</description>
-            <content:encoded type="html">{{ printf `<![CDATA[%s]]>` .Content | safeHTML }}</content:encoded>
+            <author>{{ .Params.author }}</author>
+            <guid isPermaLink="true">{{ .Permalink }}</guid>
+            <description>{{ printf `<![CDATA[%s]]>` .Params.description | safeHTML }}</description>
+            {{ $content := .Content}}
+            {{- if .Params.Cover }}
+            {{- $content = (printf `%s%s` (partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify) "class" "post-cover")) $content) }}
+            {{- end }}
+            <content:encoded type="html">{{ printf `<![CDATA[%s]]>` $content | safeHTML }}</content:encoded>
         </item>
         {{- end }}
     </channel>
