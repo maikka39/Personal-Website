@@ -1,6 +1,6 @@
 +++
 author = "Maik de Kruif"
-title = "Challenge 5"
+title = "Classic"
 subtitle = "Challenge 5 - AdventOfCTF"
 date = 2020-12-05T08:57:31+01:00
 description = "A writeup for challenge 5 of AdventOfCTF."
