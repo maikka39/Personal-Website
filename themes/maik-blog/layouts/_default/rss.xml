@@ -19,10 +19,10 @@
         {{- if not .Date.IsZero }}
         <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
         {{- end }}
-        {{- with .OutputFormats.Get "RSS" -}}
-            {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+        {{- with .OutputFormats.Get "RSS" }}
+        {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
         {{- end }}
-        {{ range .Pages }}
+        {{ range .Pages | first 15 }}
         <item>
             <title>{{ .Title }}{{ with .Params.Subtitle }} // {{ . }}{{ end }}</title>
             <link>{{ .Permalink }}</link>
