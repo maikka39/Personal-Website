@@ -12,7 +12,7 @@
                 <span><a href="/privacy/">Privacy</a></span>
                 <span>
                     {{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}
-                    <a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss">
+                    <a href="{{ "index.xml" | absLangURL }}" target="_blank" title="rss">
                         {{ partial "svg.html" (dict "name" "rss") }}
                     </a>
                     {{- end }}
@@ -21,7 +21,8 @@
             <div class="footer__content__section donations">
                 {{- with .Site.Params.wallets }}
                 {{- range . }}
-                <span class="wallet"><span class="name">{{ .name }}:</span> <span class="address">{{ .address }}</span></span>
+                <span class="wallet"><span class="name">{{ .name }}:</span> <span
+                        class="address">{{ .address }}</span></span>
                 {{- end }}
                 {{- end }}
             </div>
