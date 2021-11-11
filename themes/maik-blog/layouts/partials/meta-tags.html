@@ -4,7 +4,7 @@
 <meta name="description"
     content="{{ if .IsHome }}{{ .Site.Params.homeSubtitle }}{{ else }}{{ .Params.description | plainify }}{{ end }}" />
 <meta name="keywords"
-    content="{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}" />
+    content="{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}{{ with .Title }}, {{ delimit (split . " ") ", " }}{{ end }}{{ with .Params.Subtitle }}, {{ delimit (split . " ") ", " }}{{ end }}" />
 <meta name="robots" content="noodp" />
 
 <!-- Og -->
