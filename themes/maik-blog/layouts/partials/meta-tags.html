@@ -1,6 +1,6 @@
 <!-- Default -->
 <meta name="author"
-    content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ with .Site.Author.name }}{{ . }} {{ end }}{{ end }}">
+    content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ with .Site.Author.name }}{{ . }}{{ end }}{{ end }}">
 <meta name="description"
     content="{{ if .IsHome }}{{ .Site.Params.homeSubtitle }}{{ else }}{{ .Params.description | plainify }}{{ end }}" />
 <meta name="keywords"
@@ -26,7 +26,7 @@
 <!-- Article -->
 <meta property="article:publisher" content="{{ .Site.BaseURL }}" />
 <meta name="article:author"
-    content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ with .Site.Author.name }}{{ . }} {{ end }}{{ end }}">
+    content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ with .Site.Author.name }}{{ . }}{{ end }}{{ end }}">
 
 {{- if isset .Params "date" }}
 <meta property="article:published_time" content="{{ time .Date }}" />
