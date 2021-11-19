@@ -304,11 +304,11 @@ ol ol {
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   flex: 1 auto;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
   margin: 0;
 
   @media #{$media-size-phone} {

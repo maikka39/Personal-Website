@@ -3,7 +3,7 @@
 <main class="portfolios">
     <h1>Portfolio</h1>
 
-    {{- if .Content }}
+    {{- if and .Content (not .Paginator.HasPrev) }}
     <div class="content">{{ .Content }}</div>
     {{- end }}
 
