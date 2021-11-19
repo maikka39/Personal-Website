@@ -26,7 +26,6 @@
         {{- range .Site.Sections }}
         {{- $allContent = union $allContent .Pages }}
         {{- end }}
-        <br/>
         {{- $allContent = sort $allContent "Date" "desc" }}
         {{- $allContent = $allContent | first 15 }}
         {{- range $allContent }}
