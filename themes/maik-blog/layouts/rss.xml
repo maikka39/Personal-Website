@@ -24,7 +24,7 @@
         {{- end }}
         {{- $allContent := slice }}
         {{- range .Site.Sections }}
-        {{- $allContent = union $allContent .Pages }}
+        {{- $allContent = union $allContent .RegularPagesRecursive }}
         {{- end }}
         {{- $allContent = sort $allContent "Date" "desc" }}
         {{- $allContent = $allContent | first 15 }}
