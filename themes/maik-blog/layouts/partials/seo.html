@@ -210,16 +210,15 @@
             {{- end }}
             {{- end }}
             "description": {{ .Params.description | plainify }}
-        }{{ end }}{{ if .IsSection }},
+        }{{ end }}{{ if or .IsSection (or (eq .Kind "term") (eq .Kind "taxonomy")) }},
         {
             "@context": "http://schema.org",
             "@type": "ItemList",
             "itemListOrder": "https://schema.org/ItemListOrderDescending",
             "name": "{{ .Title }}",
-            "numberOfItems": {{ len .Data.Pages }},
+            "numberOfItems": {{ .Paginator.TotalNumberOfElements }},
             "itemListElement": [
-                {{- $pages := first 10 .Data.Pages }}
-                {{- range $index, $page := $pages }}
+                {{- range $index, $page := .Paginator.Pages }}
                 {
                     "@type": "ListItem",
                     "position": {{ add $index 1 }},
@@ -283,7 +282,7 @@
                         {{- end }}
                         "description": {{ .Params.description | plainify }}
                     }
-                }{{ if ne (sub (len $pages) 1) $index }},{{ end }}
+                }{{ if ne $index (sub $.Paginator.NumberOfElements 1) }},{{ end }}
                 {{- end }}
             ]
         }{{ end }}

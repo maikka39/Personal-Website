@@ -1,14 +1,5 @@
 {{ define "main" }}
 
-{{- $allWriteups := slice }}
-{{- range where (where .Site.Pages "Section" .Section) "IsPage" true }}
-{{- if  $.IsAncestor . }}
-{{- $allWriteups = $allWriteups | append . }}
-{{- end }}
-{{- end }}
-{{- $allWriteups = sort $allWriteups "Date" "desc" }}
-{{ $paginator := .Paginate $allWriteups }}
-
 <main class="posts">
     <h1>{{ .Title }}</h1>
 
@@ -21,7 +12,7 @@
     {{- end }}
 
     <div class="posts-list masonry">
-        {{ range $paginator.Pages }}
+        {{ range .Paginator.Pages }}
         <div class="post masonry-item">
             <div class="masonry-item-content">
                 <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
