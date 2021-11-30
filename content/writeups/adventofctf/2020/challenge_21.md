@@ -19,6 +19,9 @@ categories = [
     "writeups",
     "hacking",
 ]
+aliases = [
+    "challenge_21"
+]
 +++
 
 - Points: 2100

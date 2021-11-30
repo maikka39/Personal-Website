@@ -5,7 +5,7 @@
     <h1>{{ .Title }}</h1>
 
     {{- if and .Content (not .Paginator.HasPrev) }}
-    <div class="content">{{ .Content }}</div>
+    <div class="content content-list">{{ .Content }}</div>
     {{- end }}
 
     {{- if .Paginator.HasPrev }}

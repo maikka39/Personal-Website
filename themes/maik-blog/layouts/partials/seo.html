@@ -1,195 +1,292 @@
+{{- /*  <!-- Breadcrumbs -->  */}}
+{{- $breadcrumbs := slice }}
+{{- $path := "" }}
+{{- if or (eq .Kind "taxonomy") (or (eq .Kind "term") (eq .Kind "404")) }}
+{{- $path = .RelPermalink }}
+{{- else if .File }}
+{{- $path = string .File }}
+{{- else if .IsHome }}
+{{- $path = "" }}
+{{- else }}
+{{- errorf "Could not find page at url: \"%s\"!" .RelPermalink }}
+{{- end }}
+{{- $path = trim $path "/" }}
+{{- $currentPath := "" }}
+{{- $breadcrumbs = $breadcrumbs | append (dict "name" "Home" "url" $.Site.BaseURL) }}
+{{- range split $path "/" }}
+{{- $currentPath = printf "%s/%s" $currentPath . }}
+{{- $page := $.GetPage $currentPath }}
+{{- if not $.IsHome }}
+{{- if ne . "_index.md" }}
+{{- if eq $.Kind "404" }}
+{{- $breadcrumbs = $breadcrumbs | append (dict "name" "Not Found" "url" (printf "%s%s" $.Site.BaseURL (strings.TrimLeft "/" $currentPath))) }}
+{{- else }}
+{{- $title := $page.Title }}
+{{- if eq $page $ }}
+{{- $breadcrumbs = $breadcrumbs | append (dict "name" $title "url" $page.Permalink) }}
+{{- else }}
+{{- $breadcrumbs = $breadcrumbs | append (dict "name" $title "url" $page.Permalink)}}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
 
-{{- if .IsHome }}
 <script type="application/ld+json">
 {
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "inLanguage": "{{ .Site.LanguageCode }}",
-    {{- $img := resources.Get .Site.Params.portrait.path }}
-    {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
-    "thumbnailUrl": "{{ $img.Permalink }}",
-    "image": [
+    "@context": "https://schema.org",
+    "@graph": [
         {
-            "@type": "ImageObject",
-            "url": "{{ $img.Permalink }}",
-            "width": {{ $img.Width }},
-            "height": {{ $img.Height }}
-        }
-    ],
-    "genre": "{{ .Site.Params.genre }}",
-    "keywords": "{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}{{ with .Title }}, {{ delimit (split . " ") ", " }}{{ end }}{{ with .Params.Subtitle }}, {{ delimit (split . " ") ", " }}{{ end }}",
-    "url": "{{ .Permalink }}",
-    {{- with .Site.Copyright }}
-    "license": {{ . | safeHTML }},
-    {{- end }}
-    {{- if .Site.Author.name }}
-    {{- range slice "publisher" "author" }}
-    {{ . }}: {
-        "@type": "Person",
-        "name": {{ $.Site.Author.name | safeHTML }},
-        {{- with $.Site.Author.email }}
-        "email": {{ . | safeHTML }},
-        {{- end }}
-        {{- with $.Site.Author.image }}
-        {{- $img := resources.Get . }}
-        {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
-        "image": {
-            "@type": "ImageObject",
-            "url": "{{ $img.Permalink }}",
-            "width": {{ $img.Width }},
-            "height": {{ $img.Height }}
+            "@type": "Person",
+            "@id": "{{ $.Site.BaseURL }}#website_founder",
+            "name": {{ $.Site.Author.name | safeHTML }},
+            {{- with $.Site.Author.email }}
+            "email": {{ . | safeHTML }},
+            {{- end }}
+            {{- with $.Site.Author.image }}
+            {{- $img := resources.Get . }}
+            {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
+            "image": {
+                "@type": "ImageObject",
+                "url": "{{ $img.Permalink }}",
+                "width": {{ $img.Width }},
+                "height": {{ $img.Height }}
+            },
+            {{- end }}
+            "url": "{{ $.Site.BaseURL }}"
         },
-        {{- end }}
-        "url": "{{ $.Site.BaseURL }}"
-    },
-    {{- end }}
-    {{- end }}
-    "headline": {{ .Site.Title }},
-    "alternativeHeadline": {{ .Site.Params.homeSubtitle }},
-    "description": {{ .Site.Params.description }}
-}
-</script>
-{{- else if .IsPage }}
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "articleSection": "{{ .Type }}",
-    "headline": "{{ .Title | safeHTML }}",
-    {{- with .Params.Subtitle }}
-    "alternativeHeadline": "{{ . }}",
-    {{- end }}
-    "inLanguage": "{{ .Site.LanguageCode }}",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ .Permalink }}"
-    },
-    {{- with .Params.cover}}
-    {{- $img := resources.Get (printf "%s" .) }}
-    {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
-    "thumbnailUrl": "{{ $img.Permalink }}",
-    "image": [
         {
-            "@type": "ImageObject",
-            "url": "{{ $img.Permalink }}",
-            "width": {{ $img.Width }},
-            "height": {{ $img.Height }}
-        }
-    ],
-    {{- end }}
-    "genre": "{{ .Type }}",
-    "keywords": "{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}{{ with .Title }}, {{ delimit (split . " ") ", " }}{{ end }}{{ with .Params.Subtitle }}, {{ delimit (split . " ") ", " }}{{ end }}",
-    "wordcount": {{ .WordCount }},
-    "url": "{{ .Permalink }}",
-    "datePublished": {{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }},
-    {{- if .GitInfo }}
-    "dateModified": {{ dateFormat "2006-01-02T15:04:05-07:00" .GitInfo.AuthorDate.Local | safeHTML }},
-    {{- end }}
-    {{- with .Site.Copyright }}
-    "license": {{ . | safeHTML }},
-    {{- end }}
-    {{- if .Site.Author.name }}
-    {{- range slice "publisher" "author" }}
-    {{ . }}: {
-        "@type": "Person",
-        "name": {{ $.Site.Author.name | safeHTML }},
-        {{- with $.Site.Author.email }}
-        "email": {{ . | safeHTML }},
-        {{- end }}
-        {{- with $.Site.Author.image }}
-        {{- $img := resources.Get . }}
-        {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
-        "image": {
-            "@type": "ImageObject",
-            "url": "{{ $img.Permalink }}",
-            "width": {{ $img.Width }},
-            "height": {{ $img.Height }}
-        },
-        {{- end }}
-        "url": "{{ $.Site.BaseURL }}"
-    },
-    {{- end }}
-    {{- end }}
-    "description": {{ .Params.description | plainify }}
-}
-</script>
-{{- else if .IsSection }}
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "ItemList",
-    "itemListOrder": "https://schema.org/ItemListOrderDescending",
-    "name": "{{ .Title }}",
-    "numberOfItems": {{ len .Data.Pages }},
-    "itemListElement": [
-        {{- $pages := first 10 .Data.Pages }}
-        {{- range $index, $page := $pages }}
-        {
-            "@type": "ListItem",
-            "position": {{ add $index 1 }},
-            "item": {
-                "@type": "BlogPosting",
-                "articleSection": "{{ .Type }}",
-                "headline": "{{ .Title | safeHTML }}",
-                {{- with .Params.Subtitle }}
-                "alternativeHeadline": "{{ . }}",
+            "@type": "Organization",
+            "name": {{ $.Site.Author.name | safeHTML }},
+            "slogan": {{$.Site.Params.HomeSubtitle | safeHTML }},
+            {{- with $socials := .Site.Params.social }}
+            "sameAs": [
+                {{- range $index, $social := $socials }}
+                "{{ $social.url }}"{{ if ne $index (sub (len $socials) 1) }},{{ end }}
                 {{- end }}
-                "inLanguage": "{{ .Site.LanguageCode }}",
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "{{ .Permalink }}"
-                },
-                {{- with .Params.cover}}
-                {{- $img := resources.Get (printf "%s" .) }}
+            ],
+            {{- end }}
+            {{- with $.Site.Author.email }}
+            "email": {{ . | safeHTML }},
+            {{- end }}
+            {{- with $.Site.Author.image }}
+            {{- $img := resources.Get . }}
+            {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ $img.Permalink }}",
+                "width": {{ $img.Width }},
+                "height": {{ $img.Height }}
+            },
+            "image": {
+                "@type": "ImageObject",
+                "url": "{{ $img.Permalink }}",
+                "width": {{ $img.Width }},
+                "height": {{ $img.Height }}
+            },
+            {{- end }}
+            "url": "{{ $.Site.BaseURL }}",
+            "founder": { "@id": "{{ $.Site.BaseURL }}#website_founder" }
+        },
+        {
+            "@type": "WebSite",
+            "inLanguage": "{{ .Site.LanguageCode }}",
+            {{- $img := resources.Get .Site.Params.portrait.path }}
+            {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
+            "thumbnailUrl": "{{ $img.Permalink }}",
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "{{ $img.Permalink }}",
+                    "width": {{ $img.Width }},
+                    "height": {{ $img.Height }}
+                }
+            ],
+            "genre": "{{ .Site.Params.genre }}",
+            "keywords": "{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}{{ with .Title }}, {{ delimit (split . " ") ", " }}{{ end }}{{ with .Params.Subtitle }}, {{ delimit (split . " ") ", " }}{{ end }}",
+            "url": "{{ .Site.BaseURL }}",
+            {{- with .Site.Copyright }}
+            "license": {{ . | safeHTML }},
+            {{- end }}
+            {{- if .Site.Author.name }}
+            {{- range slice "publisher" "author" }}
+            {{ . }}: {
+                "@type": "Person",
+                "name": {{ $.Site.Author.name | safeHTML }},
+                {{- with $.Site.Author.email }}
+                "email": {{ . | safeHTML }},
+                {{- end }}
+                {{- with $.Site.Author.image }}
+                {{- $img := resources.Get . }}
                 {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
-                "thumbnailUrl": "{{ $img.Permalink }}",
-                "image": [
-                    {
-                        "@type": "ImageObject",
-                        "url": "{{ $img.Permalink }}",
-                        "width": {{ $img.Width }},
-                        "height": {{ $img.Height }}
-                    }
-                ],
-                {{- end }}
-                "genre": "{{ .Type }}",
-                "keywords": "{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}{{ with .Title }}, {{ delimit (split . " ") ", " }}{{ end }}{{ with .Params.Subtitle }}, {{ delimit (split . " ") ", " }}{{ end }}",
-                "wordcount": {{ .WordCount }},
-                "url": "{{ .Permalink }}",
-                "datePublished": {{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }},
-                {{- if .GitInfo }}
-                "dateModified": {{ dateFormat "2006-01-02T15:04:05-07:00" .GitInfo.AuthorDate.Local | safeHTML }},
-                {{- end }}
-                {{- with .Site.Copyright }}
-                "license": {{ . | safeHTML }},
-                {{- end }}
-                {{- if .Site.Author.name }}
-                {{- range slice "publisher" "author" }}
-                {{ . }}: {
-                    "@type": "Person",
-                    "name": {{ $.Site.Author.name | safeHTML }},
-                    {{- with $.Site.Author.email }}
-                    "email": {{ . | safeHTML }},
-                    {{- end }}
-                    {{- with $.Site.Author.image }}
-                    {{- $img := resources.Get . }}
-                    {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
-                    "image": {
-                        "@type": "ImageObject",
-                        "url": "{{ $img.Permalink }}",
-                        "width": {{ $img.Width }},
-                        "height": {{ $img.Height }}
-                    },
-                    {{- end }}
-                    "url": "{{ $.Site.BaseURL }}"
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "{{ $img.Permalink }}",
+                    "width": {{ $img.Width }},
+                    "height": {{ $img.Height }}
                 },
                 {{- end }}
+                "url": "{{ $.Site.BaseURL }}"
+            },
+            {{- end }}
+            {{- end }}
+            "headline": {{ .Site.Title }},
+            "alternativeHeadline": {{ .Site.Params.homeSubtitle }},
+            "description": {{ .Site.Params.description }}
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {{- range $index, $breadcrumb := $breadcrumbs }}
+                {
+                    "@type": "ListItem",
+                    "position": {{ add $index 1 }},
+                    "item": {
+                        "@id": "{{ $breadcrumb.url }}",
+                        "url": "{{ $breadcrumb.url }}",
+                        "name": "{{ $breadcrumb.name }}"
+                    }
+                }{{ if ne $index (sub (len $breadcrumbs) 1) }},{{ end }}
                 {{- end }}
-                "description": {{ .Params.description | plainify }}
-            }
-        }{{ if ne (sub (len $pages) 1) $index }},{{ end }}
-        {{- end }}
+            ]
+        }{{ if .IsPage }},
+        {
+            "@context": "http://schema.org",
+            "@type": "BlogPosting",
+            "articleSection": "{{ .Type }}",
+            "headline": "{{ .Title | safeHTML }}",
+            {{- with .Params.Subtitle }}
+            "alternativeHeadline": "{{ . }}",
+            {{- end }}
+            "inLanguage": "{{ .Site.LanguageCode }}",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ .Permalink }}"
+            },
+            {{- with .Params.cover}}
+            {{- $img := resources.Get (printf "%s" .) }}
+            {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
+            "thumbnailUrl": "{{ $img.Permalink }}",
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "{{ $img.Permalink }}",
+                    "width": {{ $img.Width }},
+                    "height": {{ $img.Height }}
+                }
+            ],
+            {{- end }}
+            "genre": "{{ .Type }}",
+            "keywords": "{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}{{ with .Title }}, {{ delimit (split . " ") ", " }}{{ end }}{{ with .Params.Subtitle }}, {{ delimit (split . " ") ", " }}{{ end }}",
+            "wordcount": {{ .WordCount }},
+            "url": "{{ .Permalink }}",
+            "datePublished": {{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }},
+            {{- if .GitInfo }}
+            "dateModified": {{ dateFormat "2006-01-02T15:04:05-07:00" .GitInfo.AuthorDate.Local | safeHTML }},
+            {{- end }}
+            {{- with .Site.Copyright }}
+            "license": {{ . | safeHTML }},
+            {{- end }}
+            {{- if .Site.Author.name }}
+            {{- range slice "publisher" "author" }}
+            {{ . }}: {
+                "@type": "Person",
+                "name": {{ $.Site.Author.name | safeHTML }},
+                {{- with $.Site.Author.email }}
+                "email": {{ . | safeHTML }},
+                {{- end }}
+                {{- with $.Site.Author.image }}
+                {{- $img := resources.Get . }}
+                {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "{{ $img.Permalink }}",
+                    "width": {{ $img.Width }},
+                    "height": {{ $img.Height }}
+                },
+                {{- end }}
+                "url": "{{ $.Site.BaseURL }}"
+            },
+            {{- end }}
+            {{- end }}
+            "description": {{ .Params.description | plainify }}
+        }{{ end }}{{ if .IsSection }},
+        {
+            "@context": "http://schema.org",
+            "@type": "ItemList",
+            "itemListOrder": "https://schema.org/ItemListOrderDescending",
+            "name": "{{ .Title }}",
+            "numberOfItems": {{ len .Data.Pages }},
+            "itemListElement": [
+                {{- $pages := first 10 .Data.Pages }}
+                {{- range $index, $page := $pages }}
+                {
+                    "@type": "ListItem",
+                    "position": {{ add $index 1 }},
+                    "item": {
+                        "@type": "BlogPosting",
+                        "articleSection": "{{ .Type }}",
+                        "headline": "{{ .Title | safeHTML }}",
+                        {{- with .Params.Subtitle }}
+                        "alternativeHeadline": "{{ . }}",
+                        {{- end }}
+                        "inLanguage": "{{ .Site.LanguageCode }}",
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": "{{ .Permalink }}"
+                        },
+                        {{- with .Params.cover}}
+                        {{- $img := resources.Get (printf "%s" .) }}
+                        {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
+                        "thumbnailUrl": "{{ $img.Permalink }}",
+                        "image": [
+                            {
+                                "@type": "ImageObject",
+                                "url": "{{ $img.Permalink }}",
+                                "width": {{ $img.Width }},
+                                "height": {{ $img.Height }}
+                            }
+                        ],
+                        {{- end }}
+                        "genre": "{{ .Type }}",
+                        "keywords": "{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}{{ with .Title }}, {{ delimit (split . " ") ", " }}{{ end }}{{ with .Params.Subtitle }}, {{ delimit (split . " ") ", " }}{{ end }}",
+                        "wordcount": {{ .WordCount }},
+                        "url": "{{ .Permalink }}",
+                        "datePublished": {{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }},
+                        {{- if .GitInfo }}
+                        "dateModified": {{ dateFormat "2006-01-02T15:04:05-07:00" .GitInfo.AuthorDate.Local | safeHTML }},
+                        {{- end }}
+                        {{- with .Site.Copyright }}
+                        "license": {{ . | safeHTML }},
+                        {{- end }}
+                        {{- if .Site.Author.name }}
+                        {{- range slice "publisher" "author" }}
+                        {{ . }}: {
+                            "@type": "Person",
+                            "name": {{ $.Site.Author.name | safeHTML }},
+                            {{- with $.Site.Author.email }}
+                            "email": {{ . | safeHTML }},
+                            {{- end }}
+                            {{- with $.Site.Author.image }}
+                            {{- $img := resources.Get . }}
+                            {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
+                            "image": {
+                                "@type": "ImageObject",
+                                "url": "{{ $img.Permalink }}",
+                                "width": {{ $img.Width }},
+                                "height": {{ $img.Height }}
+                            },
+                            {{- end }}
+                            "url": "{{ $.Site.BaseURL }}"
+                        },
+                        {{- end }}
+                        {{- end }}
+                        "description": {{ .Params.description | plainify }}
+                    }
+                }{{ if ne (sub (len $pages) 1) $index }},{{ end }}
+                {{- end }}
+            ]
+        }{{ end }}
     ]
 }
 </script>
-{{- end }}

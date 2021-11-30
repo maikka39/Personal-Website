@@ -15,6 +15,9 @@ categories = [
     "ctf",
     "hacking",
 ]
+aliases = [
+    "intro"
+]
 +++
 
 So, I'm in this Discord server and somebody by the name [@credmp](https://twitter.com/credmp) thought it'd be a great idea to do an advent calendar of CTF challenges. Every day of december, up until christmas, a new challenge will open up. It starts out easy, accessible to anyone and will grow in complexity as time progresses.

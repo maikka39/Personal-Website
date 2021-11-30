@@ -1,11 +1,19 @@
 {{ define "main" }}
-{{ $paginator := .Paginate .Data.Pages }}
+
+{{- $allWriteups := slice }}
+{{- range where (where .Site.Pages "Section" .Section) "IsPage" true }}
+{{- if  $.IsAncestor . }}
+{{- $allWriteups = $allWriteups | append . }}
+{{- end }}
+{{- end }}
+{{- $allWriteups = sort $allWriteups "Date" "desc" }}
+{{ $paginator := .Paginate $allWriteups }}
 
 <main class="posts">
     <h1>{{ .Title }}</h1>
 
     {{- if and .Content (not .Paginator.HasPrev) }}
-    <div class="content">{{ .Content }}</div>
+    <div class="content content-list">{{ .Content }}</div>
     {{- end }}
 
     {{- if .Paginator.HasPrev }}

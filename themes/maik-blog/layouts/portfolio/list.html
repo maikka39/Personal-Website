@@ -4,7 +4,7 @@
     <h1>Portfolio</h1>
 
     {{- if and .Content (not .Paginator.HasPrev) }}
-    <div class="content">{{ .Content }}</div>
+    <div class="content content-list">{{ .Content }}</div>
     {{- end }}
 
     <div class="portfolios-list">
