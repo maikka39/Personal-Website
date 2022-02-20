@@ -10,7 +10,6 @@ tags = [
     "zorin os",
     "kali linux",
     "Pop!_OS",
-    "Pop!_OS",
     "manjaro",
     "arch",
 ]
