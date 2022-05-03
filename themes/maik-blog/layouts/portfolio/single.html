@@ -41,6 +41,17 @@
     <div class="portfolio-content">
       {{ .Content }}
     </div>
+
+    <div>
+      {{- with .Params.skills }}
+      <h2 class="portfolio-skills-title">Skills used:</h2>
+      <ul class="portfolio-skills">
+        {{- range . }}
+        <li class="portfolio-skill">{{ . }}</li>
+        {{- end }}
+      </ul>
+      {{- end}}
+    </div>
   </article>
 
   <hr />
@@ -56,7 +67,7 @@
       </svg>
 
       {{- range . -}}
-      <span class="tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}/">{{.}}</a></span>
+      <span class="tag"><a href="{{ " tags/" | absLangURL }}{{ . | urlize }}/">{{.}}</a></span>
       {{- end }}
     </p>
     {{- end }}
@@ -84,8 +95,8 @@
         <line x1="17.01" y1="12" x2="22.96" y2="12"></line>
       </svg>
 
-      <a href="{{ .Site.Params.gitUrl -}}{{ .GitInfo.Hash }}" target="_blank"
-        rel="noopener">{{ .GitInfo.AbbreviatedHash }}</a>
+      <a href="{{ .Site.Params.gitUrl -}}{{ .GitInfo.Hash }}" target="_blank" rel="noopener">{{ .GitInfo.AbbreviatedHash
+        }}</a>
       {{- " @ " -}}
       {{- if .Site.Params.dateformNum -}}
       {{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}
