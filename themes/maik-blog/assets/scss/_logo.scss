@@ -5,6 +5,7 @@
   font-weight: bold;
   font-display: auto;
   font-family: monospace, monospace;
+  white-space: pre;
 
   img {
     height: 44px;
@@ -12,6 +13,7 @@
 
   &__mark {
     margin-right: 5px;
+    white-space: nowrap;
   }
 
   &__text {

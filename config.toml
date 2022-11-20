@@ -101,10 +101,6 @@ googleAnalytics = "UA-136337666-1"
     msapplication = "#252627"
     theme = "#252627"
 
-  [params.logo]
-    logoText     = "$ cd /home/"
-    logoHomeLink = "/"
-
   # Uncomment this if you want a portrait on your start page
   [params.portrait]
     path     = "/img/home/portrait.png"

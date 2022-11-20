@@ -1,13 +1,56 @@
-<a
-    href="{{ if .Site.Params.Logo.LogoHomeLink }}{{ .Site.Params.Logo.LogoHomeLink }}{{else}}{{ .Site.BaseURL }}{{ end }}">
-    <div class="logo">
-        {{- if .Site.Params.Logo.path }}
+{{- /*
+<!-- paths --> */}}
+{{- $paths := slice }}
+{{- $path := "" }}
+{{- if or (eq .Kind "taxonomy") (or (eq .Kind "term") (eq .Kind "404")) }}
+{{- $path = .RelPermalink }}
+{{- else if .File }}
+{{- $path = string .File }}
+{{- else if .IsHome }}
+{{- $path = "" }}
+{{- else }}
+{{- errorf "Could not find page at url: \"%s\"!" .RelPermalink }}
+{{- end }}
+{{- $path = trim $path "/" }}
+{{- $currentPath := "" }}
+{{- $paths = $paths | append (dict "name" "~" "url" $.Site.BaseURL) }}
+{{- range split $path "/" }}
+{{- $currentPath = printf "%s/%s" $currentPath . }}
+{{- $page := $.GetPage $currentPath }}
+{{- if not $.IsHome }}
+{{- if ne . "_index.md" }}
+{{- if eq $.Kind "404" }}
+{{- $paths = $paths | append (dict "name" "not-found" "url" (printf "%s%s" $.Site.BaseURL (strings.TrimLeft
+"/" $currentPath))) }}
+{{- else }}
+{{/* {{- $title := $page.Title }} */}}
+{{- $title := delimit (split $page.Permalink "/" | last 2 | first 1) ""}}
+{{- $paths = $paths | append (dict "name" ($title) "url" $page.Permalink)}}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{- $zshPaths := slice }}
+
+{{- range $index, $path := $paths }}
+{{- if ne (index $paths (sub (len $paths) 1)) $path}}
+{{- $zshPaths = $zshPaths | append (dict "name" (printf "%s/" ($path.name | first 1)) "url" $path.url) }}
+{{- else }}
+{{- $zshPaths = $zshPaths | append (dict "name" ($path.name) "url" $path.url) }}
+{{- end }}
+{{- end }}
+
+<div class="logo">
+    {{- if .Site.Params.Logo.path }}
+    <a href="{{ .Site.BaseURL }}">
         {{- partial "image.html" (dict "path" .Site.Params.Logo.path "alt" .Site.Params.Logo.alt) }}
-        {{- else }}
-        <span class="logo__mark">></span>
-        <span class="logo__text">{{- with .Site.Params.Logo.logoText }}{{ . }}{{ else }}$ cd /home/{{ end }}<span
-                id="nav-terminal"></span></span>
-        <span class="logo__cursor"></span>
-        {{- end }}
-    </div>
-</a>
+    </a>
+    {{- else }}
+    <span class="logo__mark">
+        {{- range $index, $path := $zshPaths }}<a href="{{ $path.url }}">{{ $path.name }}</a>{{- end }}>
+    </span>
+    <a class="logo__text" id="terminal-command" href="/">cd <span id="terminal-input"></span></a>
+    <span class="logo__cursor"></span>
+    {{- end }}
+</div>
