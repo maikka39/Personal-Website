@@ -10,25 +10,53 @@ defaults:
     working-directory: ./
 
 jobs:
-  cd:
+  build:
     timeout-minutes: 6
-    name: CD
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
       - name: Setup hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: "latest"
           extended: true
+
       - name: Build
-        run: hugo -D -F
-      - name: Create GitHub deployment
-        uses: chrnorm/deployment-action@releases/v1
-        id: deployment
+        run: hugo --minify
+
+      - name: Upload deployment
+        uses: actions/upload-artifact@v4
         with:
-          token: "${{ github.token }}"
-          target_url: https://maik.dev/
-          environment: production
-          initial_status: "success"
+          name: public-html
+          path: ./public
+
+  deploy:
+    timeout-minutes: 6
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: production
+      url: https://maik.dev/
+    steps:
+      - name: Download deployment
+        uses: actions/download-artifact@v4
+        with:
+          name: public-html
+          path: ./public-html
+
+      - name: Setup SSH config for remote server
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          echo "${{ secrets.SSH_HOST }} ssh-ed25519 ${{ secrets.SSH_HOST_KEY }}" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_ed25519
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_ed25519
+
+      - name: Transfer deployment to remote server
+        run: |
+          rsync -avh --delete-after ./public-html/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/maik.dev
