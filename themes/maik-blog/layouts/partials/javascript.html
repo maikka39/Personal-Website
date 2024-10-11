@@ -5,9 +5,9 @@
 {{- $secureJS := slice $main $menu $theme $nav | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script type="text/javascript" src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
 
-{{- if .Site.GoogleAnalytics }}
+{{- if .Site.Config.Services.GoogleAnalytics.ID }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Config.Services.GoogleAnalytics.ID }}"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -16,7 +16,7 @@
     }
     gtag('js', new Date());
 
-    gtag('config', '{{ .Site.GoogleAnalytics }}');
+    gtag('config', '{{ .Site.Config.Services.GoogleAnalytics.ID }}');
 </script>
 {{- end }}
 

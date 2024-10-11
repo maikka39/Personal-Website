@@ -1,11 +1,7 @@
-baseURL = "https://maik.dev/"
-# baseURL = "http://localhost:1313/"
+baseURL = "http://localhost:1313/"
 title = "Maik de Kruif"
 languageCode = "en-us"
 theme = "maik-blog"
-
-paginate  = 12
-rssLimit  = 10
 
 copyright = "© Maik de Kruif (maik_dev). All rights reserved."
 
@@ -27,30 +23,20 @@ canonifyURLs = true
 enableRobotsTXT = true
 enableGitInfo   = true
 enableEmoji     = true
-enableMissingTranslationPlaceholders = false
-disableRSS     = false
-disableSitemap = false
-disable404     = false
-disableHugoGeneratorInject = false
-
-googleAnalytics = "UA-136337666-1"
 
 [permalinks]
-  posts = "/posts/:title/"
-  writeups = "/:sections/:title/"
-
-[author]
-  name = "Maik de Kruif"
-  email = "maik@maik.dev"
-  twitter = "@maik_dev"
-  image = "/img/home/portrait.png"
-
-[social]
-  twitter = "@maik_dev"
+  [permalinks.page]
+    posts = "/posts/:title/"
+    writeups = "/:sections/:title/"
+    # writeups = "/writeups/:title/"
+    portfolio = "/portfolio/:title/"
 
 [outputs]
   home = ["HTML", "RSS"]
   page = ["HTML", "RSS"]
+
+[pagination]
+  pagerSize  = 12
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -64,6 +50,8 @@ googleAnalytics = "UA-136337666-1"
   images = [""]
 
   genre = "Blog"
+
+  rssLimit  = 15
 
   showReadingTimeInList = false
 
@@ -110,6 +98,15 @@ googleAnalytics = "UA-136337666-1"
     path     = "/img/home/portrait.png"
     alt      = "Portrait"
     size = "175px"
+
+  [params.author]
+    name = "Maik de Kruif"
+    email = "maik@maik.dev"
+    twitter = "@maik_dev"
+    image = "/img/home/portrait.png"
+
+  [params.general]
+    twitter = "@maik_dev"
 
   # Wallets
   [[params.wallets]]
@@ -175,7 +172,6 @@ googleAnalytics = "UA-136337666-1"
 
 [languages]
   [languages.en]
-    subtitle  = "maik.dev"
     weight    = 1
     copyright = "© Maik de Kruif (maik_dev). All rights reserved."
 

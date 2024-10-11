@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ $paginator := (.Paginate .RegularPagesRecursive) }}
 
 <main class="posts">
     <h1>{{ .Title }}</h1>
@@ -12,7 +13,7 @@
     {{- end }}
 
     <div class="posts-list masonry">
-        {{ range .Paginator.Pages }}
+        {{ range $paginator.Pages }}
         <div class="post masonry-item">
             <div class="masonry-item-content">
                 <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>

@@ -3,19 +3,17 @@
         <div class="footer__content">
             <div class="footer__content__section regular">
                 <span>&copy; {{ now.Format "2006" }}</span>
-                {{- if .Site.Author.name }}
-                <span><a href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a></span>
+                {{- if .Site.Params.author.name }}
+                <span><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author.name }}</a></span>
                 {{- end }}
                 {{- if .Site.Copyright }}
                 <span>All rights reserved.</span>
                 {{- end }}
                 <span><a href="/privacy/">Privacy</a></span>
                 <span>
-                    {{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}
                     <a href="{{ "index.xml" | absLangURL }}" target="_blank" title="rss">
                         {{ partial "svg.html" (dict "name" "rss") }}
                     </a>
-                    {{- end }}
                 </span>
             </div>
             <div class="footer__content__section donations">

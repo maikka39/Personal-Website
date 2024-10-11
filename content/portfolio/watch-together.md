@@ -2,7 +2,7 @@
 author = "Maik de Kruif"
 title = "WatchTogether"
 start_date = 2018-08-17
-end_date = 9999-01-01
+end_date = 2021-01-25
 company_name = "Personal"
 company_url = "https://maik.dev"
 cover = "img/portfolio/watch-together/screenshot.png"

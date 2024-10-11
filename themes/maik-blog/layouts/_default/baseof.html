@@ -1,4 +1,3 @@
-{{- $paginator := .Paginate .RegularPagesRecursive }}
 <!DOCTYPE html>
 <html lang="{{ .Site.Language }}">
 
@@ -20,6 +19,8 @@
     </div>
 
     {{ partial "javascript.html" . }}
+    <!-- SEO stuff -->
+    {{ partial "seo.html" . }}
 </body>
 
 </html>

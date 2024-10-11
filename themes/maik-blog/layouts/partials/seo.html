@@ -1,10 +1,9 @@
 {{- /*  <!-- Breadcrumbs -->  */}}
+{{- $visiblePage := .}}
 {{- $breadcrumbs := slice }}
 {{- $path := "" }}
-{{- if or (eq .Kind "taxonomy") (or (eq .Kind "term") (eq .Kind "404")) }}
+{{- if or (eq .Kind "taxonomy") (or (eq .Kind "term") (or (eq .Kind "404") (.File))) }}
 {{- $path = .RelPermalink }}
-{{- else if .File }}
-{{- $path = string .File }}
 {{- else if .IsHome }}
 {{- $path = "" }}
 {{- else }}
@@ -22,10 +21,10 @@
 {{- $breadcrumbs = $breadcrumbs | append (dict "name" "Not Found" "url" (printf "%s%s" $.Site.BaseURL (strings.TrimLeft "/" $currentPath))) }}
 {{- else }}
 {{- $title := $page.Title }}
-{{- if eq $page $ }}
-{{- $breadcrumbs = $breadcrumbs | append (dict "name" $title "url" $page.Permalink) }}
+{{- if eq (trim $currentPath "/") $path }}
+{{- $breadcrumbs = $breadcrumbs | append (dict "name" $visiblePage.Title "url" $visiblePage.Permalink) }}
 {{- else }}
-{{- $breadcrumbs = $breadcrumbs | append (dict "name" $title "url" $page.Permalink)}}
+{{- $breadcrumbs = $breadcrumbs | append (dict "name" $title "url" $page.Permalink) }}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -39,11 +38,11 @@
         {
             "@type": "Person",
             "@id": "{{ $.Site.BaseURL }}#website_founder",
-            "name": {{ $.Site.Author.name | safeHTML }},
-            {{- with $.Site.Author.email }}
+            "name": {{ $.Site.Params.author.name | safeHTML }},
+            {{- with $.Site.Params.author.email }}
             "email": {{ . | safeHTML }},
             {{- end }}
-            {{- with $.Site.Author.image }}
+            {{- with $.Site.Params.author.image }}
             {{- $img := resources.Get . }}
             {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
             "image": {
@@ -57,7 +56,7 @@
         },
         {
             "@type": "Organization",
-            "name": {{ $.Site.Author.name | safeHTML }},
+            "name": {{ $.Site.Params.author.name | safeHTML }},
             "slogan": {{$.Site.Params.HomeSubtitle | safeHTML }},
             {{- with $socials := .Site.Params.social }}
             "sameAs": [
@@ -66,10 +65,10 @@
                 {{- end }}
             ],
             {{- end }}
-            {{- with $.Site.Author.email }}
+            {{- with $.Site.Params.author.email }}
             "email": {{ . | safeHTML }},
             {{- end }}
-            {{- with $.Site.Author.image }}
+            {{- with $.Site.Params.author.image }}
             {{- $img := resources.Get . }}
             {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
             "logo": {
@@ -108,15 +107,15 @@
             {{- with .Site.Copyright }}
             "license": {{ . | safeHTML }},
             {{- end }}
-            {{- if .Site.Author.name }}
+            {{- if .Site.Params.author.name }}
             {{- range slice "publisher" "author" }}
             {{ . }}: {
                 "@type": "Person",
-                "name": {{ $.Site.Author.name | safeHTML }},
-                {{- with $.Site.Author.email }}
+                "name": {{ $.Site.Params.author.name | safeHTML }},
+                {{- with $.Site.Params.author.email }}
                 "email": {{ . | safeHTML }},
                 {{- end }}
-                {{- with $.Site.Author.image }}
+                {{- with $.Site.Params.author.image }}
                 {{- $img := resources.Get . }}
                 {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
                 "image": {
@@ -187,15 +186,15 @@
             {{- with .Site.Copyright }}
             "license": {{ . | safeHTML }},
             {{- end }}
-            {{- if .Site.Author.name }}
+            {{- if .Site.Params.author.name }}
             {{- range slice "publisher" "author" }}
             {{ . }}: {
                 "@type": "Person",
-                "name": {{ $.Site.Author.name | safeHTML }},
-                {{- with $.Site.Author.email }}
+                "name": {{ $.Site.Params.author.name | safeHTML }},
+                {{- with $.Site.Params.author.email }}
                 "email": {{ . | safeHTML }},
                 {{- end }}
-                {{- with $.Site.Author.image }}
+                {{- with $.Site.Params.author.image }}
                 {{- $img := resources.Get . }}
                 {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
                 "image": {
@@ -258,15 +257,15 @@
                         {{- with .Site.Copyright }}
                         "license": {{ . | safeHTML }},
                         {{- end }}
-                        {{- if .Site.Author.name }}
+                        {{- if .Site.Params.author.name }}
                         {{- range slice "publisher" "author" }}
                         {{ . }}: {
                             "@type": "Person",
-                            "name": {{ $.Site.Author.name | safeHTML }},
-                            {{- with $.Site.Author.email }}
+                            "name": {{ $.Site.Params.author.name | safeHTML }},
+                            {{- with $.Site.Params.author.email }}
                             "email": {{ . | safeHTML }},
                             {{- end }}
-                            {{- with $.Site.Author.image }}
+                            {{- with $.Site.Params.author.image }}
                             {{- $img := resources.Get . }}
                             {{- $img = $img.Resize (printf "%dx%d png" $img.Width $img.Height) }}
                             "image": {

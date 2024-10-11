@@ -22,13 +22,7 @@
         {{- with .OutputFormats.Get "RSS" }}
         {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
         {{- end }}
-        {{- $allContent := slice }}
-        {{- range .Site.Sections }}
-        {{- $allContent = union $allContent .RegularPagesRecursive }}
-        {{- end }}
-        {{- $allContent = sort $allContent "Date" "desc" }}
-        {{- $allContent = $allContent | first .Site.Params.rssLimit }}
-        {{- range $allContent }}
+        {{ range .RegularPagesRecursive | first .Site.Params.rssLimit }}
         <item>
             <title>{{ .Title }}{{ with .Params.Subtitle }} // {{ . }}{{ end }}</title>
             <link>{{ .Permalink }}</link>
@@ -46,6 +40,6 @@
             {{- end }}
             <content:encoded type="html">{{ printf `<![CDATA[%s]]>` $content | safeHTML }}</content:encoded>
         </item>
-        {{- end }}
+        {{ end }}
     </channel>
 </rss>
