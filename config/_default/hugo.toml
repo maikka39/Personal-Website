@@ -43,6 +43,7 @@ enableEmoji     = true
   dateformShort   = "Jan 2"
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04 -0700"
+  dateformMonth   = "Jan, 2006"
 
   # Metadata mostly used in document's head
   description = "Hey there, my name is Maik de Kruif, I create websites, bots and other kinds of software. At the moment, I'm still studying computer science at Avans University of Applied Sciences. I am also a big fan of open-source software, which is why you'll find many of my projects on Github. And last but not least, I love playing around with cyber-security related stuff."

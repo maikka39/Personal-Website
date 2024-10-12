@@ -18,21 +18,15 @@
                 <div class="portfolio-meta">
                     {{- if .Params.start_date }}
                     <span class="portfolio-start-date">
-                        {{- if eq (printf "%T" .Params.start_date) "time.Time"}}
-                        {{ .Params.start_date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
-                        {{- else }}
-                        {{ .Params.start_date }}
-                        {{- end }}
+                        {{- $dateFormat := default "Jan, 2006" .Site.Params.dateformMonth }}
+                        {{ dateFormat $dateFormat .Params.start_date }}
                     </span>
+                    —
                     <span class="portfolio-end-date">
-                        {{- if eq (printf "%T" .Params.end_date) "time.Time"}}
-                        {{- if lt .Params.end_date now }}
-                        {{ .Params.end_date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                        {{- if and .Params.end_date (lt .Params.end_date now) }}
+                        {{ dateFormat $dateFormat .Params.end_date }}
                         {{- else }}
-                        Present
-                        {{- end }}
-                        {{- else }}
-                        {{ .Params.end_date }}
+                        {{ i18n "post.present" }}
                         {{- end }}
                     </span>
                     {{- end }}
@@ -60,7 +54,7 @@
                     {{- end }}
                 </div>
                 {{- with .Params.skills }}
-                <h3 class="portfolio-skills-title">Skills used:</h3>
+                <h3 class="portfolio-skills-title">Skills developed:</h3>
                 <ul class="portfolio-skills">
                     {{- range . }}
                     <li class="portfolio-skill">{{ . }}</li>

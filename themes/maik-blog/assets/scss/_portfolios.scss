@@ -72,19 +72,16 @@
     }
 
     &-company {
-      font-size: 1rem;
+      font-size: .9rem;
       margin: 5px 0 5px 0;
     }
 
-    &-year {
-      padding-top: 6px;
-      margin-right: 1.8em;
-      font-size: 1.6em;
-      @include dimmed;
+    &-meta {
+      font-size: .8em;
+    }
 
-      @media #{$media-size-tablet} {
-        margin: -6px 0 4px;
-      }
+    &-content {
+      margin-top: 12px;
     }
 
     &-item {

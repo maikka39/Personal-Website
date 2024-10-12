@@ -38,3 +38,4 @@ other = "{{ .Count }} Words"
 [post]
 pageViews = "Views"
 unknownViews = "Unknown"
+present = "Present"

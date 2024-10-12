@@ -9,6 +9,7 @@ cover = "img/portfolio/learn-to-program/screenshot.png"
 description = "This website was created for a school assignment. It was created with HTML and CSS only and no frameworks were used."
 skills = [
     "Pure HTML and CSS",
+    "Web design",
 ]
 +++
 

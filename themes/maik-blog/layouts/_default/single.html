@@ -28,6 +28,10 @@
     <p class="post-subtitle">{{ . | markdownify }}</p>
     {{- end }}
 
+    {{- if .Params.Cover }}
+    {{- partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify) "class" "post-cover") }}
+    {{- end }}
+
     {{- if .Params.toc }}
     <hr />
     <aside id="toc">
@@ -35,10 +39,6 @@
       {{ .TableOfContents }}
     </aside>
     <hr />
-    {{- end }}
-
-    {{- if .Params.Cover }}
-    {{- partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify) "class" "post-cover") }}
     {{- end }}
 
     <div class="post-content">

@@ -25,17 +25,32 @@
       <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
     </h1>
 
-    {{- if .Params.toc }}
-    <hr />
-    <aside id="toc">
-      <div class="toc-title">{{ i18n "tableOfContents" }}</div>
-      {{ .TableOfContents }}
-    </aside>
-    <hr />
-    {{- end }}
+    <p class="portfolio-timespan">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-calendar">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      {{- if .Params.start_date }}
+      {{- $dateFormat := default "Jan, 2006" .Site.Params.dateformMonth }}
+      {{ dateFormat $dateFormat .Params.start_date }} — {{ if and .Params.end_date (lt .Params.end_date now) }}{{ dateFormat $dateFormat .Params.end_date }}{{ else }}{{ i18n "post.present" }}{{ end }}
+      {{- end }}
+    </p>
 
     {{- if .Params.Cover }}
     {{- partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify) "class" "portfolio-cover") }}
+    {{- end }}
+
+    {{- if .Params.toc }}
+    <hr />
+    <aside id="toc">
+      <h2>{{ i18n "tableOfContents" }}</h2>
+      {{ .TableOfContents }}
+    </aside>
+    <hr />
     {{- end }}
 
     <div class="portfolio-content">
@@ -44,7 +59,7 @@
 
     <div>
       {{- with .Params.skills }}
-      <h2 class="portfolio-skills-title">Skills used:</h2>
+      <h2 class="portfolio-skills-title">Skills developed:</h2>
       <ul class="portfolio-skills">
         {{- range . }}
         <li class="portfolio-skill">{{ . }}</li>
@@ -84,6 +99,20 @@
       </svg>
       {{ i18n "wordCount" .Page.WordCount }}
     </p>
+
+    {{- if and (default true .Params.showPageViews) (default true .Site.Params.showPageViews) }}
+    {{- if .Site.Params.goatCounter }}
+    <p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-activity">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+        {{- partial "page_views.html" . -}}
+      </p>
+    {{- end }}
+    {{- end }}
 
     {{- if .GitInfo }}
     <p>

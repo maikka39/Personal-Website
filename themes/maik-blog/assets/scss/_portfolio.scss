@@ -13,12 +13,6 @@
     max-width: 600px;
   }
 
-  &-start-date {
-    &:after {
-      content: "—";
-    }
-  }
-
   &-title {
     font-size: 2.625rem;
     margin: 0 0 20px;
@@ -30,6 +24,11 @@
     a {
       text-decoration: none;
     }
+  }
+
+  &-timespan {
+    margin-top: -20px;
+    font-size: 0.9em;
   }
 
   &-tags {
