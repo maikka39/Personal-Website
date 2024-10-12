@@ -34,3 +34,7 @@ other = "Table of Contents"
 [wordCount]
 one   = "One Word"
 other = "{{ .Count }} Words"
+
+[post]
+pageViews = "Views"
+unknownViews = "Unknown"

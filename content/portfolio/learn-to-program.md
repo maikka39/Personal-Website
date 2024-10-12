@@ -15,3 +15,5 @@ skills = [
 This website was created for a school assignment. It was created with HTML and CSS only and no frameworks were used.
 
 [Github](https://github.com/maikka39/Learn-to-Program)
+
+[Live](https://maikka39.github.io/Learn-to-Program/)

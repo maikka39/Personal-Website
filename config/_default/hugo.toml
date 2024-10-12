@@ -60,6 +60,12 @@ enableEmoji     = true
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   gitUrl = "https://github.com/maikka39/Personal-Website/commit/"
 
+  # Add domain for GoatCounter to enable
+  goatCounter = "webstats.maik.dev"
+
+  # Show pageviews on posts, writeups, etc.
+  showPageViews = true
+
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
 

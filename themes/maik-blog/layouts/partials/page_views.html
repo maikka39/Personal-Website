@@ -1,0 +1,16 @@
+{{- if .Site.Params.goatCounter }}
+<span id="{{ .File.UniqueID }}" title="{{ i18n "post.pageViews" }}">{{ i18n "post.unknownViews" }}</span>
+<script async>
+    let url =
+        "https://{{ .Site.Params.goatCounter }}/counter/" +
+        encodeURIComponent({{ .RelPermalink }}.replace(/(\/)?$/, "")) +
+        ".json";
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => data.count)
+        .then(count => {
+            document.getElementById("{{ .File.UniqueID }}").innerText = count + " " + {{ i18n "post.pageViews" }};
+        });
+</script>
+{{- end}}

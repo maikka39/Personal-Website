@@ -8,7 +8,7 @@
 {{- if .Site.Config.Services.GoogleAnalytics.ID }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Config.Services.GoogleAnalytics.ID }}"></script>
-<script>
+<script async>
     window.dataLayer = window.dataLayer || [];
 
     function gtag() {
@@ -25,3 +25,9 @@
 <script src="{{ $val }}"></script>
 {{- end }}
 {{- end }}
+
+{{- if .Site.Params.goatCounter }}
+<script data-goatcounter="https://{{ .Site.Params.goatCounter }}/count"
+        data-goatcounter-settings='{"path": "{{ .RelPermalink }}"}'
+        async src="//gc.zgo.at/count.js"></script>
+{{- end}}
