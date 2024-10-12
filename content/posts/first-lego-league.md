@@ -1,23 +1,22 @@
 +++
 author = "Maik de Kruif"
 title = "FIRST LEGO League"
-start_date = 2014-04-01
-end_date = 2017-02-01
-company_name = "Brainbuddies"
-company_url = "https://www.brainbuddies.nl/"
-cover = "img/portfolio/first-lego-league/cover.jpg"
+date = 2020-01-01T08:00:00+02:00
 description = "Together with the other members of Brainbuddies, I participated twice in the FIRST LEGO League competition. We reached the Benelux finals and received prizes for both our Robot and Core Values presentations."
-skills = [
-    "Teamwork",
-    "Programming",
-    "Robot design",
-    "Presentation skills",
+cover = "img/posts/first-lego-league/cover.jpg"
+tags = [
+    "personal",
+]
+categories = [
+    "personal",
+    "misc",
 ]
 +++
 
+
 Together with the other members of Brainbuddies, I participated twice in the FIRST LEGO League competition. We reached the Benelux finals and received prizes for both our Robot and Core Values presentations.
 
-FIRST LEGO League (FLL) is an international competition for elementary and middle school students. Each year in August FIRST LEGO League introduces a scientific and real-world challenge for teams to focus and research on. The robotics part of the competition involves designing and programming LEGO Mindstorms robots to complete tasks. The students also work out a solution to a problem related to the theme (changes every year) and then meet for regional, national and international tournaments to compete, share their knowledge, compare ideas, and display their robots.
+[FIRST LEGO League (FLL)](https://en.wikipedia.org/wiki/FIRST_Lego_League_Challenge) is an international competition for elementary and middle school students. Each year in August FIRST LEGO League introduces a scientific and real-world challenge for teams to focus and research on. The robotics part of the competition involves designing and programming LEGO Mindstorms robots to complete tasks. The students also work out a solution to a problem related to the theme (changes every year) and then meet for regional, national and international tournaments to compete, share their knowledge, compare ideas, and display their robots.
 
 ## The beginning
 
@@ -35,7 +34,7 @@ As a team we went to work on an old track from a previous edition first. This wa
 
 Since we were young and had plenty of other things to distract us, we took our time, and worked on the robot on and off for a few years. As we were perfecting the previous track, the new theme was announced: Hydrodynamics. The track that came with it was on a completely different level. It took us quite some time to adapt.
 
-{{< figure class="small" src="/img/portfolio/first-lego-league/robot.jpg" title="Our robot around 2016" >}}
+{{< figure class="small" src="/img/posts/first-lego-league/robot.jpg" title="Our robot around 2016" >}}
 
 ## Regionals
 
@@ -63,7 +62,7 @@ Finally we showed our robot. We explained how we came up with the robot, how we 
 
 Finally the most exciting moment came, the award ceremony. We were not called forward for the 'smaller' prizes for the separate components, which we thought was a bit strange having received very good feedback from the juries. But in the end we turned out to have won the main prize!!! This meant that we could go straight to the Benelux finals. A moment never to forget.
 
-{{< figure class="small" src="/img/portfolio/first-lego-league/nationals-invitation.jpg" title="Invitation to the Benelux finals" >}}
+{{< figure class="small" src="/img/posts/first-lego-league/nationals-invitation.jpg" title="Invitation to the Benelux finals" >}}
 
 _Note: Benelux is an intergovernmental union of Belgium, the Netherlands, and Luxembourg._
 
