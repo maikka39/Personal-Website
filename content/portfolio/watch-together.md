@@ -15,10 +15,16 @@ skills = [
     "Real time synchronization",
     "REST API",
 ]
+
+[source_code]
+frontend = "https://github.com/maikka39/WatchTogether"
+backend = "https://github.com/maikka39/WatchTogether-Server"
 +++
 
 WatchTogether is an online service that lets you watch a video together with your friends without being in the same room!
 
-[Github](https://github.com/maikka39/WatchTogether)
+WatchTogether is an online service that synchronizes video playback across users' web browsers, allowing friends to enjoy videos together virtually. This project challenged me to build both the front-end and back-end. I utilized React to create a user-friendly interface and Node.js with Socket.IO in the back-end to handle the real-time communication and video synchronization.
 
-[Github (backend)](https://github.com/maikka39/WatchTogether-Server)
+However, I quickly realized that synchronizing anything between clients on terrible network connections is a real challenge. This project pushed me to find solutions to ensure a smooth viewing experience, even on potato internet connections.
+
+WatchTogether not only provided a fun solution for remote movie nights, but also deepened my knowledge of front-end frameworks like React and back-end technologies like Node.js and Socket.IO.

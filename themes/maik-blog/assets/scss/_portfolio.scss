@@ -45,6 +45,31 @@
   &-content {
     margin-top: 30px;
   }
+  
+  &-links {
+    font-size: 0.8em;
+    margin-top: -8px;
+    opacity: 0.7;
+
+    a {
+      text-decoration: none;
+    }
+
+    > * {
+      margin-right: 8px;
+    }
+
+    // display: flex;
+    // flex-direction: row;
+    // align-items: center;
+    // font-size: 0.9em;
+    // gap: 10px;
+
+
+    // > * {
+    //   margin: 0;
+    // }
+  }
 
   &-cover {
     border-radius: 8px;
@@ -87,13 +112,6 @@
       &::before {
         content: "#";
       }
-    }
-
-    .feather {
-      display: inline-block;
-      vertical-align: -0.125em;
-      width: 1em;
-      height: 1em;
     }
   }
 

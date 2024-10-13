@@ -54,7 +54,7 @@
                     {{- end }}
                 </div>
                 {{- with .Params.skills }}
-                <h3 class="portfolio-skills-title">Skills developed:</h3>
+                <h3 class="portfolio-skills-title">{{ i18n "portfolio.skillsDeveloped"}}:</h3>
                 <ul class="portfolio-skills">
                     {{- range . }}
                     <li class="portfolio-skill">{{ . }}</li>

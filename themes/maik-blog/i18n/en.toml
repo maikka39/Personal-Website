@@ -39,3 +39,9 @@ other = "{{ .Count }} Words"
 pageViews = "Views"
 unknownViews = "Unknown"
 present = "Present"
+
+[portfolio]
+skillsDeveloped = "Skills developed"
+viewSource = "View source"
+viewSourceKind = "View {{ . }} source"
+liveDemo = "Live demo"
