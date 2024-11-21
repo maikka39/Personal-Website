@@ -225,7 +225,7 @@ figure {
     justify-content: center;
     flex-direction: column;
     background-color: #212020ec;
-    z-index: 100;
+    z-index: 10000;
 
     figcaption {
       color: #ddd3c6;
@@ -459,4 +459,8 @@ table {
   vertical-align: -0.125em;
   width: 1em;
   height: 1em;
+}
+
+.nostyle {
+  text-decoration: none;
 }

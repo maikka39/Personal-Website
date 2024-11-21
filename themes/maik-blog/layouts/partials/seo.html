@@ -21,6 +21,9 @@
 {{- $breadcrumbs = $breadcrumbs | append (dict "name" "Not Found" "url" (printf "%s%s" $.Site.BaseURL (strings.TrimLeft "/" $currentPath))) }}
 {{- else }}
 {{- $title := $page.Title }}
+{{- with $page.Params.breadcrumb }}
+{{- $title = . }}
+{{- end }}
 {{- if eq (trim $currentPath "/") $path }}
 {{- $breadcrumbs = $breadcrumbs | append (dict "name" $visiblePage.Title "url" $visiblePage.Permalink) }}
 {{- else }}

@@ -2,6 +2,8 @@
 {{ $paginator := .Paginate .Data.Pages }}
 
 <main class="posts">
+    <p class="posts-breadcrumbs">{{ partial "breadcrumbs.html" (dict "page" . "end" ">" "min" 1) }}</p>
+
     <h1>{{ .Title }}</h1>
 
     {{- if and .Content (not .Paginator.HasPrev) }}
@@ -43,6 +45,7 @@
             {{- end }}
 
             {{- if .Params.Cover }}
+            <a href="{{ .Permalink }}" class="nostyle">
             <figure class="post-cover">
                 {{- partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify)) }}
 
@@ -50,6 +53,7 @@
                 <figcaption class="center">{{ .Params.CoverCaption | markdownify }}</figcaption>
                 {{- end }}
             </figure>
+            </a>
             {{- end }}
 
             <div class="post-content">

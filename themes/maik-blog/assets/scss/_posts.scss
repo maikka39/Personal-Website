@@ -38,27 +38,23 @@
     list-style: none;
   }
 
-  .post {
-    &.masonry-item {
-      .post-cover {
-        width: 115%;
-        margin: 40px -30px;
+  &-breadcrumbs {
+    margin: 0 0 -25px;
 
-        img {
-          max-height: 20rem;
-          margin: 0 auto;
-          object-fit: contain;
-        }
-      }
+    @media #{$media-size-phone} {
+      font-size: 0.9rem;
+      margin: 0 0 -15px;
     }
+  }
 
+  .post {
     &-title {
       font-size: 1.9rem;
       margin: 5px 0 5px 0;
     }
 
     &-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin: 5px 0 10px 0;
       font-weight: 600;
     }
@@ -90,6 +86,16 @@
       flex-shrink: 0;
       margin-left: 1em;
       @include dimmed;
+    }
+
+    &-cover {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    &-content {
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
   }
 }

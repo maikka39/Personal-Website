@@ -9,23 +9,29 @@
         <circle cx="12" cy="12" r="10"></circle>
         <polyline points="12 6 12 12 16 14"></polyline>
       </svg>
-      {{ i18n "readingTime" .Page.ReadingTime }}
+      {{- $readingTime := .Page.ReadingTime }}
+      {{- if eq .Type "writeups" }}
+      {{- $readingTime = mul 1.5 .Page.ReadingTime | int }}
+      {{- end }}
+      {{ i18n "readingTime" $readingTime }}
 
       {{- if .IsTranslated }} | {{ i18n "postAvailable" }}
       {{- range .Translations }}
       <a href="{{ .Permalink }}"><span
           class="flag flag-icon flag-icon-{{ index $.Site.Data.langFlags (.Lang) }} flag-icon-squared"></span></a>
-      {{- end}}
+      {{- end }}
       {{- end }}
     </p>
   </div>
 
   <article>
+    <p class="post-breadcrumbs">{{ partial "breadcrumbs.html" (dict "page" . "end" ">" "min" 1) }}</p>
+
     <h1 class="post-title">
       <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
     </h1>
-    {{- with .Params.Subtitle }}
-    <p class="post-subtitle">{{ . | markdownify }}</p>
+    {{- with .Params.Description }}
+    <p class="post-description">{{ . | markdownify }}</p>
     {{- end }}
 
     {{- if .Params.Cover }}

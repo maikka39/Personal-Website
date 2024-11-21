@@ -1,6 +1,5 @@
 {{ define "main" }}
 <main class="portfolio">
-
   <div class="portfolio-info">
     <p>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -21,6 +20,8 @@
   </div>
 
   <article>
+    <p class="post-breadcrumbs">{{ partial "breadcrumbs.html" (dict "page" . "end" ">" "min" 1) }}</p>
+
     <h1 class="portfolio-title">
       <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
     </h1>

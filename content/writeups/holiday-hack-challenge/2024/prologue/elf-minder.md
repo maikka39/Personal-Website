@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Elf Minder"
 subtitle = "Prologue - SANS Holiday Hack Challenge 2024"
 date = 2024-11-21T15:18:53+01:00
-description = ""
+description = "On to our second game of the Holiday Hack Challenge. This time we'll have to find some routes."
 cover = "img/writeups/holiday-hack-challenge/2024/prologue/elf-minder/cover.png"
 tags = [
     "Holiday Hack Challenge",

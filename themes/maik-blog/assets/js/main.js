@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
     for (let figure of document.getElementsByTagName("figure")) {
-        if (figure.classList.contains("post-cover"))
+        if (figure.classList.contains("post-cover") || figure.classList.contains("portfolio-cover"))
             continue
 
         figure.addEventListener("click", () => {
