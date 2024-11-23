@@ -41,8 +41,6 @@ Say, how about you give it a try. It's really simple. All you need to do is help
 The faster you get there, the better your score!
 
 I've run into some weirdness with the springs though. If I had created this game it would've been a lot more stable, but I won't comment on that any further.
-
-
 ```
 
 ## Recon
@@ -112,9 +110,9 @@ We should now have received gold!
 
 ### Method 2 - Springs
 
-From reading in the official Discord server, I learned there was another way using springs, so let's explore that option as well!
+From the hint given in the conversation with the elf Poinsettia, we got the following line: "I've run into some weirdness with the springs though." This hints at the possibility to use springs to get to the end as well.
 
-A good starting point would be to first figure out how the springs work.
+A good starting point here would be to first figure out how the springs work.
 
 {{< code language="js" title="guide.js (getSpringTarget)" isCollapsed="true" >}}
 
@@ -218,7 +216,7 @@ _Note: The comment here if from the original file._
 
 What this line does, is that, if an entity has been found in the path of the spring, it directs the elf to the very first path we put down.
 
-So, if we draw the very first path on the finish line, and make sure we end our path with two springs or a spring and a tunnel in a row, we can travel there.
+So, if we draw the very **first path** on the finish line, and make sure we end our path with two springs or a spring and a tunnel in a row, we can travel there.
 
 To test this hypothesis, we can draw a route that follows these rules.
 
