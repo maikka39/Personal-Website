@@ -1,101 +1,101 @@
 .posts {
-  width: 100%;
-  max-width: 1000px;
-  text-align: left;
-  padding: 20px;
-  margin: 20px auto;
+    width: 100%;
+    max-width: 1000px;
+    text-align: left;
+    padding: 20px;
+    margin: 20px auto;
 
-  @media #{$media-size-medium} {
-    max-width: 800px;
-  }
-
-  @media #{$media-size-tablet} {
-    max-width: 660px;
-  }
-
-  &:not(:last-of-type) {
-    border-bottom: 1px solid $light-border-color;
-
-    .dark-theme & {
-      border-color: $dark-border-color;
+    @media #{$media-size-medium} {
+        max-width: 800px;
     }
-  }
-
-  &-group {
-    display: flex;
-    margin-bottom: 1.9em;
-    line-height: normal;
 
     @media #{$media-size-tablet} {
-      display: block;
-    }
-  }
-
-  &-list {
-    flex-grow: 1;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  &-breadcrumbs {
-    margin: 0 0 -25px;
-
-    @media #{$media-size-phone} {
-      font-size: 0.9rem;
-      margin: 0 0 -15px;
-    }
-  }
-
-  .post {
-    &-title {
-      font-size: 1.9rem;
-      margin: 5px 0 5px 0;
+        max-width: 660px;
     }
 
-    &-subtitle {
-      font-size: 1.1rem;
-      margin: 5px 0 10px 0;
-      font-weight: 600;
+    &:not(:last-of-type) {
+        border-bottom: 1px solid $light-border-color;
+
+        .dark-theme & {
+            border-color: $dark-border-color;
+        }
     }
 
-    &-year {
-      padding-top: 6px;
-      margin-right: 1.8em;
-      font-size: 1.6em;
-      @include dimmed;
-
-      @media #{$media-size-tablet} {
-        margin: -6px 0 4px;
-      }
-    }
-
-    &-item {
-      border-bottom: 1px grey dashed;
-
-      a {
+    &-group {
         display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding: 12px 0;
-        text-decoration: none;
-      }
+        margin-bottom: 1.9em;
+        line-height: normal;
+
+        @media #{$media-size-tablet} {
+            display: block;
+        }
     }
 
-    &-day {
-      flex-shrink: 0;
-      margin-left: 1em;
-      @include dimmed;
+    &-list {
+        flex-grow: 1;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
 
-    &-cover {
-      margin-top: 20px;
-      margin-bottom: 20px;
+    &-breadcrumbs {
+        margin: 0 0 -25px;
+
+        @media #{$media-size-phone} {
+            font-size: 0.9rem;
+            margin: 0 0 -15px;
+        }
     }
 
-    &-content {
-      margin-top: 10px;
-      margin-bottom: 10px;
+    .post {
+        &-title {
+            font-size: 1.9rem;
+            margin: 5px 0 5px 0;
+        }
+
+        &-subtitle {
+            font-size: 1.1rem;
+            margin: 5px 0 10px 0;
+            font-weight: 600;
+        }
+
+        &-year {
+            padding-top: 6px;
+            margin-right: 1.8em;
+            font-size: 1.6em;
+            @include dimmed;
+
+            @media #{$media-size-tablet} {
+                margin: -6px 0 4px;
+            }
+        }
+
+        &-item {
+            border-bottom: 1px grey dashed;
+
+            a {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                padding: 12px 0;
+                text-decoration: none;
+            }
+        }
+
+        &-day {
+            flex-shrink: 0;
+            margin-left: 1em;
+            @include dimmed;
+        }
+
+        &-cover {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        &-content {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     }
-  }
 }

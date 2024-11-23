@@ -20,9 +20,8 @@
     }
 
     input[type="checkbox"]:checked {
-
-        ~.highlight,
-        ~.code-toolbar .highlight {
+        ~ .highlight,
+        ~ .code-toolbar .highlight {
             max-height: 0;
 
             padding: 0;
@@ -30,7 +29,7 @@
             overflow: hidden;
         }
 
-        ~.code-toolbar {
+        ~ .code-toolbar {
             padding: 0;
             border-top: none;
 
@@ -39,11 +38,11 @@
             }
         }
 
-        ~label {
+        ~ label {
             border-radius: 10px;
         }
 
-        ~label .collapsable-code__toggle:after {
+        ~ label .collapsable-code__toggle:after {
             content: attr(data-label-expand);
         }
     }

@@ -1,42 +1,42 @@
 .logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-weight: bold;
-  font-display: auto;
-  font-family: monospace, monospace;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-display: auto;
+    font-family: monospace, monospace;
 
-  img {
-    height: 44px;
-  }
-
-  &__mark {
-    margin-right: 5px;
-  }
-
-  &__text {
-    font-size: 1.125rem;
-  }
-
-  &__cursor {
-    display: inline-block;
-    width: 10px;
-    height: 1rem;
-    background: #252627;
-    margin-left: 2px;
-    border-radius: 1px;
-    animation: cursor 1s infinite;
-
-    .dark-theme & {
-      background: #fafafa;
+    img {
+        height: 44px;
     }
-  }
 
-  @media (prefers-reduced-motion: reduce) {
+    &__mark {
+        margin-right: 5px;
+    }
+
+    &__text {
+        font-size: 1.125rem;
+    }
+
     &__cursor {
-      animation: none;
+        display: inline-block;
+        width: 10px;
+        height: 1rem;
+        background: #252627;
+        margin-left: 2px;
+        border-radius: 1px;
+        animation: cursor 1s infinite;
+
+        .dark-theme & {
+            background: #fafafa;
+        }
     }
-  }
+
+    @media (prefers-reduced-motion: reduce) {
+        &__cursor {
+            animation: none;
+        }
+    }
 }
 
 // // Fading
@@ -56,15 +56,15 @@
 
 // Blinking
 @keyframes cursor {
-  0% {
-    visibility: hidden;
-  }
+    0% {
+        visibility: hidden;
+    }
 
-  50% {
-    visibility: hidden;
-  }
+    50% {
+        visibility: hidden;
+    }
 
-  100% {
-    visibility: visible;
-  }
+    100% {
+        visibility: visible;
+    }
 }

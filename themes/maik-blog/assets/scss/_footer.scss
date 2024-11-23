@@ -1,77 +1,77 @@
 .footer {
-  padding: 40px 20px;
-  flex-grow: 0;
-  color: $light-color-secondary;
-
-  &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    width: 760px;
-    max-width: 100%;
-
-    @media #{$media-size-tablet} {
-      flex-direction: column;
-    }
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1rem;
+    padding: 40px 20px;
+    flex-grow: 0;
     color: $light-color-secondary;
 
-    &__section {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 5px;
-
-      @media #{$media-size-tablet} {
-        margin-top: 10px;
-      }
-
-      &.regular {
-        @media #{$media-size-tablet} {
-          flex-direction: column;
-        }
-        &>*:not(:last-child)::after {
-          content: "•";
-          padding: 0 5px;
-
-          @media #{$media-size-tablet} {
-            content: "";
-            padding: 0;
-          }
-        }
-
-        &>*:last-child {
-          padding: 0 5px;
-
-          @media #{$media-size-tablet} {
-            padding: 0;
-          }
-        }
-      }
-
-      &.donations {
-        white-space: nowrap;
-        overflow-x: scroll;
-        max-width: 600px;
-        position: relative;
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        width: 760px;
+        max-width: 100%;
 
         @media #{$media-size-tablet} {
-          max-width: 180px;
+            flex-direction: column;
         }
-
-        .wallet {
-          .name {
-            font-weight: 700;
-          }
-        }
-      }
     }
-  }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+        color: $light-color-secondary;
+
+        &__section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 5px;
+
+            @media #{$media-size-tablet} {
+                margin-top: 10px;
+            }
+
+            &.regular {
+                @media #{$media-size-tablet} {
+                    flex-direction: column;
+                }
+                & > *:not(:last-child)::after {
+                    content: "•";
+                    padding: 0 5px;
+
+                    @media #{$media-size-tablet} {
+                        content: "";
+                        padding: 0;
+                    }
+                }
+
+                & > *:last-child {
+                    padding: 0 5px;
+
+                    @media #{$media-size-tablet} {
+                        padding: 0;
+                    }
+                }
+            }
+
+            &.donations {
+                white-space: nowrap;
+                overflow-x: scroll;
+                max-width: 600px;
+                position: relative;
+
+                @media #{$media-size-tablet} {
+                    max-width: 180px;
+                }
+
+                .wallet {
+                    .name {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
 }

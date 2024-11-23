@@ -10,192 +10,199 @@ pygmentsUseClasses = true
 PygmentsStyle = "monokai"
 
 archetypeDir = "archetypes"
-contentDir   = "content"
-dataDir      = "data"
-layoutDir    = "layouts"
-publishDir   = "public"
+contentDir = "content"
+dataDir = "data"
+layoutDir = "layouts"
+publishDir = "public"
 
-buildDrafts  = false
-buildFuture  = false
+buildDrafts = false
+buildFuture = false
 buildExpired = false
 canonifyURLs = true
 
 enableRobotsTXT = true
-enableGitInfo   = true
-enableEmoji     = true
+enableGitInfo = true
+enableEmoji = true
 
 [permalinks]
-  [permalinks.page]
-    posts = "/posts/:title/"
-    writeups = "/:sections/:title/"
-    # writeups = "/writeups/:title/"
-    portfolio = "/portfolio/:title/"
+[permalinks.page]
+posts = "/posts/:title/"
+writeups = "/:sections/:title/"
+# writeups = "/writeups/:title/"
+portfolio = "/portfolio/:title/"
 
 [outputs]
-  home = ["HTML", "RSS"]
-  page = ["HTML", "RSS"]
+home = ["HTML", "RSS"]
+page = ["HTML", "RSS"]
 
 [pagination]
-  pagerSize  = 12
+pagerSize = 12
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
-  dateformMonth   = "Jan, 2006"
+dateform = "Jan 2, 2006"
+dateformShort = "Jan 2"
+dateformNum = "2006-01-02"
+dateformNumTime = "2006-01-02 15:04 -0700"
+dateformMonth = "Jan, 2006"
 
-  # Metadata mostly used in document's head
-  description = "Hey there, my name is Maik de Kruif, I create websites, bots and other kinds of software. At the moment, I'm still studying computer science at Avans University of Applied Sciences. I am also a big fan of open-source software, which is why you'll find many of my projects on Github. And last but not least, I love playing around with cyber-security related stuff."
-  keywords = "Devloper, Software Engineer, Software Developer, Maik, Computer Science, Portfolio, Blog, Maik de Kruif"
-  images = [""]
+# Metadata mostly used in document's head
+description = "Hey there, my name is Maik de Kruif, I create websites, bots and other kinds of software. At the moment, I'm still studying computer science at Avans University of Applied Sciences. I am also a big fan of open-source software, which is why you'll find many of my projects on Github. And last but not least, I love playing around with cyber-security related stuff."
+keywords = "Devloper, Software Engineer, Software Developer, Maik, Computer Science, Portfolio, Blog, Maik de Kruif"
+images = [""]
 
-  genre = "Blog"
+genre = "Blog"
 
-  rssLimit  = 15
+rssLimit = 15
 
-  showReadingTimeInList = false
+showReadingTimeInList = false
 
-  homeSubtitle = "Software Engineering, Linux and Cyber Security"
+homeSubtitle = "Software Engineering, Linux and Cyber Security"
 
-  # Prefix of link to the git commit detail page. GitInfo must be enabled.
-  gitUrl = "https://github.com/maikka39/Personal-Website/commit/"
+# Prefix of link to the git commit detail page. GitInfo must be enabled.
+gitUrl = "https://github.com/maikka39/Personal-Website/commit/"
 
-  # Add domain for GoatCounter to enable
-  goatCounter = "webstats.maik.dev"
+# Add domain for GoatCounter to enable
+goatCounter = "webstats.maik.dev"
 
-  # Show pageviews on posts, writeups, etc.
-  showPageViews = true
+# Show pageviews on posts, writeups, etc.
+showPageViews = true
 
-  # Set disableReadOtherPosts to true in order to hide the links to other posts.
-  disableReadOtherPosts = false
+# Set disableReadOtherPosts to true in order to hide the links to other posts.
+disableReadOtherPosts = false
 
-  # Sharing buttons
-  # There are a lot of buttons preconfigured. If you want to change them,
-  # generate the buttons here: https://sharingbuttons.io
-  # and add them into your own `layouts/partials/sharing-buttons.html`
-  # Preconfigured: facebook, twitter, tumblr, email, pinterest, linkedin, reddit, xing, whatsapp, hackernews, telegram
-  enableSharingButtons = true
-  sharingButtons = ["twitter", "email", "linkedin", "reddit", "whatsapp", "telegram"]
+# Sharing buttons
+# There are a lot of buttons preconfigured. If you want to change them,
+# generate the buttons here: https://sharingbuttons.io
+# and add them into your own `layouts/partials/sharing-buttons.html`
+# Preconfigured: facebook, twitter, tumblr, email, pinterest, linkedin, reddit, xing, whatsapp, hackernews, telegram
+enableSharingButtons = true
+sharingButtons = [
+  "twitter",
+  "email",
+  "linkedin",
+  "reddit",
+  "whatsapp",
+  "telegram",
+]
 
-  # Integrate Javascript files or stylesheets by adding the url to the external assets or by
-  # linking local files with their path relative to the static folder, e.g. "css/styles.css"
-  customCSS = []
-  customJS  = []
+# Integrate Javascript files or stylesheets by adding the url to the external assets or by
+# linking local files with their path relative to the static folder, e.g. "css/styles.css"
+customCSS = []
+customJS = []
 
-  # Toggle this option need to rebuild SCSS, requires extended version of Hugo
-  justifyContent = false  # Set "text-align: justify" to .post-content.
+# Toggle this option need to rebuild SCSS, requires extended version of Hugo
+justifyContent = false # Set "text-align: justify" to .post-content.
 
-  # Default theme "light" or "dark"
-  defaultTheme = "light"
-  themeColor = "#252627"
+# Default theme "light" or "dark"
+defaultTheme = "light"
+themeColor = "#252627"
 
-  # Colors for favicons
-  [params.favicon.color]
-    mask = "#252627"
-    msapplication = "#252627"
-    theme = "#252627"
+# Colors for favicons
+[params.favicon.color]
+mask = "#252627"
+msapplication = "#252627"
+theme = "#252627"
 
-  [params.logo]
-    logoText     = "$ cd /home/"
-    logoHomeLink = "/"
+[params.logo]
+logoText = "$ cd /home/"
+logoHomeLink = "/"
 
-  # Uncomment this if you want a portrait on your start page
-  [params.portrait]
-    path     = "/img/home/portrait.png"
-    alt      = "Portrait"
-    size = "175px"
+# Uncomment this if you want a portrait on your start page
+[params.portrait]
+path = "/img/home/portrait.png"
+alt = "Portrait"
+size = "175px"
 
-  [params.author]
-    name = "Maik de Kruif"
-    email = "maik@maik.dev"
-    twitter = "@maik_dev"
-    image = "/img/home/portrait.png"
+[params.author]
+name = "Maik de Kruif"
+email = "maik@maik.dev"
+twitter = "@maik_dev"
+image = "/img/home/portrait.png"
 
-  [params.general]
-    twitter = "@maik_dev"
+[params.general]
+twitter = "@maik_dev"
 
-  # Wallets
-  [[params.wallets]]
-    name = "XMR"
-    address = "83cfsXGHPaW81hKJtAPYZEgbfFqANMTXXRwghsBpjf5oTDRV3BnCC4jFno8tLTnF4C6gJzGjPEmpvjntXaiGBB7kVitkDKi"
+# Wallets
+[[params.wallets]]
+name = "XMR"
+address = "83cfsXGHPaW81hKJtAPYZEgbfFqANMTXXRwghsBpjf5oTDRV3BnCC4jFno8tLTnF4C6gJzGjPEmpvjntXaiGBB7kVitkDKi"
 
-  # Social icons
-  [[params.social]]
-    name = "email"
-    url  = "mailto:maik@maik.dev"
+# Social icons
+[[params.social]]
+name = "email"
+url = "mailto:maik@maik.dev"
 
-  [[params.social]]
-    name = "github"
-    url  = "https://github.com/maikka39"
+[[params.social]]
+name = "github"
+url = "https://github.com/maikka39"
 
-  [[params.social]]
-    name = "linkedin"
-    url  = "https://www.linkedin.com/in/maikdekruif/"
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/maikdekruif/"
 
-  [[params.social]]
-    name = "twitter"
-    url  = "https://twitter.com/maik_dev"
+[[params.social]]
+name = "twitter"
+url = "https://twitter.com/maik_dev"
 
-  [[params.social]]
-    name = "discord"
-    url  = "https://discord.gg/wXCMdzCDcH"
+[[params.social]]
+name = "discord"
+url = "https://discord.gg/wXCMdzCDcH"
 
-  [[params.social]]
-    name = "instagram"
-    url  = "https://www.instagram.com/maik.dev/"
+[[params.social]]
+name = "instagram"
+url = "https://www.instagram.com/maik.dev/"
 
-  [[params.social]]
-    name = "stackoverflow"
-    url  = "https://stackoverflow.com/users/9146982/maik-de-kruif"
+[[params.social]]
+name = "stackoverflow"
+url = "https://stackoverflow.com/users/9146982/maik-de-kruif"
 
-  # [[params.social]]
-  #   name = "rss"
-  #   url  = "posts/index.xml"
+# [[params.social]]
+#   name = "rss"
+#   url  = "posts/index.xml"
 
-  # [[params.social]]
-  #   name = "hackerrank"
-  #   url  = "https://www.hackerrank.com/maik_dev"
+# [[params.social]]
+#   name = "hackerrank"
+#   url  = "https://www.hackerrank.com/maik_dev"
 
-  # [[params.social]]
-  #   name = "medium"
-  #   url  = "https://medium.com/@maikka39"
+# [[params.social]]
+#   name = "medium"
+#   url  = "https://medium.com/@maikka39"
 
-  [[params.social]]
-    name = "steam"
-    url  = "https://steamcommunity.com/id/maikka39"
+[[params.social]]
+name = "steam"
+url = "https://steamcommunity.com/id/maikka39"
 
-  [[params.social]]
-    name = "reddit"
-    url  = "https://www.reddit.com/user/maikka39"
+[[params.social]]
+name = "reddit"
+url = "https://www.reddit.com/user/maikka39"
 
-  # [[params.social]]
-  #   name = "lbry"
-  #   url  = "https://lbry.tv/@Maik:c"
+# [[params.social]]
+#   name = "lbry"
+#   url  = "https://lbry.tv/@Maik:c"
 
-  [[params.social]]
-    name = "youtube"
-    url  = "https://www.youtube.com/channel/UCepNO6s7q0Kcyn8cc3rZNFA"
+[[params.social]]
+name = "youtube"
+url = "https://www.youtube.com/channel/UCepNO6s7q0Kcyn8cc3rZNFA"
 
 [languages]
-  [languages.en]
-    weight    = 1
-    copyright = "© Maik de Kruif (maik_dev). All rights reserved."
+[languages.en]
+weight = 1
+copyright = "© Maik de Kruif (maik_dev). All rights reserved."
 
 [menu]
-  [[menu.main]]
-    identifier = "about"
-    name       = "About"
-    url        = "about/"
-  [[menu.main]]
-    identifier = "portfolio"
-    name       = "Portfolio"
-    url        = "portfolio/"
-  [[menu.main]]
-    identifier = "posts"
-    name       = "Posts"
-    url        = "posts/"
-  [[menu.main]]
-    identifier = "writeups"
-    name       = "Writeups"
-    url        = "writeups/"
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "about/"
+[[menu.main]]
+identifier = "portfolio"
+name = "Portfolio"
+url = "portfolio/"
+[[menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "posts/"
+[[menu.main]]
+identifier = "writeups"
+name = "Writeups"
+url = "writeups/"

@@ -1,5 +1,5 @@
 baseURL = "https://maik.dev/"
 
 [services]
-  [services.googleAnalytics]
-    id = "UA-136337666-1"
+[services.googleAnalytics]
+id = "UA-136337666-1"

@@ -23,7 +23,7 @@ $media-size-medium-min: "(min-width: 1200px)";
 
 /* variables for js, must be the same as these in @custom-media queries */
 :root {
-  --phoneWidth: (max-width: 684px);
-  --tabletWidth: (max-width: 900px);
-  --mediumWidth: (max-width: 1200px);
+    --phoneWidth: (max-width: 684px);
+    --tabletWidth: (max-width: 900px);
+    --mediumWidth: (max-width: 1200px);
 }
