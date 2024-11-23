@@ -2,7 +2,7 @@
 {{ $paginator := (.Paginate .RegularPagesRecursive) }}
 
 <main class="posts">
-    <div class="posts-breadcrumbs">{{ partial "breadcrumbs.html" (dict "page" . "end" ">") }}</div>
+    <div class="posts-breadcrumbs">{{ partial "breadcrumbs.html" (dict "page" .) }}</div>
 
     <h1>{{ .Title }}</h1>
 

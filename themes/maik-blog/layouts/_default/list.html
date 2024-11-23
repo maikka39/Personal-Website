@@ -2,7 +2,7 @@
 {{ $paginator := .Paginate .Data.Pages }}
 
 <main class="posts">
-    <div class="posts-breadcrumbs">{{ partial "breadcrumbs.html" (dict "page" . "end" ">" "min" 1) }}</div>
+    <div class="posts-breadcrumbs">{{ partial "breadcrumbs.html" (dict "page" . "min" 1) }}</div>
 
     <h1>{{ .Title }}</h1>
 
