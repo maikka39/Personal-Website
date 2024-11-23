@@ -2,7 +2,7 @@
 {{ $paginator := (.Paginate .RegularPagesRecursive) }}
 
 <main class="posts">
-    <p class="posts-breadcrumbs">{{ partial "breadcrumbs.html" (dict "page" . "end" ">") }}</p>
+    <div class="posts-breadcrumbs">{{ partial "breadcrumbs.html" (dict "page" . "end" ">") }}</div>
 
     <h1>{{ .Title }}</h1>
 
@@ -19,14 +19,14 @@
         <div class="post">
             <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
 
-            <p class="post-subtitle">
+            <div class="post-subtitle">
                 {{/*  {{- with .Params.Subtitle }}
                 {{ . | markdownify }}
                 <br>
                 {{- end }}  */}}
 
                 {{ partial "breadcrumbs.html" (dict "page" . "min" 0) }}
-            </p>
+            </div>
 
             <div class="post-meta">
                 {{- if .Date }}

@@ -464,3 +464,17 @@ table {
 .nostyle {
   text-decoration: none;
 }
+
+.breadcrumbs {
+  display: inline;
+
+  ol {
+    list-style-type: none;
+    margin: 0;
+    display: inline;
+
+    li {
+      display: inline;
+    }
+  }
+}

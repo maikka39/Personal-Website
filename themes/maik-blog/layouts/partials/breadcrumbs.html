@@ -16,11 +16,17 @@
 {{- $breadcrumbs = after (int .page.IsPage) $breadcrumbs}}
 {{- if ne .page.Type "page"}}
 {{- if lt (default 0 .min) (len $breadcrumbs) }}
-{{- range $index, $breadcrumb := $breadcrumbs }}
-<a href="{{ $breadcrumb.url }}">{{ $breadcrumb.name }}</a>{{ if ne $index (sub (len $breadcrumbs) 1) }}<span> > </span>{{ end }}
-{{- end }}
-{{- if and $breadcrumbs .end }}
-{{ .end }}
-{{- end }}
+<nav aria-label="breadcrumb" class="breadcrumbs">
+    <ol>
+        {{- range $index, $breadcrumb := $breadcrumbs }}
+        <li>
+            <a href="{{ $breadcrumb.url }}">{{ $breadcrumb.name }}</a>{{ if ne $index (sub (len $breadcrumbs) 1) }}<span> > </span>{{ end }}
+        </li>
+        {{- end }}
+    </ol>
+    {{- if and $breadcrumbs .end }}
+    {{ .end }}
+    {{- end }}
+</nav>
 {{- end }}
 {{- end }}
