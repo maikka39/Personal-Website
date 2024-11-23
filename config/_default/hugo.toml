@@ -24,6 +24,8 @@ enableRobotsTXT = true
 enableGitInfo = true
 enableEmoji = true
 
+ignoreLogs = ["warning-goldmark-raw-html"]
+
 [permalinks]
 [permalinks.page]
 posts = "/posts/:title/"

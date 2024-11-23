@@ -7,7 +7,6 @@ description = "On to our second game of the Holiday Hack Challenge. This time we
 cover = "img/writeups/holiday-hack-challenge/2024/prologue/elf-minder/cover.png"
 tags = [
     "Holiday Hack Challenge",
-    "Prologue",
     "ctf",
     "hacking",
     "writeup",

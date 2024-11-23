@@ -7,7 +7,6 @@ description = "An easy start of the Holiday Hack Challenge 2024."
 cover = "img/writeups/holiday-hack-challenge/2024/prologue/orientation/cover.png"
 tags = [
     "Holiday Hack Challenge",
-    "Prologue",
     "ctf",
     "hacking",
     "writeup",
