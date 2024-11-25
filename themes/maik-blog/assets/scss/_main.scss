@@ -2,14 +2,14 @@
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-    background: #212020;
+    background: $scrollbar-background;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #888;
 
     &:hover {
-        background: #dcdcdc;
+        background: $scrollbar-color;
     }
 }
 
@@ -141,7 +141,7 @@ figure {
         padding: 5px;
 
         .dark-theme & {
-            background-color: #ffffff4f;
+            background-color: $dark-image-border;
         }
     }
 
@@ -243,11 +243,11 @@ figure {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background-color: #212020ec;
+        background-color: transparentize(darken($dark-background, 5%), 0.08);
         z-index: 10000;
 
         figcaption {
-            color: #ddd3c6;
+            color: $dark-color;
             font-size: 1.5rem;
         }
 
@@ -257,7 +257,7 @@ figure {
             text-decoration: underline;
             cursor: pointer;
             display: block;
-            color: #999288;
+            color: transparentize($dark-color, 0.43);
         }
     }
 }
@@ -417,12 +417,12 @@ svg {
 }
 
 .screen-reader-text:focus {
-    background-color: #f1f1f1;
+    background-color: $screen-reader-text-background;
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
     clip-path: none;
-    color: #21759b;
+    color: $screen-reader-text-color;
     display: block;
     font-size: 14px;
     font-size: 0.875rem;

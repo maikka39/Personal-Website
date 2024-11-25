@@ -6,13 +6,22 @@ $light-background-secondary: #eaeaea;
 $light-color: #222;
 $light-color-secondary: #767676;
 $light-border-color: #dcdcdc;
+$light-navbar: #f9f9f9;
 
 /* dark theme colors */
-$dark-background: #272a2b;
+$dark-background: #1c1f1f;
 $dark-background-secondary: #3b3d42;
-$dark-color: #ddd3c6;
+$dark-color: #eee9e2;
 $dark-color-secondary: #73747b;
 $dark-border-color: #4a4b50;
+$dark-navbar: #1b1c1c;
+$dark-image-border: #ffffff3f;
+
+$scrollbar-background: #212020;
+$scrollbar-color: #dcdcdc;
+
+$screen-reader-text-background: #f1f1f1;
+$screen-reader-text-color: #21759b;
 
 $media-size-phone: "(max-width: 684px)";
 $media-size-phone-min: "(min-width: 684px)";
