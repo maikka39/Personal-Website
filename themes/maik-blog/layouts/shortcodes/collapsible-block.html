@@ -12,6 +12,8 @@
       data-label-collapse="{{ .Get "collapse" | default "▽" }}"></span>
   </label>
   <div class="collapsible-block__content">
-    {{ .Inner | markdownify }}
+    <div class="collapsible-block__content-child">
+      {{ .Inner | markdownify }}
+    </div>
   </div>
 </div>

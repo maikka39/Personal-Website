@@ -16,8 +16,7 @@
         max-height: 80vh;
         overflow: auto;
 
-        transition: max-height 0.15s ease, padding-top 0.15s ease,
-            padding-bottom 0.15s ease;
+        transition: max-height 0.15s ease;
 
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
@@ -28,15 +27,22 @@
             background-color: darken($dark-background-secondary, 6%);
         }
 
-        padding: 0 1em;
+        &-child {
+            transition: margin 0.15s ease;
 
-        &:has(> :last-child:nth-child(1)),
-        &:not(:has(*)) {
-            padding: 1em;
-        }
+            margin: 1em;
 
-        &:has(.highlight) {
-            padding: 0 !important;
+            .highlight {
+                margin: 0 -1em;
+
+                &:first-child {
+                    margin-top: -1em;
+                }
+
+                &:last-child {
+                    margin-bottom: -1em;
+                }
+            }
         }
     }
 
@@ -44,8 +50,6 @@
         ~ .collapsible-block__content {
             max-height: 0;
 
-            padding-top: 0;
-            padding-bottom: 0;
             border-top: none;
             overflow: hidden;
         }
