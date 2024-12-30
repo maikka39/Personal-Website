@@ -1,4 +1,4 @@
-.collapsable-code {
+.collapsible-block {
     position: relative;
     width: 100%;
     margin: 40px 0;
@@ -8,41 +8,50 @@
         visibility: hidden;
     }
 
-    .highlight,
-    .code-toolbar .highlight {
+    &__content {
         max-height: 80vh;
         overflow: auto;
 
-        transition: max-height 0.15s ease;
+        transition: max-height 0.15s ease, padding-top 0.15s ease,
+            padding-bottom 0.15s ease;
 
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+
+        background-color: lighten($light-background-secondary, 5%);
+
+        .dark-theme & {
+            background-color: darken($dark-background-secondary, 6%);
+        }
+
+        padding: 0 1em;
+
+        &:has(> :last-child:nth-child(1)),
+        &:not(:has(*)) {
+            padding: 1em;
+        }
+
+        &:has(.highlight) {
+            padding: 0 !important;
+        }
     }
 
     input[type="checkbox"]:checked {
-        ~ .highlight,
-        ~ .code-toolbar .highlight {
+        ~ .collapsible-block__content {
             max-height: 0;
 
-            padding: 0;
+            padding-top: 0;
+            padding-bottom: 0;
             border-top: none;
             overflow: hidden;
         }
 
-        ~ .code-toolbar {
-            padding: 0;
-            border-top: none;
-
-            .toolbar {
-                display: none;
-            }
-        }
-
         ~ label {
             border-radius: 10px;
+            transition: border-radius 0.15s ease 0.1s;
         }
 
-        ~ label .collapsable-code__toggle:after {
+        ~ label .collapsible-block__toggle:after {
             content: attr(data-label-expand);
         }
     }
@@ -59,6 +68,7 @@
         min-height: 30px;
         margin: 0;
         cursor: pointer;
+        transition: border-radius 0s ease 0s;
 
         .dark-theme & {
             background: $dark-background-secondary;
@@ -79,7 +89,7 @@
         }
     }
 
-    &__language {
+    &__badge {
         background: $light-background;
         color: $light-color;
         border-radius: 10px;
@@ -111,9 +121,5 @@
         margin-top: 0;
         margin-bottom: 0;
         border-radius: 0;
-    }
-
-    .code-toolbar {
-        margin: 0;
     }
 }

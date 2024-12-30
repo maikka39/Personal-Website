@@ -304,8 +304,9 @@ pre {
 }
 
 blockquote {
+    position: relative;
     border-left: 2px solid;
-    margin: 40px;
+    margin: 20px 40px;
     padding: 10px 20px;
 
     @media #{$media-size-phone} {
@@ -315,12 +316,12 @@ blockquote {
 
     &:before {
         content: "”";
-        font-family: Georgia, serif;
+        // font-family: Georgia, serif;
         font-display: auto;
         font-size: 3.875rem;
         position: absolute;
         left: -40px;
-        top: -20px;
+        top: -13px;
     }
 
     p:first-of-type {

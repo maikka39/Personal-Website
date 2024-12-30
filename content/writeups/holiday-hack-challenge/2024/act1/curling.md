@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Curling"
 subtitle = "Act 1 - SANS Holiday Hack Challenge 2024"
 date = 2024-11-23T11:44:53+01:00
-description = "In the fourth challenge of the Holiday Hack Challenge 2024, we'll explore how to use curl using the Linux manpages."
+description = "In the Curling challenge, we join Bow Ninecandle to learn how to use the curl command for sending web requests. The silver tasks include sending basic requests, handling self-signed certificates, posting data, and more. Afterwards, we use our knowledge to solve extra tasks involving file paths and redirects, completing the challenge for the gold medal!"
 cover = "img/writeups/holiday-hack-challenge/2024/act1/curling/cover.png"
 tags = [
     "Holiday Hack Challenge",

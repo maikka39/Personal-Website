@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Elf Minder"
 subtitle = "Prologue - SANS Holiday Hack Challenge 2024"
 date = 2024-11-21T15:18:53+01:00
-description = "On to our second game of the Holiday Hack Challenge. This time we'll have to find some routes."
+description = "In Elf Minder, we guide an elf through twelve levels of maze-like puzzles. Silver is straightforward; solve the puzzles normally. For gold, we inspect the game’s code with DevTools and find hidden admin controls. By enabling them, we can clear obstacles and draw a path directly to the finish. Alternatively, we manipulate springs to bounce the elf straight to the end. Both methods secure the gold medal!"
 cover = "img/writeups/holiday-hack-challenge/2024/prologue/elf-minder/cover.png"
 tags = [
     "Holiday Hack Challenge",
@@ -113,7 +113,7 @@ From the hint given in the conversation with the elf Poinsettia, we got the foll
 
 A good starting point here would be to first figure out how the springs work.
 
-{{< code language="js" title="guide.js (getSpringTarget)" isCollapsed="true" >}}
+{{< collapsible-block badge="js" title="guide.js (getSpringTarget)" isCollapsed="true" >}}
 
 ```js
 getSpringTarget(springCell) {
@@ -157,7 +157,7 @@ getSpringTarget(springCell) {
 }
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 In one of the source files, `guide.js`, there is a function called `getSpringTarget`. This function, as the name suggests, returns the location where the elf should go after encountering a spring.
 

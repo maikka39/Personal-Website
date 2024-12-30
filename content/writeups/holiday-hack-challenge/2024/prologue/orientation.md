@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Holiday Hack Orientation"
 subtitle = "Prologue - SANS Holiday Hack Challenge 2024"
 date = 2024-11-21T13:46:55+01:00
-description = "An easy start of the Holiday Hack Challenge 2024."
+description = "In the Holiday Hack Orientation, we meet Jingle Ringford, who introduces us to the 2024 SANS Holiday Hack Challenge. Our first task is simple; enter the correct answer in the “First Terminal” to unlock the gold medal and begin the adventure!"
 cover = "img/writeups/holiday-hack-challenge/2024/prologue/orientation/cover.png"
 tags = [
     "Holiday Hack Challenge",

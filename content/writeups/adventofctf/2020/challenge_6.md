@@ -24,7 +24,7 @@ aliases = [
 ]
 +++
 
-- Points: 600
+-   Points: 600
 
 ## Description
 
@@ -72,7 +72,7 @@ As you can see the string is escaped and the result of this query will have the 
 
 When submitting it I got the following result:
 
-{{< code language="text" title="Result" >}}
+{{< collapsible-block badge="text" title="Result" >}}
 
 ```markdown
 | id                                                 | Description   | Proof        |
@@ -244,7 +244,7 @@ When submitting it I got the following result:
 | secrets                                            | 2--------     | 3-------     |
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 ## Solution
 

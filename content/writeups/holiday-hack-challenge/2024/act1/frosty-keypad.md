@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Frosty Keypad"
 subtitle = "Act 1 - SANS Holiday Hack Challenge 2024"
 date = 2024-11-24T18:23:54+01:00
-description = "In the fourth challenge of the Holiday Hack Challenge 2024, we'll explore how to use curl using the Linux manpages."
+description = "In this challenge, we help Morcel Nougat recover a shredded document by decoding clues from a book and using an old-school telephone keypad. After enabling a hidden flashlight, we script a solution to bypass rate limits and crack the final code, solving both the Silver and Gold challenges!"
 cover = "img/writeups/holiday-hack-challenge/2024/act1/frosty-keypad/cover.png"
 tags = [
     "Holiday Hack Challenge",

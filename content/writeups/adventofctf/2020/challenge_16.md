@@ -25,7 +25,7 @@ aliases = [
 ]
 +++
 
-- Points: 1600
+-   Points: 1600
 
 ## Description
 
@@ -41,12 +41,12 @@ When opening the source of the page we also find the following comment: "Here is
 
 ```js
 function send() {
-  let emoji = $("#emoji")[0].value;
-  if (emoji.length > 0) {
-    $.post("/", { emoji: emoji }, function (data) {
-      $("#msg")[0].innerHTML = "<b>" + data + "</b>";
-    });
-  }
+    let emoji = $("#emoji")[0].value;
+    if (emoji.length > 0) {
+        $.post("/", { emoji: emoji }, function (data) {
+            $("#msg")[0].innerHTML = "<b>" + data + "</b>";
+        });
+    }
 }
 ```
 
@@ -74,7 +74,7 @@ This means the server is most likely using either Jinja2 of Twig.
 
 Now that we found the vulnerability, we can start exploiting it. Let's start by getting the config. We can try to get it by entering `{{config}}` or `{{config.items()}}` as the emoji.
 
-{{< code language="python" title="Result" >}}
+{{< collapsible-block badge="python" title="Result" >}}
 
 ```python
 dict_items([
@@ -224,7 +224,7 @@ dict_items([
 ])
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 If we take a look at it we find an item called 'flag' but it looks like it is encrypted in some way:
 
@@ -282,7 +282,7 @@ The source of the server is probably `app.py` as it's the default for flask appl
 config.__class__.__init__.__globals__['os'].popen('cat app.py').read()
 ```
 
-{{< code language="python" title="app.py" >}}
+{{< collapsible-block badge="python" title="app.py" >}}
 
 ```python
 import random
@@ -332,7 +332,7 @@ if __name__ == '__main__':
 
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 When looking at the file, we see that the flag variable is set to the output of the `magic` function:
 

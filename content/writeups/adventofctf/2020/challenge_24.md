@@ -26,7 +26,7 @@ aliases = [
 ]
 +++
 
-- Points: 2400
+-   Points: 2400
 
 ## Description
 
@@ -97,7 +97,7 @@ In [3]: pickle.loads(base64.b64decode("gAN9cQAoWAUAAABib2FyZHEBXXECKF1xAyhYAQAAA
 
 This time our board is quite a bit larger:
 
-{{< code language="py" title="Board" >}}
+{{< collapsible-block badge="py" title="Board" >}}
 
 ```py
 {
@@ -179,7 +179,7 @@ This time our board is quite a bit larger:
 }
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 We can see that a `chain` value has been added. From the title of this challenge, we can say that this is the blockchain that we likely have to bypass.
 
@@ -230,7 +230,7 @@ We can see that, to verify the game, the function loops through all the blocks i
 
 To crack this, we can simply reverse this algorithm. To do this, I grabbed the script from the HTML source, and added a crack method like so:
 
-{{< code language="py" title="solve.py" >}}
+{{< collapsible-block badge="py" title="solve.py" >}}
 
 ```python
 import hashlib
@@ -304,7 +304,7 @@ if __name__ == "__main__":
     print(export_base64(game))
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 After running this script, we get the following result:
 

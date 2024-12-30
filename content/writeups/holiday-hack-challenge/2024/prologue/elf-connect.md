@@ -3,7 +3,7 @@ author = "Maik de Kruif"
 title = "Elf Connect"
 subtitle = "Prologue - SANS Holiday Hack Challenge 2024"
 date = 2024-11-21T14:23:34+01:00
-description = "Let's play our first game of the Holiday Hack Challenge. To win, we'll have to use the DevTools to read some code, and figure out how the scoring mechanism works."
+description = "In Elf Connect, we help Angel Candysalt solve a word-matching puzzle. After earning the silver medal by finding groups of related words, we dig into the game’s code using DevTools. By analyzing the scoring logic, we bypass the normal gameplay and directly trigger the gold medal with a simple code execution in the browser console!"
 cover = "img/writeups/holiday-hack-challenge/2024/prologue/elf-connect/cover.png"
 tags = [
     "Holiday Hack Challenge",
@@ -98,7 +98,7 @@ Object.keys(wordSets).map((round) =>
 
 This might look a little complicated, so let me explain it for you. We start by looping over `wordSets`, this contains all the words for a specific round. We then look at the correct sets, and map the four indices to the actual word in the list. If we execute this code, we get the following output:
 
-{{< code language="json" title="Results" isCollapsed="true" >}}
+{{< collapsible-block badge="json" title="Results" isCollapsed="true" >}}
 
 ```json
 [
@@ -129,7 +129,7 @@ This might look a little complicated, so let me explain it for you. We start by 
 ]
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 This just get us the correct answer though, and we'll need more for gold.
 

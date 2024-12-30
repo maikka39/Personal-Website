@@ -24,7 +24,7 @@ aliases = [
 ]
 +++
 
-- Points: 1300
+-   Points: 1300
 
 ## Description
 
@@ -117,7 +117,7 @@ Let's try to use the previous attack but with the flag file:
 
 We get a big error:
 
-{{< code language="html" title="Error message" >}}
+{{< collapsible-block badge="html" title="Error message" >}}
 
 ```html
 <br />
@@ -183,7 +183,7 @@ line: 3 in <b>/var/www/html/index.php</b> on line <b>40</b><br />
 <b>/var/www/html/index.php</b> on line <b>43</b><br />
 ```
 
-{{< /code >}}
+{{< /collapsible-block >}}
 
 We probably got it because PHP is actually handling the PHP file as a PHP file 😀. This means we have to get it in some other way.
 
