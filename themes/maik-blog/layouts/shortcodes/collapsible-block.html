@@ -1,6 +1,6 @@
 {{ $id := delimit (shuffle (seq 1 9)) "" }}
 
-<div class="collapsible-block">
+<div class="collapsible-block {{- with .Get "class" }} {{ . }}{{ end }}">
   <input id="{{ .Get "id" | default $id }}" type="checkbox" {{ if ( eq ( .Get "isCollapsed" ) "true" ) -}} checked
     {{- end }} />
   <label for="{{ .Get "id" | default $id }}">
