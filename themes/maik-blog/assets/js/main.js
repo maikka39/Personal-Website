@@ -35,7 +35,18 @@ window.addEventListener("load", () => {
             heading.classList.add("article-heading");
 
             anchor.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                window.history.replaceState({}, "", anchor.href);
                 navigator.clipboard.writeText(anchor.href);
+
+                document
+                    .querySelectorAll(".current-heading")
+                    .forEach((elem) =>
+                        elem.classList.remove("current-heading")
+                    );
+
+                anchor.classList.add("current-heading");
             });
         }
     }
