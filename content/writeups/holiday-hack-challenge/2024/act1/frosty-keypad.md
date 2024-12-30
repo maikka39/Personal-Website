@@ -26,21 +26,33 @@ If you want to play the challenge yourself, you can find it here:
 
 ## Story line
 
-Let's start off by talking to Morcel Nougat:
+Let's start off by talking to the elf:
 
-```txt
-Hello again! I'm Morcel Nougat, dashing around like a reindeer on a sugar rush! We've got a bit of a dilemma, and I could really use your expertise.
+> Hello again! I'm Morcel Nougat, dashing around like a reindeer on a sugar rush! We've got a bit of a dilemma, and I could really use your expertise.
+>
+> Wombley and Alabaster have taken charge now that Santa’s gone missing, and We're scrambling to get the Wish List secured. But... one of the elves in the Data Management Team got overzealous, and the Shredder McShreddin 9000 gobbled up a crucial document we need to access Santa's chest!
+>
+> It’s our golden ticket to getting Santa’s Little Helper tool working properly. Without it, the hardware hack we're planning is as empty as Santa’s sleigh in January.
+>
+> Think you can help? I can get you into the Shredder McShreddin 9000’s inner workings to retrieve the pieces, but there are two access codes involved. One of the elves left a hint, but it’s all a blur to me!
+>
+> I've noticed that some elves keep referring to a certain book when they walk by. I bet it has the answers we need to crack the code and recover the document!
+>
+> You know, some of the elves always have their noses in the same book when they pass by here. Maybe it’s got the clues we need to crack the code?
 
-Wombley and Alabaster have taken charge now that Santa’s gone missing, and We're scrambling to get the Wish List secured. But... one of the elves in the Data Management Team got overzealous, and the Shredder McShreddin 9000 gobbled up a crucial document we need to access Santa's chest!
+## Hints
 
-It’s our golden ticket to getting Santa’s Little Helper tool working properly. Without it, the hardware hack we're planning is as empty as Santa’s sleigh in January.
+{{< collapsible-block title="Just Some Light Reading" isCollapsed="true" class="tight" >}}
+See if you can find a copy of that book everyone seems to be reading these days. I thought I saw somebody drop one close by...
+{{< /collapsible-block >}}
 
-Think you can help? I can get you into the Shredder McShreddin 9000’s inner workings to retrieve the pieces, but there are two access codes involved. One of the elves left a hint, but it’s all a blur to me!
+{{< collapsible-block title="Shine Some Light on It" isCollapsed="true" class="tight" >}}
+Well this is puzzling. I wonder if Santa has a seperate code. Bet that would cast some light on the problem. I know this is a stretch...but...what if you had one of those fancy UV lights to look at the fingerprints on the keypad? That might at least limit the possible digits being used...
+{{< /collapsible-block >}}
 
-I've noticed that some elves keep referring to a certain book when they walk by. I bet it has the answers we need to crack the code and recover the document!
-
-You know, some of the elves always have their noses in the same book when they pass by here. Maybe it’s got the clues we need to crack the code?
-```
+{{< collapsible-block title="Who Are You Calling a Dorf?" isCollapsed="true" class="tight" >}}
+Hmmmm. I know I have seen Santa and the other elves use this keypad. I wonder what it contains. I bet whatever is in there is a **National Treasure**!
+{{< /collapsible-block >}}
 
 ## Recon
 
@@ -97,11 +109,9 @@ Woohoo! We got the medal.
 
 Let's first talk to the elf again, he'll tell us what we'll have to do for gold.
 
-```txt
-WOW, you did it! You know, they say Ottendorf ciphers were used back in the Frosty Archives crisis… or was that during the Jack Frost incident? Either way, you're amazing!
-
-But wait—there’s still one more code tucked away! This one might need a bit more elbow grease… you may need to try a few combinations to crack it!
-```
+> WOW, you did it! You know, they say Ottendorf ciphers were used back in the Frosty Archives crisis… or was that during the Jack Frost incident? Either way, you're amazing!
+>
+> But wait—there’s still one more code tucked away! This one might need a bit more elbow grease… you may need to try a few combinations to crack it!
 
 We also received a new item, but from reading the text we probably only need it for the hardware hacking challenge.
 

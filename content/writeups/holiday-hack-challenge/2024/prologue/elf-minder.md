@@ -26,21 +26,33 @@ If you want to play the challenge yourself, you can find it here:
 
 ## Story line
 
-Let's start off by talking to Poinsettia McMittens:
+Let's start off by talking to the elf:
 
-```txt
-Center your mind, and become one with the island!
+> Center your mind, and become one with the island!
+>
+> Relax...
+>
+> This isn't working! I'm trying to play this game but the whole "moving back to the North Pole" thing completely threw me off.
+>
+> Say, how about you give it a try. It's really simple. All you need to do is help the elf get to the exit.
+>
+> The faster you get there, the better your score!
+>
+> I've run into some weirdness with the springs though. If I had created this game it would've been a lot more stable, but I won't comment on that any further.
 
-Relax...
+## Hints
 
-This isn't working! I'm trying to play this game but the whole "moving back to the North Pole" thing completely threw me off.
+{{< collapsible-block title="Elf Minder 9000: TODO" isCollapsed="true" class="tight" >}}
+When developing a video game—even a simple one—it's surprisingly easy to overlook an edge case in the game logic, which can lead to unexpected behavior.
+{{< /collapsible-block >}}
 
-Say, how about you give it a try. It's really simple. All you need to do is help the elf get to the exit.
+{{< collapsible-block title="Elf Minder 9000: RTD (Read the Docs)" isCollapsed="true" class="tight" >}}
+Be sure you read the "Help" section thoroughly! In doing so, you will learn how to use the tools necessary to safely guide your elf and collect all the crates.
+{{< /collapsible-block >}}
 
-The faster you get there, the better your score!
-
-I've run into some weirdness with the springs though. If I had created this game it would've been a lot more stable, but I won't comment on that any further.
-```
+{{< collapsible-block title="Elf Minder 9000: Reusable Paths" isCollapsed="true" class="tight" >}}
+Some levels will require you to click and rotate paths in order for your elf to collect all the crates.
+{{< /collapsible-block >}}
 
 ## Recon
 

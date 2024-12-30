@@ -26,23 +26,33 @@ If you want to play the challenge yourself, you can find it here:
 
 ## Story line
 
-Let's start off by talking to Angel Candysalt:
+Let's start off by talking to the elf:
 
-```txt
-Welcome back, island adventurer! I'm Angel Candysalt — so happy to finally meet you!
+> Welcome back, island adventurer! I'm Angel Candysalt — so happy to finally meet you!
+>
+> I'm thrilled you're here because I could really use a hand with something.
+>
+> Have you ever heard of a game called Connections?
+>
+> It’s simple! All you need to do is find groups of four related words.
+>
+> I've been stuck on it all day, and I'm sure someone as sharp as you will breeze > through it.
+>
+> Oh, and while you're at it, check out randomElf's score — they hit fifty thousand > points, which seems… oddly suspicious.
+>
+> Think they might have tampered with the game? Just a hunch!
 
-I'm thrilled you're here because I could really use a hand with something.
+## Hints
 
-Have you ever heard of a game called Connections?
+{{< collapsible-block title="Elf Connect Easy" isCollapsed="true" class="tight" >}}
+I love brain games! This one is like the New York Times Connections game. Your goal here is to find groups of items that share something in common. Think of each group as having a hidden connection or theme—four items belong together, and there are multiple groups to find! See if you can spot patterns or common threads to make connections. Group all the items correctly to win!
+{{< /collapsible-block >}}
 
-It’s simple! All you need to do is find groups of four related words.
+{{< collapsible-block title="Elf Connect Hard" isCollapsed="true" class="tight" >}}
+WOW! A high score of 50,000 points! That’s way beyond the limit! With only four rounds and a max of 400 points per round, the top possible score should be 1,600 points. So, how did someone get to 50,000? Something unusual must be happening!
 
-I've been stuck on it all day, and I'm sure someone as sharp as you will breeze through it.
-
-Oh, and while you're at it, check out randomElf's score — they hit fifty thousand points, which seems… oddly suspicious.
-
-Think they might have tampered with the game? Just a hunch!
-```
+If you're curious, you might want to check under the hood. Try opening the browser's developer tools console and looking around—there might even be a variable named 'score' that could give you some insights. Sometimes, games hold secrets for those who dig a little deeper. Give it a shot and see what you can discover!
+{{< /collapsible-block >}}
 
 ## Recon
 

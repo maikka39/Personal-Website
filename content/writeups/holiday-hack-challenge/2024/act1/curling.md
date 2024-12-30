@@ -26,31 +26,39 @@ If you want to play the challenge yourself, you can find it here:
 
 ## Story line
 
-Let's start off by talking to Bow Ninecandle:
+Let's start off by talking to the elf:
 
-```txt
-Well hello there! I'm Bow Ninecandle, bright as a twinkling star! Everyone's busy unpacking, but I've grown quite bored of that. Care to join me for a lovely game?
+> Well hello there! I'm Bow Ninecandle, bright as a twinkling star! Everyone's busy unpacking, but I've grown quite bored of that. Care to join me for a lovely game?
+>
+> Oh Joy! Today, We're diving into something delightful: the curling challenge—without any ice, but plenty of sparkle!
+>
+> No icy brooms here though! We're all about Curl, sending web requests from the command line like magic messages.
+>
+> So, have you ever wielded Curl before? If not, no worries at all, my friend!
+>
+> It's this clever little tool that lets you whisper directly to web servers. Pretty neat, right?
+>
+> Think of it like sending secret scrolls through the interwebs, awaiting a wise reply!
+>
+> To begin, you can type something like `curl https://example.com`. Voilà! The HTML of the page appears, like conjuring a spell!
+>
+> Simple enough, huh? But oh, there's a whole world of magic you can cast with Curl!
+>
+> We're just brushing the surface here, but trust me—it’s a hoot and a half!
+>
+> If you get tangled up or need help, just give me a shout! I’m here to help you ace this curling spectacle.
+>
+> So, are you ready to curl those web requests like a pro? Let’s see your magic unfold!
 
-Oh Joy! Today, We're diving into something delightful: the curling challenge—without any ice, but plenty of sparkle!
+## Hints
 
-No icy brooms here though! We're all about Curl, sending web requests from the command line like magic messages.
+{{< collapsible-block title="cURL Manual" isCollapsed="true" class="tight" >}}
+The official [cURL man page](https://curl.se/docs/manpage.html) has tons of useful information on how to use cURL.
+{{< /collapsible-block >}}
 
-So, have you ever wielded Curl before? If not, no worries at all, my friend!
-
-It's this clever little tool that lets you whisper directly to web servers. Pretty neat, right?
-
-Think of it like sending secret scrolls through the interwebs, awaiting a wise reply!
-
-To begin, you can type something like curl https://example.com. Voilà! The HTML of the page appears, like conjuring a spell!
-
-Simple enough, huh? But oh, there's a whole world of magic you can cast with Curl!
-
-We're just brushing the surface here, but trust me—it’s a hoot and a half!
-
-If you get tangled up or need help, just give me a shout! I’m here to help you ace this curling spectacle.
-
-So, are you ready to curl those web requests like a pro? Let’s see your magic unfold!
-```
+{{< collapsible-block title="cURL: Don't squash" isCollapsed="true" class="tight" >}}
+Take a look at cURL's `--path-as-is` option; it controls a default behavior that you may not expect!
+{{< /collapsible-block >}}
 
 ## Recon
 
@@ -254,15 +262,13 @@ curl -k --path-as-is https://curlingfun:9090/../../etc/hacks
 
 Let's first talk to the elf again, he'll tell us what we'll have to do for gold.
 
-```txt
-Bravo! Look at you, curling through that like a true web wizard!
+> Bravo! Look at you, curling through that like a true web wizard!
+>
+> You zipped through that challenge faster than a curling stone on enchanted ice!
+>
+> You know... rumor has it you can breeze through this with just three commands. Why don’t you give it a whirl?
 
-You zipped through that challenge faster than a curling stone on enchanted ice!
-
-You know... rumor has it you can breeze through this with just three commands. Why don’t you give it a whirl?
-```
-
-### Task 1
+### Experimenting
 
 At first, I though we could just combine the previous commands in one, and solve it, but, alas, this was not the case...
 
@@ -275,6 +281,8 @@ curl -k  --path-as-is https://curlingfun:9090/../../etc/hacks
 ```
 
 Curious as to what we needs to be done, we should explore further. Let's start by listing the files in the current directory. This turns out to be a good idea, as we find a file there; `HARD-MODE.txt`.
+
+### Task 1
 
 {{< figure src="/img/writeups/holiday-hack-challenge/2024/act1/curling/hard-mode.png" title="HARD-MODE.txt" >}}
 
