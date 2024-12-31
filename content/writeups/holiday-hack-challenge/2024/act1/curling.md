@@ -328,3 +328,7 @@ curl -k -L https://curlingfun:9090/GoodSportsmanship
 {{< figure src="/img/writeups/holiday-hack-challenge/2024/act1/curling/gold.png" title="Gold" >}}
 
 And that's it, we got the gold medal!
+
+## Final elf message
+
+> Wait... did you just slice and dice it all into three commands? My stars, you're a Curling conjurer!

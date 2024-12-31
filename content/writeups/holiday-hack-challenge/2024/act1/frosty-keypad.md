@@ -285,3 +285,11 @@ We did get lucky here, as we could have also encountered the answer for silver f
 ```
 
 That's it for this challenge, see you in the next one!
+
+## Final elf message
+
+> Unbelievable! You found a flaw in the system and completely bypassed the rate limiter. You’re practically an elf legend!
+>
+> Incredible work! You pieced together the code like a true sleuth and retrieved the shreds we need. I’m not quite sure how you’ll put them all together, but if anyone can, it’s you!
+>
+> Your help has been absolutely essential, especially now with Santa missing. Wombley and Alabaster will want to hear all about it—go share the news with Jewel Loggins!

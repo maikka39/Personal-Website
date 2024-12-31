@@ -68,7 +68,17 @@ There are, however, multiple ways to solve the game. And we'll need to exploit t
 
 ## Gold
 
-For gold, we'll need to inspect the code behind the game.
+### Continued story line
+
+Let's first talk to the elf again, he'll tell us what we'll have to do for gold.
+
+> Amazing! You really connected all the dots like a pro.
+>
+> If you want a more difficult challenge, try beating randomElf's score.
+
+### Exploration
+
+To beat that score, we'll need to inspect the code behind the game.
 
 We can open the DevTools, and under "Sources" we can find the iframe in which the game is running. Here we can see all the files that are being used.
 
@@ -142,6 +152,8 @@ This might look a little complicated, so let me explain it for you. We start by 
 {{< /collapsible-block >}}
 
 This just get us the correct answer though, and we'll need more for gold.
+
+### Solving
 
 Scanning further through the code, we find the `checkSelectedSet` function with some logic in it:
 

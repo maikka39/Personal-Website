@@ -158,3 +158,7 @@ UPDATE access_cards SET access = 1, sig = "135a32d5026c5628b1753e6c67015c0f04e26
 ```
 
 After running it, and waiting for a second, we get the gold medal!
+
+## Final elf message
+
+> Brilliant work! We now have access to… the Wish List! I couldn't have done it without you—thank you so much!

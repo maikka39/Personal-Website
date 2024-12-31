@@ -38,7 +38,7 @@ Let's start off by talking to the elf:
 >
 > The faster you get there, the better your score!
 >
-> I've run into some weirdness with the springs though. If I had created this game it would've been a lot more stable, but I won't comment on that any further.
+> I've run into some weirdness with the springs though. If I had created this game it would've been a lot more stable, but I won't **comment** on that any further.
 
 ## Hints
 
@@ -234,6 +234,12 @@ To test this hypothesis, we can draw a route that follows these rules.
 {{< figure src="/img/writeups/holiday-hack-challenge/2024/prologue/elf-minder/level13-spring-tp.png" title="Finished level" >}}
 
 Afterwards, we hit start, and the elf reached the flag!
+
+## Final elf message
+
+> The rest of these elves are like corporate zombos. They just run around in circles unless you give them some direction.
+>
+> Way to pass them some of your super centered energy. Better you than me, though. I'd let them walk themselves straight off the island.
 
 ## Bonus
 
