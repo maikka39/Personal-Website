@@ -217,7 +217,7 @@ im = Image.open("assembled_image.png")
 
 xsize, ysize = im.size
 
-delta = 300  # amount to move x-axis
+delta = 275  # amount to move x-axis
 
 part1 = im.crop((0, 0, delta, ysize))  # take left part
 part2 = im.crop((delta, 0, xsize, ysize))  # take right part
