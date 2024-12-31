@@ -24,6 +24,8 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 body {
@@ -466,11 +468,14 @@ table {
     background: $light-background-secondary;
 
     th {
-        padding: 8px 0px;
+        padding: 8px 4px;
+
+        word-break: normal;
+        overflow-wrap: normal;
     }
 
     td {
-        padding: 6px 0px;
+        padding: 6px 4px;
 
         border-top: 1px solid $light-color-secondary;
     }
