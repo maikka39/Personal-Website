@@ -322,7 +322,7 @@ blockquote {
     padding: 10px 20px;
 
     @media #{$media-size-phone} {
-        margin: 10px;
+        margin: 10px 10px 10px 25px;
         padding: 10px;
     }
 
@@ -334,6 +334,12 @@ blockquote {
         position: absolute;
         left: -40px;
         top: -13px;
+
+        @media #{$media-size-phone} {
+            left: -27.5px;
+            top: -7px;
+            font-size: 3.075rem;
+        }
     }
 
     p:first-of-type {
