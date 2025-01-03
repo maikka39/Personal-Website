@@ -10,6 +10,12 @@
         background: $dark-navbar;
     }
 
+    .menu-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     &__right {
         display: flex;
         flex-direction: row;
