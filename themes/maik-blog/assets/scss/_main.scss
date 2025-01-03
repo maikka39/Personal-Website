@@ -528,10 +528,13 @@ table {
         position: relative;
         text-decoration: none;
 
-        --background-image: url("data:image/svg+xml, %3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22currentColor%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20class=%22feather%20feather-link%22%3E%3Cpath%20d=%22M10%2013a5%205%200%200%200%207.54.54l3-3a5%205%200%200%200-7.07-7.07l-1.72%201.71%22%3E%3C/path%3E%3Cpath%20d=%22M14%2011a5%205%200%200%200-7.54-.54l-3%203a5%205%200%200%200%207.07%207.07l1.71-1.71%22%3E%3C/path%3E%3C/svg%3E");
+        --link-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>');
+        --check-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+
+        --background-image: var(--link-image);
 
         &.current-heading {
-            --background-image: url("data:image/svg+xml, %3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22green%22%20stroke-width=%224%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20class=%22feather%20feather-check%22%3E%3Cpolyline%20points=%2220%206%209%2017%204%2012%22%3E%3C/polyline%3E%3C/svg%3E");
+            --background-image: var(--check-image);
         }
 
         &:hover {
@@ -571,6 +574,8 @@ table {
 }
 
 .highlight {
+    position: relative;
+
     &:has(table) {
         margin: 0.95em 0;
         border-radius: 8px;
@@ -642,6 +647,48 @@ table {
                     }
                 }
             }
+        }
+    }
+
+    .codeblock-copy {
+        @mixin code-copy-background($color) {
+            $color: "rgb(" + red($color) + "," + green($color) + "," +
+                blue($color) + ")";
+
+            background-image: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#{$color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>');
+        }
+
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: block;
+        width: 26px;
+        height: 26px;
+        border: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 6px;
+        background: none;
+        background-color: inherit;
+
+        @include code-copy-background(#adadad);
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 65%;
+
+        &.current-code {
+            --selected-code-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(52, 184, 0)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+
+            background-image: var(--selected-code-image);
+
+            &:hover {
+                background-image: var(--selected-code-image);
+            }
+        }
+
+        &:hover {
+            @include code-copy-background(#ffffff);
         }
     }
 }

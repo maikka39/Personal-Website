@@ -50,4 +50,26 @@ window.addEventListener("load", () => {
             });
         }
     }
+
+    // Code copy button
+    for (let codeblock of document.querySelectorAll(".highlight pre")) {
+        if (codeblock.querySelector(".lnt")) continue; // skip line numbers
+
+        let button = document.createElement("button");
+        button.classList.add("codeblock-copy");
+        codeblock.appendChild(button);
+
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            navigator.clipboard.writeText(codeblock.innerText);
+
+            document
+                .querySelectorAll(".current-code")
+                .forEach((elem) => elem.classList.remove("current-code"));
+
+            button.classList.add("current-code");
+        });
+        console.log(codeblock);
+    }
 });
