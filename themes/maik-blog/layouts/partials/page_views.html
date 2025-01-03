@@ -1,6 +1,6 @@
 {{- if .Site.Params.goatCounter }}
 <span id="{{ .File.UniqueID }}" title="{{ i18n "post.pageViews" }}">{{ i18n "post.unknownViews" }}</span>
-<script async>
+<script>
     let url =
         "https://{{ .Site.Params.goatCounter }}/counter/" +
         encodeURIComponent({{ .RelPermalink }}.replace(/(\/)?$/, "")) +

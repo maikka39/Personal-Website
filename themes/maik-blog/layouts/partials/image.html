@@ -5,5 +5,5 @@
   <source type="image/webp" srcset="{{ $webp.Permalink }}">
   <img src="{{ $png.Permalink }}" alt="{{ .alt | default "" }}" title="{{ .alt }}"
     width="{{ .width | default $png.Width }}" height="{{ .height | default $png.Height }}"
-    {{- if .class}}class="{{ .class }}" {{end}} {{- if .style}}style="{{ .style | safeCSS }}" {{end}} />
+    {{- if .class}} class="{{ .class }}"{{end}} {{- if .style}} style="{{ .style | safeCSS }}"{{end}} />
 </picture>
