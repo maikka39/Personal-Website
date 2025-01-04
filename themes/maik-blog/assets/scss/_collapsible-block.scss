@@ -31,13 +31,14 @@
 
             margin: 1em;
 
-            .highlight {
+            > .highlight {
                 margin: 0 -1em;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
+                border-radius: 0;
 
                 &:first-child {
                     margin-top: -1em;
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
                 }
 
                 &:last-child {
