@@ -24,7 +24,7 @@ aliases = [
 ]
 +++
 
-- Points: 200
+-   Points: 200
 
 ## Description
 

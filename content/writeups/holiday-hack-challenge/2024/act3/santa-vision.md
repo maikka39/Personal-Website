@@ -82,10 +82,10 @@ If we click on Time Travel, text starts appearing in the terminal, and, after a 
 
 The Objectives page on HHC also shows some questions we need to answer for the medals:
 
-1. What username logs you into the SantaVision portal?
-2. Once logged on, authenticate further without using Wombley's or Alabaster's accounts to see the `northpolefeeds` on the monitors. What username worked here?
-3. Using the information available to you in the SantaVision platform, subscribe to the `frostbitfeed` MQTT topic. Are there any other feeds available? What is the code name for the elves' secret operation?
-4. There are too many admins. Demote Wombley and Alabaster with a single MQTT message to correct the `northpolefeeds` feed. What type of contraption do you see Santa on?
+1.  What username logs you into the SantaVision portal?
+2.  Once logged on, authenticate further without using Wombley's or Alabaster's accounts to see the `northpolefeeds` on the monitors. What username worked here?
+3.  Using the information available to you in the SantaVision platform, subscribe to the `frostbitfeed` MQTT topic. Are there any other feeds available? What is the code name for the elves' secret operation?
+4.  There are too many admins. Demote Wombley and Alabaster with a single MQTT message to correct the `northpolefeeds` feed. What type of contraption do you see Santa on?
 
 ## Solving
 

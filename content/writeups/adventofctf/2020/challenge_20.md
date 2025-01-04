@@ -25,7 +25,7 @@ aliases = [
 ]
 +++
 
-- Points: 2000
+-   Points: 2000
 
 ## Description
 
@@ -41,12 +41,12 @@ If we take a look at the source, we also find a bit of javascript:
 
 ```js
 function send() {
-  let emoji = $("#emoji")[0].value;
-  if (emoji.length > 0) {
-    $.post("/", { emoji: emoji }, function (data) {
-      $("#msg")[0].innerHTML = "<b>" + data + "</b>";
-    });
-  }
+    let emoji = $("#emoji")[0].value;
+    if (emoji.length > 0) {
+        $.post("/", { emoji: emoji }, function (data) {
+            $("#msg")[0].innerHTML = "<b>" + data + "</b>";
+        });
+    }
 }
 ```
 

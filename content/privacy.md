@@ -20,22 +20,22 @@ We respect the privacy of our visitors. We collect only such personal informatio
 
 If you visit our website to browse, read, or download information:
 
-- Your web browser automatically sends us (and we may retain) information such as the:
-  - Internet domain through which you access the Internet (e.g., yourServiceProvider.com if you use a commercial Internet service provider, or yourSchool.edu if you use an Internet account from your school);
-  - Internet Protocol address of the computer you are using;
-  - type of browser software and operating system you are using;
-  - date and time you access our site; and
-  - the Internet address of the site from which you linked directly to our site.
-- We will use this information as aggregate data to help us maintain this site, e.g., to determine the number of visitors to different sections of our site, to ensure the site is working properly, and to help us make our site more accessible and useful.
-- We will not use this information to identify individuals, except for site security or law enforcement purposes.
-- We will not obtain personally-identifying information about you when you visit our site, unless you choose to provide such information.
+-   Your web browser automatically sends us (and we may retain) information such as the:
+    -   Internet domain through which you access the Internet (e.g., yourServiceProvider.com if you use a commercial Internet service provider, or yourSchool.edu if you use an Internet account from your school);
+    -   Internet Protocol address of the computer you are using;
+    -   type of browser software and operating system you are using;
+    -   date and time you access our site; and
+    -   the Internet address of the site from which you linked directly to our site.
+-   We will use this information as aggregate data to help us maintain this site, e.g., to determine the number of visitors to different sections of our site, to ensure the site is working properly, and to help us make our site more accessible and useful.
+-   We will not use this information to identify individuals, except for site security or law enforcement purposes.
+-   We will not obtain personally-identifying information about you when you visit our site, unless you choose to provide such information.
 
 ## Other Information We Collect
 
 If you choose to identify yourself (or otherwise provide us with personal information) when you use our online forms:
 
-- We will collect (and may retain) any personally identifying information, such as your name, street address, email address, and phone number, and any other information you provide. We will use this information to try to fulfill your request and may use it to provide you with additional information at a later time. We will not disclose such information to third parties, except as specified in this privacy policy.
-- If you request information, services, or assistance, we may disclose your personal information to those third parties that (in our judgment) are appropriate in order to fulfill your request. If, when you provide us with such information, you specify that you do not want us to disclose the information to third parties, we will honor your request. Note, however, that if you do not provide such information, it may be impossible for us to refer, respond to or fulfill your request.
+-   We will collect (and may retain) any personally identifying information, such as your name, street address, email address, and phone number, and any other information you provide. We will use this information to try to fulfill your request and may use it to provide you with additional information at a later time. We will not disclose such information to third parties, except as specified in this privacy policy.
+-   If you request information, services, or assistance, we may disclose your personal information to those third parties that (in our judgment) are appropriate in order to fulfill your request. If, when you provide us with such information, you specify that you do not want us to disclose the information to third parties, we will honor your request. Note, however, that if you do not provide such information, it may be impossible for us to refer, respond to or fulfill your request.
 
 ## How Long We Keep Information
 

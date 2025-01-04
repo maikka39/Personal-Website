@@ -24,7 +24,7 @@ aliases = [
 ]
 +++
 
-- Points: 300
+-   Points: 300
 
 ## Description
 
@@ -46,18 +46,18 @@ To find this funtion, enter `checkPass` in the devtools console and click on the
 
 ```js
 function checkPass() {
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
 
-  var novi = "-NOVI";
+    var novi = "-NOVI";
 
-  if (password == btoa(username + novi)) {
-    window.setTimeout(function () {
-      window.location.assign(
-        "inde" + "x.php?username=" + username + "&password=" + password
-      );
-    }, 500);
-  }
+    if (password == btoa(username + novi)) {
+        window.setTimeout(function () {
+            window.location.assign(
+                "inde" + "x.php?username=" + username + "&password=" + password
+            );
+        }, 500);
+    }
 }
 ```
 

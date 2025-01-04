@@ -25,7 +25,7 @@ aliases = [
 ]
 +++
 
-- Points: 1900
+-   Points: 1900
 
 ## Description
 
@@ -41,22 +41,22 @@ When opening the source of the page we also find some javascript code:
 
 ```js
 function send() {
-  let calc = $("#calc")[0].value;
-  if (calc.length > 0) {
-    $.ajax({
-      url: "/calc",
-      type: "POST",
-      data: '{"calc": "' + calc + '" }',
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-    }).always(function (data) {
-      text = data;
-      if (data.responseText) {
-        text = data.responseText;
-      }
-      $("#msg")[0].innerHTML = "<b>" + text + "</b>";
-    });
-  }
+    let calc = $("#calc")[0].value;
+    if (calc.length > 0) {
+        $.ajax({
+            url: "/calc",
+            type: "POST",
+            data: '{"calc": "' + calc + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        }).always(function (data) {
+            text = data;
+            if (data.responseText) {
+                text = data.responseText;
+            }
+            $("#msg")[0].innerHTML = "<b>" + text + "</b>";
+        });
+    }
 }
 ```
 

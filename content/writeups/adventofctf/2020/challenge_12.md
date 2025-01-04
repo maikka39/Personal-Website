@@ -24,7 +24,7 @@ aliases = [
 ]
 +++
 
-- Points: 1200
+-   Points: 1200
 
 ## Description
 
@@ -38,13 +38,13 @@ Upon opening the challenge website we're greeted with an input field and a check
 
 ```js
 function send() {
-  let place = $("#place")[0].value;
-  if (place.length > 0) {
-    $.post("/", { place: place }, function (data) {
-      $("#result")[0].innerHTML = "<b>" + data + "</b>";
-    });
-  }
-  return false;
+    let place = $("#place")[0].value;
+    if (place.length > 0) {
+        $.post("/", { place: place }, function (data) {
+            $("#result")[0].innerHTML = "<b>" + data + "</b>";
+        });
+    }
+    return false;
 }
 ```
 

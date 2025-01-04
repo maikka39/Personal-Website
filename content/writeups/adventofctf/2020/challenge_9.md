@@ -23,7 +23,7 @@ aliases = [
 ]
 +++
 
-- Points: 900
+-   Points: 900
 
 ## Description
 
@@ -63,10 +63,10 @@ echo -n "eyJhdXRoIjoyODk2MSwidGV4dCI6IkkgZG8gbG92ZSBhIGdvb2QgcHV6emxlLiIsInJvbGU
 
 ```json
 {
-  "auth": 28961,
-  "text": "I do love a good puzzle.",
-  "role": "user",
-  "iat": 1607717857
+    "auth": 28961,
+    "text": "I do love a good puzzle.",
+    "role": "user",
+    "iat": 1607717857
 }
 ```
 

@@ -23,7 +23,7 @@ aliases = [
 ]
 +++
 
-- Points: 100
+-   Points: 100
 
 ## Description
 
