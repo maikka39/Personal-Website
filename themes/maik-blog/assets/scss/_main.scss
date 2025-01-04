@@ -84,6 +84,16 @@ h4 {
     font-size: 1.125rem;
 }
 
+h5 {
+    font-size: 1.075rem;
+    margin: 1em 0;
+}
+
+h6 {
+    font-size: 1rem;
+    margin: 1em 0;
+}
+
 @media #{$media-size-phone} {
     h1 {
         font-size: 2rem;
@@ -99,6 +109,14 @@ h4 {
 
     h4 {
         font-size: 1.125rem;
+    }
+
+    h5 {
+        font-size: 1.075rem;
+    }
+
+    h6 {
+        font-size: 1rem;
     }
 }
 
