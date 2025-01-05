@@ -715,3 +715,132 @@ table {
         }
     }
 }
+
+#toc {
+    &.desktop-only {
+        display: none;
+    }
+
+    .toc-title {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1.625rem;
+        line-height: 1.3;
+        margin: 0.83em 0;
+    }
+
+    ul,
+    ol {
+        li::marker {
+            content: "- ";
+        }
+    }
+
+    @media (min-width: 1840px) {
+        display: block !important;
+        position: absolute;
+        top: 100vh;
+        height: calc(100% - 100vh - 380px);
+
+        .toc-content {
+            position: sticky;
+            top: 10vh;
+            height: 70vh;
+            margin-bottom: -2em;
+            margin-left: calc(-300px - 100px);
+            display: flex !important;
+            flex-direction: column;
+            width: 300px;
+            right: calc(100% + 100px);
+
+            ::-webkit-scrollbar {
+                width: 6px;
+                height: 6px;
+                background: darken($light-background, 10%);
+                border-radius: 8px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: darken($light-background, 25%);
+                border-radius: 8px;
+
+                &:hover {
+                    background: darken($light-background, 40%);
+                }
+            }
+
+            .dark-theme & {
+                ::-webkit-scrollbar {
+                    background: lighten($dark-background, 10%);
+                }
+
+                ::-webkit-scrollbar-thumb {
+                    background: lighten($dark-background, 25%);
+
+                    &:hover {
+                        background: lighten($dark-background, 40%);
+                    }
+                }
+            }
+
+            .toc-title {
+                font-size: 1.375rem;
+                min-height: calc(1.625rem * 1.3);
+                margin: 0;
+            }
+
+            nav {
+                overflow-y: auto;
+                margin-top: 1em;
+            }
+
+            a {
+                display: block;
+                text-decoration: none;
+                padding: 5px;
+                border-radius: 8px;
+
+                &:hover {
+                    background: darken($light-background, 10%);
+
+                    .dark-theme & {
+                        background: lighten($dark-background, 10%);
+                    }
+                }
+
+                &.current-toc {
+                    background: darken($light-background, 10%);
+
+                    .dark-theme & {
+                        background: lighten($dark-background, 10%);
+                    }
+                }
+
+                &::before {
+                    content: "- ";
+                }
+            }
+
+            ul,
+            ol {
+                margin: 0;
+                padding: 0;
+
+                li::marker {
+                    content: "";
+                }
+
+                li a {
+                    padding-left: 20px;
+                }
+                li li a {
+                    padding-left: 40px;
+                }
+                li li li a {
+                    padding-left: 60px;
+                }
+            }
+        }
+    }
+}

@@ -40,6 +40,12 @@ page = ["HTML", "RSS"]
 [pagination]
 pagerSize = 12
 
+[markup]
+[markup.tableOfContents]
+endLevel = 4
+ordered = true
+startLevel = 2
+
 [params]
 dateform = "Jan 2, 2006"
 dateformShort = "Jan 2"
