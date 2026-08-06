@@ -38,12 +38,14 @@
     {{- partial "image.html" (dict "path" .Params.Cover "alt" (.Title | plainify) "class" "post-cover") }}
     {{- end }}
 
+     {{- if not (eq .Params.toc false) }}
     <aside id="toc" class="{{- if not .Params.toc }}desktop-only{{- end }}">
       <div class="toc-content">
         <div class="toc-title">{{ i18n "tableOfContents" }}</div>
         {{ .TableOfContents }}
       </div>
     </aside>
+    {{- end }}
 
     <div class="post-content">
       {{ .Content }}
