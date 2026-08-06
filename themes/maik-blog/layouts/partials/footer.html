@@ -16,6 +16,7 @@
                     </a>
                 </span>
             </div>
+            {{- if .Site.Params.wallets }}
             <div class="footer__content__section donations">
                 {{- with .Site.Params.wallets }}
                 {{- range . }}
@@ -24,6 +25,7 @@
                 {{- end }}
                 {{- end }}
             </div>
+            {{- end }}
         </div>
     </div>
 </footer>

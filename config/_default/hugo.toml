@@ -131,9 +131,9 @@ image = "/img/home/portrait.png"
 twitter = "@maik_dev"
 
 # Wallets
-[[params.wallets]]
-name = "XMR"
-address = "83cfsXGHPaW81hKJtAPYZEgbfFqANMTXXRwghsBpjf5oTDRV3BnCC4jFno8tLTnF4C6gJzGjPEmpvjntXaiGBB7kVitkDKi"
+# [[params.wallets]]
+# name = "XMR"
+# address = "83cfsXGHPaW81hKJtAPYZEgbfFqANMTXXRwghsBpjf5oTDRV3BnCC4jFno8tLTnF4C6gJzGjPEmpvjntXaiGBB7kVitkDKi"
 
 # Social icons
 [[params.social]]
