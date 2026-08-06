@@ -55,7 +55,7 @@ dateformMonth = "Jan, 2006"
 
 # Metadata mostly used in document's head
 description = "Hey there, my name is Maik de Kruif, I create websites, bots and other kinds of software. At the moment, I'm still studying computer science at Avans University of Applied Sciences. I am also a big fan of open-source software, which is why you'll find many of my projects on Github. And last but not least, I love playing around with cyber-security related stuff."
-keywords = "Devloper, Software Engineer, Software Developer, Maik, Computer Science, Portfolio, Blog, Maik de Kruif"
+keywords = "Developer, Software Engineer, Software Developer, Maik, Computer Science, Portfolio, Blog, Maik de Kruif"
 images = [""]
 
 genre = "Blog"
@@ -64,7 +64,7 @@ rssLimit = 15
 
 showReadingTimeInList = false
 
-homeSubtitle = "Software Engineering, Linux and Cyber Security"
+homeSubtitle = "Software Engineer and Cyber Security Specialist"
 
 # Prefix of link to the git commit detail page. GitInfo must be enabled.
 gitUrl = "https://github.com/maikka39/Personal-Website/commit/"
