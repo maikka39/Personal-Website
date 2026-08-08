@@ -205,11 +205,15 @@
     }
 
     &.active {
-        background: darken($light-background-secondary, 25%);
+        background: darken($light-background-secondary, 20%);
     }
 
     .dark-theme & {
         background: $dark-background-secondary;
+
+        &.active {
+            background: lighten($dark-background-secondary, 22%);
+        }
     }
 
     + .button {
