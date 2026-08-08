@@ -10,10 +10,6 @@
     <div class="content content-list">{{ .Content }}</div>
     {{- end }}
 
-    {{- if .Paginator.HasPrev }}
-    {{ partial "pagination.html" . }}
-    {{- end }}
-
     <div class="posts-list masonry">
         {{ range $paginator.Pages }}
         <div class="post">

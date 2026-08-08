@@ -169,9 +169,19 @@
         align-items: center;
         justify-content: center;
 
-        a {
+        ul, ol {
+            list-style-type: none;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+        }
+
+        .button a {
             text-decoration: none;
             font-weight: bold;
+            overflow: visible;
         }
     }
 }
@@ -190,6 +200,14 @@
     cursor: pointer;
     appearance: none;
 
+    &:disabled, &[disabled], &.disabled {
+        pointer-events: none;
+    }
+
+    &.active {
+        background: darken($light-background-secondary, 25%);
+    }
+
     .dark-theme & {
         background: $dark-background-secondary;
     }
@@ -198,13 +216,17 @@
         margin-left: 10px;
     }
 
-    a {
+    > * {
         display: flex;
         padding: 8px 16px;
         text-decoration: none;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     &__text {
